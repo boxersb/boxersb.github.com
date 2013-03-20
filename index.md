@@ -26,9 +26,9 @@ tagline: Supporting tagline
 		{% assign tags_list = post.tags %}
 		{% include JB/tags_list %}
 	</ul>
-</div><!-- meta -->
+</div>
 <div class="misc-content">
 	<div class="comment">
 	{% include JB/comments %}
 	</div>
-</div><!-- misc-content -->
+</div>

@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.8.21/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'jekyll',
+1 verbose cli   '-g' ]
+2 info using npm@1.2.11
+3 info using node@v0.8.21
+4 verbose read json /usr/local/share/npm/lib/package.json
+5 verbose read json /usr/local/share/npm/lib/package.json
+6 verbose cache add [ 'jekyll', null ]
+7 verbose cache add name=undefined spec="jekyll" args=["jekyll",null]
+8 verbose parsed url { pathname: 'jekyll', path: 'jekyll', href: 'jekyll' }
+9 silly lockFile bfc0b666-jekyll jekyll
+10 verbose lock jekyll /Users/boxersb/.npm/bfc0b666-jekyll.lock
+11 silly lockFile bfc0b666-jekyll jekyll
+12 silly lockFile bfc0b666-jekyll jekyll
+13 verbose addNamed [ 'jekyll', '' ]
+14 verbose addNamed [ null, '' ]
+15 silly lockFile c8fd568e-jekyll jekyll@
+16 verbose lock jekyll@ /Users/boxersb/.npm/c8fd568e-jekyll.lock
+17 silly addNameRange { name: 'jekyll', range: '', hasData: false }
+18 verbose url raw jekyll
+19 verbose url resolving [ 'https://registry.npmjs.org/', './jekyll' ]
+20 verbose url resolved https://registry.npmjs.org/jekyll
+21 info trying registry request attempt 1 at 22:18:52
+22 http GET https://registry.npmjs.org/jekyll
+23 http 404 https://registry.npmjs.org/jekyll
+24 silly registry.get cb [ 404,
+24 silly registry.get   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B03)',
+24 silly registry.get     date: 'Mon, 25 Mar 2013 13:18:49 GMT',
+24 silly registry.get     'content-type': 'application/json',
+24 silly registry.get     'content-length': '52',
+24 silly registry.get     'cache-control': 'must-revalidate' } ]
+25 silly lockFile c8fd568e-jekyll jekyll@
+26 silly lockFile c8fd568e-jekyll jekyll@
+27 error 404 'jekyll' is not in the npm registry.
+27 error 404 You should bug the author to publish it
+27 error 404
+27 error 404 Note that you can also install from a
+27 error 404 tarball, folder, or http url, or git url.
+28 error System Darwin 12.3.0
+29 error command "/usr/local/Cellar/node/0.8.21/bin/node" "/usr/local/bin/npm" "install" "jekyll" "-g"
+30 error cwd /Users/boxersb/dev/boxersb.github.com
+31 error node -v v0.8.21
+32 error npm -v 1.2.11
+33 error code E404
+34 verbose exit [ 1, true ]

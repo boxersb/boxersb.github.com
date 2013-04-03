@@ -5,8 +5,8 @@
         <description>Boxer's Front End - Kyoungtaek Koo</description>
         <link>http://boxersb.github.com</link>
         <link>http://boxersb.github.com</link>
-        <lastBuildDate>2013-04-03T16:54:36+09:00</lastBuildDate>
-        <pubDate>2013-04-03T16:54:36+09:00</pubDate>
+        <lastBuildDate>2013-04-03T17:24:45+09:00</lastBuildDate>
+        <pubDate>2013-04-03T17:24:45+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -92,7 +92,7 @@
     &lt;span class='n'&gt;mixpanel&lt;/span&gt; &lt;span class='p'&gt;:&lt;/span&gt;
         &lt;span class='n'&gt;token&lt;/span&gt; &lt;span class='p'&gt;:&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;_MIXPANEL_TOKEN_&amp;#39;&lt;/span&gt;	&lt;span class='c1'&gt;#FIXME&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id='id31'&gt;블로깅하기&lt;/h2&gt;
+&lt;h2 id='id7'&gt;블로깅하기&lt;/h2&gt;
 
 &lt;p&gt;Jekyll + Github Pages 를 활용한 블로깅은, 기본적으로 마크다운 파일을 만들고(rake를 활용한 명령어가 지원된다), jekyll로 파싱한다음, 해당 git 저장소의 master 브랜치에 push 해야 정상적으로 Deploy가 된다. 매우 개발스러운 방법이지만, Rich Text Editing을 싫어하며 웹 호스팅하기 아까운 나같은 사람한테는 딱 좋은 플랫폼인 셈이다.&lt;/p&gt;
 
@@ -122,7 +122,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;위와 같은 명령어를 실행한 후 결과메세지를 참고해서 해당 파일을 수정하면 된다.&lt;/p&gt;
 
-&lt;h3 id='id32'&gt;배포하기&lt;/h3&gt;
+&lt;h3 id='id8'&gt;배포하기&lt;/h3&gt;
 
 &lt;p&gt;jekyll &amp;#8211;server를 사용하여 로컬 웹서버로 생성한 페이지 및 포스트를 모두 확인했다면, 실제로 웹에 노출되도록 배포해야한다.&lt;br /&gt;Git 페이지 기반이며, Github Pages에서는 저장소의 master 브랜치에 해당되는 내용을 표시하므로, 간단히 master 브랜치로 변경사항을 push 하기만 하면 된다.&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;&lt;span class='nv'&gt;$ &lt;/span&gt;git add .
@@ -272,7 +272,7 @@
 
 &lt;p&gt;그러나, 몇가지 제한된 문맥에서는 표현식의 문백으로부터 &amp;#8220;top-down(위에서 아래)&amp;#8221;으로 추정한다. 이 경우를 문맥 기반 타이핑이라고 부른다. 문맥 기반 타이핑은 개발자가 타입을 사용하지만, 타입의 세부적인 사항을 모두 알지는 못할때 개발툴이 알맞은 정보를 제공하도록 돕는 역할을 한다. 예를 들어, 위의 jQuery 예제는 get 메서드의 두번째 매개변수로 함수 표현식을 사용하였다. 해당 표현식을 타이핑 하는 동안 개발툴은 함수 표현식의 타입을 get을 정의할때 설정한 대로 가정하며 매개변수 명과 타입에 대한 템플릿도 제공한다.&lt;/p&gt;
 
-&lt;h2 id='id29'&gt;클래스&lt;/h2&gt;
+&lt;h2 id='id5'&gt;클래스&lt;/h2&gt;
 
 &lt;p&gt;TypeScript는 현재 ES6에서 제안된 객체 지향 문법과 아주 비슷한 문법을 제공한다.&lt;/p&gt;
 &lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='kr'&gt;class&lt;/span&gt; &lt;span class='nx'&gt;BankAccount&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
@@ -343,7 +343,7 @@
 
 &lt;p&gt;TypeScript의 클래스에서는 static 멤버도 지정할 수 있다. static 클래스 멤버는 클래스 생성자의 프로퍼티가 된다.&lt;/p&gt;
 
-&lt;h2 id='id30'&gt;모듈&lt;/h2&gt;
+&lt;h2 id='id6'&gt;모듈&lt;/h2&gt;
 
 &lt;p&gt;TypeScript는 private 멤버를 두어 사용에 제한을 둠으로써 설계 단계에서 클래스 구현시 캡슐화 개념을 사용할 수 있다. 그러나, 런타임시에는 이 캡슐화를 강제하지 못하는데, 모든 객체 프로퍼티는 런타임시에는 접근 가능하기 때문이다. 향후 버전의 자바스크립트에서는 아마도 private 개념이 본격적으로 지원되어 런타임시에도 private 멤버를 강제할 수 있게 될것이다.&lt;/p&gt;
 

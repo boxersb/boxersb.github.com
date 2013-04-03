@@ -441,6 +441,7 @@ nav.nav-global li a:hover { border-bottom:3px solid #fff;}
 .entry-content .meta li { float:left;margin-right:10px; }
 .entry-content .meta ul { clear:both;margin-bottom:5px; }
 .entry-content .meta:after, .entry-content .meta ul:after {content: ".";display:block;font-size:0;height:0px;line-height:0;clear:both;visibility:hidden;}
+.content-body { padding-bottom:20px;}
 .misc-content .social ul, .misc-content .social li { list-style:none;margin:0;padding:0; }
 .misc-content .social li { float:left;margin-right:10px; }
 .misc-content .social ul { clear:both;margin-bottom:5px; }

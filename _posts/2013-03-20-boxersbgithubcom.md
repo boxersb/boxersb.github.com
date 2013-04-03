@@ -19,14 +19,18 @@ TypeScript에서는 Closure에서 정의한 JSDoc 주석과 비슷하지만, 주
 
 이런 타입 시스템은 타입 추정을 좀 더 용이하게 한다. 예를 들면 다음의 코드는 변수 “i”가 number 형이라고 추정할 수 있을 것이다.
 
-    var i = 0;
+{% highlight javascript %}
+var i = 0;
+{% endhighlight %}
 
 
 다음의 함수 정의에서 함수 f는 문자열 타입을 반환할것으로 추정할 수 있다.
 
-    function f() {
-        return "hello";
-    }
+{% highlight javascript %}
+function f() {
+	return "hello";
+}
+{% endhighlight %}
 
 
 몇가지 훌륭한 툴에서는는 변수 또는 반환값의 타입을 자동으로 추정하여 해당 타입의 멤버 메서드의 목록을 자동으로 출력해주는 서비스를 받을 수 있다.
@@ -34,13 +38,14 @@ TypeScript에서는 Closure에서 정의한 JSDoc 주석과 비슷하지만, 주
 
 그러나, TypeScript의 타입 주석으로 형식을 명시해 주면, 개발자에게도 많은 이득이 있다. 위의 함수 f를 다음의 코드와 같이 수정해두면, 원하지 않는 타입의 값이 매개변수로 사용되는것을 막을 수 있다.
 
-    function f(s: string) {
-        return s; 
-    }
+{% highlight javascript %}
+function f(s: string) {
+    return s; 
+}
 
-    f({});            // Error
-    f("hello");    // Ok
-
+f({});            // Error
+f("hello");    // Ok
+{% endhighlight %}
 
 매개변수 s에 타입 주석으로 : string을 사용함으로써 함수 f는 매개변수 s를 문자열만 받아들이는 함수로 정의되었고, 실제로 함수 f에서는 문자열로 취급한다. TypeScript 컴파일러는 문자열을 필요로 하는 함수 f에 객체 {}를 전달하였을 경우 오류를 표시한다. 반면, 문자형인 "hello"를 전달하였을 경우에는 정상 동작하게 된다.
 
@@ -54,31 +59,35 @@ TypeScript 컴파일러는 기본적으로 정의되지 않은 변수에 접근�
 앰비언트 선언은 타입을 명시하지 않는다. 컴파일러는 앰비언트로 선언된 변수를 "any" 타입이라고 추정한다. 마찬가지로, 개발툴에서도 해당 변수에 대해 특정 타입으로 가정할 수 없다.
 브라우저의 document를 사용하기 위해서는 아래와 같이 앰비언트 선언을 하면 된다.
 
-    declare var document;
-    document.title = "Hello";  // document를 앰비언트 선언하였으므로 오류가 발생하지 않는다.
+{% highlight javascript %}
+declare var document;
+document.title = "Hello";  // document를 앰비언트 선언하였으므로 오류가 발생하지 않는다.
+{% endhighlight %}
 
 
 사실, document의 경우엔 TypeScript 컴파일러가 자동으로 앰비언트 선언문을 가지고 있다. 'lib.d.ts'라는 라이브러리를 포함하기 때문인데, 이 라이브러리에는 DOM과 같은 빌트인 자바스크립트 라이브러리에 대한 선언이 들어있다.
 
 그러나, jQuery에 대한 인터페이스는 정의되어 있지 않으므로, 다음과 같이 앰비언트 선언을 해서 사용해야 한다.
 
-    declare var $;
-
+{% highlight javascript %}
+declare var $;
+{% endhighlight %}
 
 ## Function 타입
 
 TypeScript의 함수는 자바스크립트의 함수가 가진 특징들을 좀 더 표현력있게 사용할 수 있도록 문법이 개선되었다. TypeScript 함수의 선언 부분은 다음과 같이 정의할 수 있다.
 
-    ￼
-    function vote(candidate: string, callback: (result: string) =&gt; any) {
-        // do Something..
-    ￼}
+{% highlight javascript %}
+function vote(candidate: string, callback: (result: string) =&gt; any) {
+    // do Something..
+￼}
 
-    vote("BigPig", function(result: string) {
-        if (result === "BigPig") {
-            // ...
-        }
-    });
+vote("BigPig", function(result: string) {
+    if (result === "BigPig") {
+        // ...
+    }
+});
+{% endhighlight %}
 
 위 예제에서 함수 vote의 매개변수 candidate는 문자열 타입이어야하며, callback는 문자열 타입의 result를 매개변수로 받아들이고, any 타입을 반환하는 함수 타입이어야 한다.
 
@@ -87,56 +96,64 @@ TypeScript의 함수는 자바스크립트의 함수가 가진 특징들을 좀 
 
 TypeScript의 Object(이하 객체) 타입은 형상을 정의할 수 있다. 다음의 코드는 MakePoint 라는 함수의 반환형으로 객체 타입의 리터럴을 지정하고 있다.
 
-    var MakePoint: () =&gt; {
-        x: number;  y: number;
-    };
+{% highlight javascript %}
+var MakePoint: () =&gt; {
+    x: number;  y: number;
+};
+{% endhighlight %}
 
 
 객체 타입에는 이름도 부여할 수가 있는데 이를 객체 타입 인터페이스라고 한다. 다음의 코드는 name이라는 필수 필드와 favoriteColor라는 부가적인 필드가 정의된 객체 타입 인터페이스 예제이다.
 
-    interface Friend {
-        name: string;
-        favoriteColor?: string;
-    }
+{% highlight javascript %}
+interface Friend {
+    name: string;
+    favoriteColor?: string;
+}
 
-    function add(friend: Friend) {
-        var name = friend.name;
-    }
+function add(friend: Friend) {
+    var name = friend.name;
+}
 
-    add({ name: "홍길동" });    // Ok
-    add({ favoriteColor: "파랑" });    // name이 빠졌으므로 오류가 발생한다.
-    add({ name: "임꺽정", favoriteColor: "녹색" });    // Ok
+add({ name: "홍길동" });    // Ok
+add({ favoriteColor: "파랑" });    // name이 빠졌으므로 오류가 발생한다.
+add({ name: "임꺽정", favoriteColor: "녹색" });    // Ok
+{% endhighlight %}
 
 
 TypeScript의 객체 타입 모델은 자바스크립트의 객체를 다양하게 표현할 수 있게 한다. 예를 들면, jQuery에서는 get과 같은 여러가지 메서드를 포함하는 $ 라는 객체를 정의하고 있다. 그러나, 사용하는 입장에서는 $를 함수로 사용하기도 한다. 이때, $ 함수는 전달되는 매개변수의 타입에 따라 동작이 달라진다. 다음의 코드는 jQuery의 일부분을 TypeScript 객체 인터페이스로 정의한 예제이다.
 
-    interface JQuery {
-        text(content: string);
-    }
+{% highlight javascript %}
+interface JQuery {
+    text(content: string);
+}
 
-    interface JQueryStatic {
-        get(url: string, callback: (data: string) =&gt; any);
-        (query: string): JQuery;
-    }
+interface JQueryStatic {
+    get(url: string, callback: (data: string) =&gt; any);
+    (query: string): JQuery;
+}
 
-    declare var $: JQueryStatic;
+declare var $: JQueryStatic;
 
-    $.get("http://mysite.org/divContent", function (data: string) {
-        $("div").text(data);
-    });
-
+$.get("http://mysite.org/divContent", function (data: string) {
+    $("div").text(data);
+});
+{% endhighlight %}
 
 JQueryStatic 인터페이스는 또다른 JQuery 인터페이스를 참조한다. 즉, JQueryStatic 객체 인터페이스는 호출 가능한 함수 타입으로 사용될 수 있다. 물론, get 이라는 메서드도 정의 되어 있다. 이 예제에서 알 수 있는것은 TypeScript의 함수 타입도 호출 가능한 TypeScript 객체 타입이라는 점이다. (자바스크립트의 함수와 객체의 관계와 유사하다.) 
 다음의 예제 코드에서는 함수를 객체 타입 리터럴로 정의하고 있다. 처음의 두 라인은 동일한 타입을 다른 형태로 정의한 예이다.
 
-    var f: { (): string; };
-    var sameType: () =&gt; string = f;    // Ok
-    var nope: () =&gt; number = sameType;     // 오류: 타입이 일치하지 않는다.
-
+{% highlight javascript %}
+var f: { (): string; };
+var sameType: () =&gt; string = f;    // Ok
+var nope: () =&gt; number = sameType;     // 오류: 타입이 일치하지 않는다.
+{% endhighlight %}
 
 위 jQuery의 $ 함수를 이야기 할때, $ 함수는 전달되는 매개변수의 타입에 따라 동작이 달라진다고 했다. 이런 함수의 호출 시스템을 "오버로딩" 이라고 하는데, TypeScript에서는 간단하게 객체 인터페이스를 추가 정의함으로써 함수 오버로딩을 구현할 수 있다. JQueryStatic 예제에서 함수 타입을 받아들이는 인터페이스를 추가 구현해 볼 수 있을것이다.
 
-    (ready: () =&gt; any): any;
+{% highlight javascript %}
+(ready: () =&gt; any): any;
+{% endhighlight %}
 
 $ 함수에 ready라는 함수를 매개변수로 전달함으로써 다른 동작을 추가 구현할 수 있다.
 
@@ -145,30 +162,34 @@ $ 함수에 ready라는 함수를 매개변수로 전달함으로써 다른 동�
 
 객체 타입은 구조적으로 비교가 가능하다. 예를 들어, 아래 예제의 CPoint 클래스는 Point 인터페이스와 일치하는데, CPoint는 Point 인터페이스에서 요구하는 멤버들을 모두 갖추고 있기 때문이다. 그러므로, 컴파일러는 이 두 타입을 구조적으로 비교할 수 있다. 예제에서는 요구된 모든 멤버를 공급하는 객체 리터럴로 객체의 타입을 비교할 수 있음 또한 보여준다.
 
-	interface Point {
-		x: number;
-		y: number;
-	}
-	
-	function getX(p: Point) {
-		return p.x;
-	}
-	
-	class CPoint {
-		constructor (public x: number, public y: number) { }
-	}
-	
-	getX(new CPoint(0, 0));		// Ok, 필드가 일치함
-	getX({ x: 0, y: 0, color: "red" });	// 추가 필드(color)가 있는건 괜찮음
-	getX({ x: 0 });		// 오류 : y 필드가 빠졌으므로 인터페이스에 맞지 않음
+{% highlight javascript %}
+interface Point {
+	x: number;
+	y: number;
+}
+
+function getX(p: Point) {
+	return p.x;
+}
+
+class CPoint {
+	constructor (public x: number, public y: number) { }
+}
+
+getX(new CPoint(0, 0));		// Ok, 필드가 일치함
+getX({ x: 0, y: 0, color: "red" });	// 추가 필드(color)가 있는건 괜찮음
+getX({ x: 0 });		// 오류 : y 필드가 빠졌으므로 인터페이스에 맞지 않음
+{% endhighlight %}
 	
 ## 문맥 기반 타이핑
 통상적으로 TypeScript 타입 추정은 "bottom-up(아래에서 위)"으로 이루어진다. 즉, 표현식의 끝에서 시작점으로 추정한다.
 다음의 예제에서는 함수 "mul"의 반환 타입을 return 표현식에서부터 추정하여 "number"라고 결론지을 수 있다.
 
-	function mul(a: number, b: number) {
-		return a * b;
-	}
+{% highlight javascript %}
+function mul(a: number, b: number) {
+	return a * b;
+}
+{% endhighlight %}
 	
 타입 주석이나 기본값을 정의하지 않은 변수나 매개변수는, TypeScript에서 "any" 타입으로 추정한다. 이 경우 컴파일러는 함수의 호출부에서 해당 함수의 반환 타입을 추정하기 위한 정보를 필요로 하지 않는다. 일반적으로, 이 "bottom-up" 접근 방식은 개발자에게 명확한 타입 정보의 흐름을 제공한다.
 
@@ -177,81 +198,95 @@ $ 함수에 ready라는 함수를 매개변수로 전달함으로써 다른 동�
 ## 클래스
 TypeScript는 현재 ES6에서 제안된 객체 지향 문법과 아주 비슷한 문법을 제공한다. 
 
-	class BankAccount {
-		balance = 0;
-		deposit(credit: number) {
-			this.balance += credit;
-			return this.balance;
-		}
+{% highlight javascript %}
+class BankAccount {
+	balance = 0;
+	deposit(credit: number) {
+		this.balance += credit;
+		return this.balance;
 	}
+}
+{% endhighlight %}
 	
 
 위 코드를 컴파일하면 다음과 같은 자바스크립트 코드로 변환된다
 
-	var BankAccount = (function() {
-		function BankAccount() {
-			this.balance = 0;
-		}
-		BankAccount.prototype.deposit = function(credit){
-			this.balance += credit;
-			return this.balance;
-		};
-		
-		return BankAccount;
-	})();
+{% highlight javascript %}
+var BankAccount = (function() {
+	function BankAccount() {
+		this.balance = 0;
+	}
+	BankAccount.prototype.deposit = function(credit){
+		this.balance += credit;
+		return this.balance;
+	};
+	
+	return BankAccount;
+})();
+{% endhighlight %}
 	
 
 위 TypeScript 코드에서 BankAccount라는 클래스를 정의하였는데 동일한 이름으로 인스턴스 타입을 정할수도 있다.
 
-	interface BankAccount {
-		balance: number;
-		deposit(credit: number): number;
-	}
+{% highlight javascript %}
+interface BankAccount {
+	balance: number;
+	deposit(credit: number): number;
+}
+{% endhighlight %}
 	
 
 BankAccount 클래스에 함수인 constructor를 추가 정의하였다면, 다음과 같은 형태로 변수를 선언할 수 있다.
 
-	var BankAccount: new() =&gt; BankAccount;
-	
+{% highlight javascript %}
+var BankAccount: new() =&gt; BankAccount;
+{% endhighlight %}
+
 
 BankAccount 클래스가 초기화될때 balance도 초기화 하고싶다면 constructor를 정의하여야한다.
 
-	class BankAccount {
-		balance: number;
-		constructor(initially: number) {
-			this.balance = initially;
-		}
-		deposit(credit: number) {
-			this.balance += credit;
-			return this.balance;
-		}
+{% highlight javascript %}
+class BankAccount {
+	balance: number;
+	constructor(initially: number) {
+		this.balance = initially;
 	}
+	deposit(credit: number) {
+		this.balance += credit;
+		return this.balance;
+	}
+}
+{% endhighlight %}
 	
 
 위 코드에서 생성자인 constructor는 initially라는 number형 매개변수를 받아서 공개 필드인 balance를 설정하고 있다.
 이런 일반적인 경우는 다음과 같이 짧게 표현할 수 있다.
 
-	class BankAccount {
-		constructor(public balance: number) {
-		}
-		deposit(credit: number) {
-			this.balance += credit;
-			return this.balance;
-		}
+{% highlight javascript %}
+class BankAccount {
+	constructor(public balance: number) {
 	}
+	deposit(credit: number) {
+		this.balance += credit;
+		return this.balance;
+	}
+}
+{% endhighlight %}
 	
 public 키워드는 생성자의 매개변수가 곧 필드가 될것임을 암시한다. public는 기본 클래스 멤버의 접근 지시자이다. 그러나, 클래스 멤버로 private 접근 지시자를 설정할 수도 있다. 
 
 TypeScript 클래스는 다음 예제와 같이 상속도 지원한다.
 
-	class CheckingAccount extends BankAccount {
-		constructor(balance: number) {
-			super(balance);
-		}
-		writeCheck(debit: number) {
-			this.balance -= debit;
-		}
+{% highlight javascript %}
+class CheckingAccount extends BankAccount {
+	constructor(balance: number) {
+		super(balance);
 	}
+	writeCheck(debit: number) {
+		this.balance -= debit;
+	}
+}
+{% endhighlight %}
 	
 
 위 예제에서 CheckingAccount는 BankAccount 클래스를 상속받는다. 생성자에서는 super 키워드를 통해 부모 클래스인 BankAccount의 생성자를 호출하고 있다. 자바스크립트로 컴파일된 코드에서는 CheckingAccount는 BankingAccount와 프로토타입 체인으로 엮이게 된다.
@@ -266,13 +301,15 @@ TypeScript는 private 멤버를 두어 사용에 제한을 둠으로써 설계 �
 
 다음의 예제는 자바스크립트 모듈 패턴을 보여준다.
 
-	(function(exports) {
-		var key = generateSecretKey();
-		function sendMessage(message){
-			sendSecureMessage(message, key);
-		}
-		exports.sendMessage = sendMessage;
-	})(MessageModule);
+{% highlight javascript %}
+(function(exports) {
+	var key = generateSecretKey();
+	function sendMessage(message){
+		sendSecureMessage(message, key);
+	}
+	exports.sendMessage = sendMessage;
+})(MessageModule);
+{% endhighlight %}
 	
 
 위 예제에서는 모듈 패턴의 두가지 본질적인 요소인 모듈 클로저와 모듈 객체가 들어있다. 모듈 클로저는 모듈의 구현을 캡슐화하는 함수이다. 이 경우에서는 변수 'key'와 함수 'sendMessage'가 캡슐화 되었다. 모듈 객체에는 추출된 모듈 변수와 함수가 포함된다. 간단한 모듈에서는 모듈 객체를 생성하고 반환할 것이다. 위 모듈에서는 모듈객체를 매개변수 'exports'로 취하며, sendMessage 프로퍼티를 모듈 객체에 추가하였다. 이렇게 모듈의 멤버를 증가시키는 접근법은 모듈의 동적 로딩을 간단하게 해주고 다수의 파일로 모듈의 코드를 분산시키는 방식을 제공한다.
@@ -283,36 +320,42 @@ TypeScript의 모듈은 더 간결하게 모듈 패턴을 표현하는 메카니
 
 다음의 예제는 간단한 모듈을 정의하고 사용하는 코드이다.
 
-	module M {
-		var s = "hello";
-		export function f() {
-			return s;
-		}
+{% highlight javascript %}
+module M {
+	var s = "hello";
+	export function f() {
+		return s;
 	}
-	
-	M.f();
-	M.s;	// 오류, s는 추출되지 않았다.
+}
+
+M.f();
+M.s;	// 오류, s는 추출되지 않았다.
+{% endhighlight %}
 	
 이 예제에서, 변수 's'는 모듈의 private 변수이지만, 함수 'f'는 모듈에서 추출되어 모듈 바깥에서 해당 코드에 접근할 수 있다. 모듈 'M'을 인터페이스와 변수로 묘사하자면 다음과 같다.
 
-	interface M {
-		f(): string;
-	}
-	
-	var M: M;
+{% highlight javascript %}
+interface M {
+	f(): string;
+}
+
+var M: M;
+{% endhighlight %}
 
 인터페이스 'M'은 모듈 'M'이 외부에 노출하는 기능들을 요약하고 있다. 이 예제에서, 변수 초기화를 위해 동일한 이름의 인터페이스를 사용할 수 있다. TypeScript에서는 타입명과 변수명은 충돌하지 않기 때문이다. 각 lexical 범위는 변수 정의 공간과 타입 정의 공간이 포함되어있다.
 
 모듈 'M'은 전역 모듈에 중첩되어 있으므로 내부 모듈의 한 예제이다. TypeScript 컴퍼일러는 모듈 코드를 다음과 같은 자바스크립트로 코드로 변환한다.
 
-	var M;
-	(function(M) {
-		var s = "hello";
-		function f() {
-			return s;
-		}
-		M.f = f;
-	})(M || (M={}));
+{% highlight javascript %}
+var M;
+(function(M) {
+	var s = "hello";
+	function f() {
+		return s;
+	}
+	M.f = f;
+})(M || (M={}));
+{% endhighlight %}
 	
 이 경우에, 컴파일러는 모듈 객체가 초기화 되었든 되지 않았던간에 필요한 모듈 객체로 전역 변수 'M'이 존재한다고 가정한다. 
 

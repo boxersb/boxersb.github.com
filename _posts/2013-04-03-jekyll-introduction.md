@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Jekyll 소개"
+tagline: "Jekyll 소개"
 description: "Jekyll 소개"
 category: jekyll
 tags: [jekyll, git, github, pages]
@@ -83,15 +84,15 @@ Jekyll 사이트에 대한 설정은 /\_config.yml 파일에 수록된다.
 
 {% highlight ruby %}
 comments :
-  provider : facebook	#FIXME
+  provider : facebook #FIXME
   disqus :
-    short_name : abc	#FIXME
+    short_name : abc  #FIXME
   livefyre :
-    site_id : abc	#FIXME
+    site_id : abc #FIXME
   intensedebate :
-    account : abc	#FIXME
+    account : abc #FIXME
   facebook :
-    appid : abc		#FIXME
+    appid : abc   #FIXME
     num_posts: 5
     width: 640
     colorscheme: light
@@ -105,11 +106,11 @@ comments :
 analytics :
     provider : google 
     google : 
-        tracking_id : 'UA-123-12'	#FIXME
+        tracking_id : 'UA-123-12' #FIXME
     getclicky :
-      site_id : abc			#FIXME
+      site_id : abc     #FIXME
     mixpanel :
-        token : '_MIXPANEL_TOKEN_'	#FIXME
+        token : '_MIXPANEL_TOKEN_'  #FIXME
 {% endhighlight %}
 
 

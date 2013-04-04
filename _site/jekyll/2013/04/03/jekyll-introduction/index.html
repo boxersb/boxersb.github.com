@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
 	<meta name="description" content="Boxersb.github.com : " />
 	<title>Jekyll 소개 | Boxer's Front End</title>
-	<meta name="author" content="Kyoungtaek Koo">
+	<meta name="author" content="boxersb">
 	<link href='/assets/themes/slate/css/stylesheet.css' rel="stylesheet" media="all">
 	<link href="http://feeds.feedburner.com/" rel="alternate" title="Jekyll 소개" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
@@ -18,16 +18,16 @@
       <a id="forkme_banner" href="https://github.com/boxersb">View on GitHub</a>
 
       <h1 id="project_title"><a href="/">Boxer's Front End</a></h1>
-      <h2 id="project_tagline"></h2>
+      <!-- <h2 id="project_tagline"></h2> -->
 
-      <nav class="nav-global">
-		<ul>
-			<li class="archive"><a href="/archive.html">Archive</a></li>
-			<li class="page"><a href="/pages.html">Pages</a></li>
-			<li class="category"><a href="/categories.html">Categories</a></li>
-			<li class="tag"><a href="/tags.html">tags</a></li>
-		</ul>
-	</nav>
+		<nav class="nav-global">
+			<ul>
+				<li class="archive"><a href="/archive.html">Archive</a></li>
+				<li class="page"><a href="/pages.html">Pages</a></li>
+				<li class="category"><a href="/categories.html">Categories</a></li>
+				<li class="tag"><a href="/tags.html">tags</a></li>
+			</ul>
+		</nav>
     </header>
 </div>
 
@@ -50,15 +50,17 @@
 			<div class="bd">
 				<div class="entry-content">
 					<div class="meta">
-						<p class="date-publish">
-							<date class="date-pub" title="2013-04-03T00:00:00+09:00" datetime="2013-04-03T00:00:00+09:00" pubdate>
-							<span class="month"><abbr>April</abbr></span>
-							<span class="day">03</span>
-							<span class="year">2013</span>
-							</date>
-						</p>
-						<ul class="list-category list-linear">
-							<li class="list-head">category: </li>
+						<ul class="list-date-category">
+							<li>
+								<date class="date-pub" title="2013-04-03T00:00:00+09:00" datetime="2013-04-03T00:00:00+09:00" pubdate>
+								<span class="month"><abbr>April</abbr></span>
+								<span class="day">03</span>
+								<span class="year">2013</span>
+								</date>
+							</li>
+							<li class="author">
+								by <a href="https://twitter.com/boxersb" target="twitter">boxersb</a> in 
+							</li>
 							
 							
 
@@ -81,7 +83,7 @@
 
   
      
-    	<li><a href="/tags.html#jekyll-ref">jekyll <span>2</span></a></li>
+    	<li><a href="/tags.html#jekyll-ref">jekyll <span>1</span></a></li>
      
     	<li><a href="/tags.html#git-ref">git <span>1</span></a></li>
      
@@ -152,15 +154,15 @@
 
 <p>_config.yml 파일에서 comments 절의 내용을 수정하면 된다.<br />여기서는 facebook 소셜 플러그인을 사용하였다. 각 댓글 서비스별로 수정이 필요한 곳은 FIXME로 표시해둔 부분을 참조하면 된다.</p>
 <div class='highlight'><pre><code class='ruby'><span class='n'>comments</span> <span class='p'>:</span>
-  <span class='n'>provider</span> <span class='p'>:</span> <span class='n'>facebook</span>	<span class='c1'>#FIXME</span>
+  <span class='n'>provider</span> <span class='p'>:</span> <span class='n'>facebook</span> <span class='c1'>#FIXME</span>
   <span class='n'>disqus</span> <span class='p'>:</span>
-    <span class='n'>short_name</span> <span class='p'>:</span> <span class='n'>abc</span>	<span class='c1'>#FIXME</span>
+    <span class='n'>short_name</span> <span class='p'>:</span> <span class='n'>abc</span>  <span class='c1'>#FIXME</span>
   <span class='n'>livefyre</span> <span class='p'>:</span>
-    <span class='n'>site_id</span> <span class='p'>:</span> <span class='n'>abc</span>	<span class='c1'>#FIXME</span>
+    <span class='n'>site_id</span> <span class='p'>:</span> <span class='n'>abc</span> <span class='c1'>#FIXME</span>
   <span class='n'>intensedebate</span> <span class='p'>:</span>
-    <span class='n'>account</span> <span class='p'>:</span> <span class='n'>abc</span>	<span class='c1'>#FIXME</span>
+    <span class='n'>account</span> <span class='p'>:</span> <span class='n'>abc</span> <span class='c1'>#FIXME</span>
   <span class='n'>facebook</span> <span class='p'>:</span>
-    <span class='n'>appid</span> <span class='p'>:</span> <span class='n'>abc</span>		<span class='c1'>#FIXME</span>
+    <span class='n'>appid</span> <span class='p'>:</span> <span class='n'>abc</span>   <span class='c1'>#FIXME</span>
     <span class='n'>num_posts</span><span class='p'>:</span> <span class='mi'>5</span>
     <span class='ss'>width</span><span class='p'>:</span> <span class='mi'>640</span>
     <span class='ss'>colorscheme</span><span class='p'>:</span> <span class='n'>light</span>
@@ -171,13 +173,13 @@
 <div class='highlight'><pre><code class='ruby'><span class='n'>analytics</span> <span class='p'>:</span>
     <span class='n'>provider</span> <span class='p'>:</span> <span class='n'>google</span> 
     <span class='n'>google</span> <span class='p'>:</span> 
-        <span class='n'>tracking_id</span> <span class='p'>:</span> <span class='s1'>&#39;UA-123-12&#39;</span>	<span class='c1'>#FIXME</span>
+        <span class='n'>tracking_id</span> <span class='p'>:</span> <span class='s1'>&#39;UA-123-12&#39;</span> <span class='c1'>#FIXME</span>
     <span class='n'>getclicky</span> <span class='p'>:</span>
-      <span class='n'>site_id</span> <span class='p'>:</span> <span class='n'>abc</span>			<span class='c1'>#FIXME</span>
+      <span class='n'>site_id</span> <span class='p'>:</span> <span class='n'>abc</span>     <span class='c1'>#FIXME</span>
     <span class='n'>mixpanel</span> <span class='p'>:</span>
-        <span class='n'>token</span> <span class='p'>:</span> <span class='s1'>&#39;_MIXPANEL_TOKEN_&#39;</span>	<span class='c1'>#FIXME</span>
+        <span class='n'>token</span> <span class='p'>:</span> <span class='s1'>&#39;_MIXPANEL_TOKEN_&#39;</span>  <span class='c1'>#FIXME</span>
 </code></pre></div>
-<h2 id='id7'>블로깅하기</h2>
+<h2 id='id3'>블로깅하기</h2>
 
 <p>Jekyll + Github Pages 를 활용한 블로깅은, 기본적으로 마크다운 파일을 만들고(rake를 활용한 명령어가 지원된다), jekyll로 파싱한다음, 해당 git 저장소의 master 브랜치에 push 해야 정상적으로 Deploy가 된다. 매우 개발스러운 방법이지만, Rich Text Editing을 싫어하며 웹 호스팅하기 아까운 나같은 사람한테는 딱 좋은 플랫폼인 셈이다.</p>
 
@@ -207,7 +209,7 @@
 </code></pre></div>
 <p>위와 같은 명령어를 실행한 후 결과메세지를 참고해서 해당 파일을 수정하면 된다.</p>
 
-<h3 id='id8'>배포하기</h3>
+<h3 id='id4'>배포하기</h3>
 
 <p>jekyll &#8211;server를 사용하여 로컬 웹서버로 생성한 페이지 및 포스트를 모두 확인했다면, 실제로 웹에 노출되도록 배포해야한다.<br />Git 페이지 기반이며, Github Pages에서는 저장소의 master 브랜치에 해당되는 내용을 표시하므로, 간단히 master 브랜치로 변경사항을 push 하기만 하면 된다.</p>
 <div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>git add .
@@ -235,7 +237,7 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123937814464693";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-comments" data-href="http://boxersb.github.com" data-num-posts="5" data-width="640" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="/jekyll/2013/04/03/jekyll-introduction" data-num-posts="5" data-width="640" data-colorscheme="light"></div>
 
 
 
@@ -263,14 +265,13 @@
 	</div><!-- unit-inner -->
 </article>
 
-
 	</section>
 </div>
 
 <!-- FOOTER  -->
 <div id="footer_wrap" class="outer">
 	<footer class="inner">
-		<p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+		<p>Published with <a href="http://pages.github.com">GitHub Pages</a> and <a href="http://jekyllbootstrap.com/">Jekyll</a></p>
 	</footer>
 </div>
 

@@ -13,15 +13,17 @@
 			<div class="bd">
 				<div class="entry-content">
 					<div class="meta">
-						<p class="date-publish">
-							<date class="date-pub" title="{{ page.date | date_to_xmlschema }}" datetime="{{ page.date | date_to_xmlschema }}" pubdate>
-							<span class="month"><abbr>{{ page.date | date: '%B' }}</abbr></span>
-							<span class="day">{{ page.date | date: '%d' }}</span>
-							<span class="year">{{ page.date | date: '%Y' }}</span>
-							</date>
-						</p>
-						<ul class="list-category list-linear">
-							<li class="list-head">category: </li>
+						<ul class="list-date-category">
+							<li>
+								<date class="date-pub" title="{{ page.date | date_to_xmlschema }}" datetime="{{ page.date | date_to_xmlschema }}" pubdate>
+								<span class="month"><abbr>{{ page.date | date: '%B' }}</abbr></span>
+								<span class="day">{{ page.date | date: '%d' }}</span>
+								<span class="year">{{ page.date | date: '%Y' }}</span>
+								</date>
+							</li>
+							<li class="author">
+								by <a href="https://twitter.com/{{ site.author.twitter }}" target="twitter">{{ site.author.name }}</a> in 
+							</li>
 							{% assign categories_list = page.categories %}
 							{% include JB/categories_list %}
 						</ul>

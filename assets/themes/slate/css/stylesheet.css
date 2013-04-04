@@ -370,7 +370,7 @@ Full-Width Styles
 }
 
 #main_content {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 #footer_wrap {
@@ -439,7 +439,7 @@ nav ul, nav li { list-style:none;margin:0;padding:0; }
 nav.nav-global li { float:left;}
 nav.nav-global li a { color:#fff;padding:10px;padding-bottom:5px;display:block;font-weight:bold; }
 nav.nav-global li a:hover { border-bottom:3px solid #fff;}
-.entry-content .meta { padding-bottom:15px;background:url('../skin/bg_hr.png') repeat-x bottom; }
+.entry-content .meta { padding-bottom:5px;border-bottom:solid 3px #666; }
 .entry-content .meta ul, .entry-content .meta li { list-style:none;margin:0;padding:0; }
 .entry-content .meta li { float:left;margin-right:10px; }
 .entry-content .meta ul { clear:both;margin-bottom:5px; }
@@ -449,3 +449,14 @@ nav.nav-global li a:hover { border-bottom:3px solid #fff;}
 .misc-content .social li { float:left;margin-right:10px; }
 .misc-content .social ul { clear:both;margin-bottom:5px; }
 .misc-content .social:after, .misc-content .social ul:after {content: ".";display:block;font-size:0;height:0px;line-height:0;clear:both;visibility:hidden;}
+
+.meta ul.list-date-category, .meta ul.list-tag { font-size:12px;padding-left:10px;margin-bottom:0; }
+.meta .list-date-category li { margin-right:5px; }
+.meta ul.list-date-category li a span, .meta ul.list-tag li a span { display:none; }
+
+article.layout-post header { height:48px; }
+
+footer .pagination ul, footer .pagination li { list-style:none;margin:0;padding:0; }
+footer .pagination li { float:left;margin-right:10px; }
+footer .pagination li.pipe { font-size:12px;line-height:22px;color:#999; }
+footer .pagination:after, footer .pagination ul:after {content: ".";display:block;font-size:0;height:0px;line-height:0;clear:both;visibility:hidden;}

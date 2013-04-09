@@ -1,14 +1,17 @@
 
-http://boxersb.github.com/archive.html
-http://boxersb.github.com/atom.xml
-http://boxersb.github.com/categories.html
-http://boxersb.github.com/index.html
-http://boxersb.github.com/pages.html
-http://boxersb.github.com/rss.xml
-http://boxersb.github.com/sitemap.txt
-http://boxersb.github.com/tags.html
+http://boxersb.github.io/archive.html
+http://boxersb.github.io/atom.xml
+http://boxersb.github.io/categories.html
+http://boxersb.github.io/index.html
+http://boxersb.github.io/pages.html
+http://boxersb.github.io/rss.xml
+http://boxersb.github.io/sitemap.txt
+http://boxersb.github.io/tags.html
 
-http://boxersb.github.com/jekyll/2013/04/03/jekyll-introduction
-http://boxersb.github.com/typescript/2013/03/20/boxersbgithubcom
-http://boxersb.github.com/2010/04/09/pi-type-competent-person
-http://boxersb.github.com/javascript/2007/03/12/firefox-korean-lang-trick
+http://boxersb.github.io/jekyll/2013/04/03/jekyll-introduction
+http://boxersb.github.io/typescript/2013/03/20/boxersbgithubcom
+http://boxersb.github.io/etc/2010/04/29/state-of-web-development-2010
+http://boxersb.github.io/etc/2010/04/09/pi-type-competent-person
+http://boxersb.github.io/javascript/2010/04/05/tostring-and-tovalue-of-object
+http://boxersb.github.io/javascript/2010/04/01/observer-pattern-of-javascript
+http://boxersb.github.io/javascript/2007/03/12/firefox-korean-lang-trick

@@ -3,10 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-	<meta name="description" content="Boxersb.github.com : " />
+	<meta name="description" content="Jekyll 소개 | Boxer's Front End" />
 	<title>Jekyll 소개 | Boxer's Front End</title>
 	<meta name="author" content="boxersb">
 	<link href='/assets/themes/slate/css/stylesheet.css' rel="stylesheet" media="all">
+	<link href='/assets/themes/slate/css/pygment_trac.css' rel="stylesheet" media="all">
 	<link href="http://feeds.feedburner.com/" rel="alternate" title="Jekyll 소개" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
@@ -179,7 +180,7 @@
     <span class='n'>mixpanel</span> <span class='p'>:</span>
         <span class='n'>token</span> <span class='p'>:</span> <span class='s1'>&#39;_MIXPANEL_TOKEN_&#39;</span>  <span class='c1'>#FIXME</span>
 </code></pre></div>
-<h2 id='id11'>블로깅하기</h2>
+<h2 id='id15'>블로깅하기</h2>
 
 <p>Jekyll + Github Pages 를 활용한 블로깅은, 기본적으로 마크다운 파일을 만들고(rake를 활용한 명령어가 지원된다), jekyll로 파싱한다음, 해당 git 저장소의 master 브랜치에 push 해야 정상적으로 Deploy가 된다. 매우 개발스러운 방법이지만, Rich Text Editing을 싫어하며 웹 호스팅하기 아까운 나같은 사람한테는 딱 좋은 플랫폼인 셈이다.</p>
 
@@ -209,7 +210,7 @@
 </code></pre></div>
 <p>위와 같은 명령어를 실행한 후 결과메세지를 참고해서 해당 파일을 수정하면 된다.</p>
 
-<h3 id='id12'>배포하기</h3>
+<h3 id='id16'>배포하기</h3>
 
 <p>jekyll &#8211;server를 사용하여 로컬 웹서버로 생성한 페이지 및 포스트를 모두 확인했다면, 실제로 웹에 노출되도록 배포해야한다.<br />Git 페이지 기반이며, Github Pages에서는 저장소의 master 브랜치에 해당되는 내용을 표시하므로, 간단히 master 브랜치로 변경사항을 push 하기만 하면 된다.</p>
 <div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>git add .

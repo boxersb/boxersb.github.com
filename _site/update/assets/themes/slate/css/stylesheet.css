@@ -3,8 +3,6 @@ Slate Theme for GitHub Pages
 by Jason Costello, @jsncostello
 *******************************************************************************/
 
-@import url(pygment_trac.css);
-
 /*******************************************************************************
 MeyerWeb Reset
 *******************************************************************************/
@@ -161,7 +159,7 @@ img {
   -ms-box-shadow: 0 0 5px #ebebeb;
 }
 
-pre, code {
+/*pre, code {
   width: 100%;
   color: #222;
   background-color: #fff;
@@ -175,9 +173,9 @@ pre, code {
 
 
 
-}
+}*/
 
-pre {
+/*pre {
   width: 100%;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,.1);
@@ -193,7 +191,7 @@ code {
 pre code {
   display: block;
   box-shadow: none;
-}
+}*/
 
 blockquote {
   color: #666;
@@ -364,7 +362,7 @@ Full-Width Styles
 }
 
 #main_content_wrap {
-  background: #f2f2f2;
+  background: #fff;
   border-top: 1px solid #111;
   border-bottom: 1px solid #111;
 }
@@ -454,9 +452,11 @@ nav.nav-global li a:hover { border-bottom:3px solid #fff;}
 .meta .list-date-category li { margin-right:5px; }
 .meta ul.list-date-category li a span, .meta ul.list-tag li a span { display:none; }
 
-article.layout-post header { height:48px; }
+/* article.layout-post header { height:48px; } */
 
 footer .pagination ul, footer .pagination li { list-style:none;margin:0;padding:0; }
 footer .pagination li { float:left;margin-right:10px; }
 footer .pagination li.pipe { font-size:12px;line-height:22px;color:#999; }
 footer .pagination:after, footer .pagination ul:after {content: ".";display:block;font-size:0;height:0px;line-height:0;clear:both;visibility:hidden;}
+
+div.highlight { margin-bottom:40px; }

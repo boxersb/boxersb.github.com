@@ -10,3 +10,5 @@ http://boxersb.github.com/tags.html
 
 http://boxersb.github.com/jekyll/2013/04/03/jekyll-introduction
 http://boxersb.github.com/typescript/2013/03/20/boxersbgithubcom
+http://boxersb.github.com/2010/04/09/pi-type-competent-person
+http://boxersb.github.com/javascript/2007/03/12/firefox-korean-lang-trick

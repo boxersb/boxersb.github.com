@@ -24,9 +24,9 @@ rss는 물론 Atom도 지원하며, disqus나 facebook 소셜 플러그인을 �
 ### Jekyll 설치
 Jekyll은 Ruby gem으로 제공되므로 커멘드 라인에서 아래와 같이 설치한다.
 
-{% highlight bash %}
-$ gem install jekyll
-{% endhighlight %}
+```bash
+	$ gem install jekyll
+```
 
 ### Jekyll-Bootstrap 설치
 먼저, [Github](https://github.com)에서 SITENAME.github.com 과 같은 이름의 저장소를 만든다.  
@@ -35,12 +35,12 @@ SITENAME은 만들려는 사이트의 이름이다.
 다음으로, Jekyll-Bootstrap을 설치한다.  
 Jekyll-Bootstrap은 Jekyll을 사용한 사이트를 만들기위해 필요한 작업을 간단하게 처리해준다.  
 
-{% highlight bash %}
-$ git clone https://github.com/plusjade/jekyll-bootstrap.git SITENAME.github.com
-$ cd SITENAME.github.com
-$ git remote set-url origin git@github.com:YOURACCOUNT/SITENAME.github.com.git
-$ git push origin master
-{% endhighlight %}
+```bash
+    $ git clone https://github.com/plusjade/jekyll-bootstrap.git SITENAME.github.com
+    $ cd SITENAME.github.com
+    $ git remote set-url origin git@github.com:YOURACCOUNT/SITENAME.github.com.git
+    $ git push origin master
+```
 
 앞서 만들어 두었던 SITENAME.github.com 저장소에 jekyll-bootstrap을 clone 한다.  
 그런 다음, git remote set-url 을 사용하여 origin을 다시 SITENAME.github.com으로 수정한다.  

@@ -51,9 +51,9 @@ Jekyll-Bootstrap은 Jekyll을 사용한 사이트를 만들기위해 필요한 �
 ### 로컬 서버 띄우기
 jekyll은 로컬 웹서버도 지원한다.
 
-{% highlight bash %}
-$ jekyll --server
-{% endhighlight %}
+```bash
+	$ jekyll --server
+```
 
 웹 서버를 시작하면, 현재 사이트에서 변경된 파일들을 모아, static html 파일들을 자동으로 생성해준다.  
 브라우저에서는 http://localhost:4000 으로 방금 만든 사이트를 테스트해볼 수 있다.
@@ -63,15 +63,15 @@ jekyll은 테마기능도 지원한다. [Jekyll 공식 테마 살펴보기](http
 테마는 여러개를 하나의 Jekyll 사이트에 설치할 수 있으며, 테마 스위칭 기능도 지원한다. 물론, 테마는 커스터마이징이 가능하다.
 
 **테마 설치하기**
-{% highlight bash %}
-$ rake theme:install git="https://github.com/jekyllbootstrap/theme-the-program.git"
-$ rake theme:install git="https://github.com/boxersb/jekyll-theme-slate.git"
-{% endhighlight %}
+```bash
+	$ rake theme:install git="https://github.com/jekyllbootstrap/theme-the-program.git"
+	$ rake theme:install git="https://github.com/boxersb/jekyll-theme-slate.git"
+```
 
 **테마 스위칭**
-{% highlight bash %}
-$ rake theme:switch name="the-program"
-{% endhighlight %}  
+```bash
+	$ rake theme:switch name="the-program"
+```
   
   
 ## Jekyll 설정하기
@@ -82,27 +82,27 @@ Jekyll 사이트에 대한 설정은 /\_config.yml 파일에 수록된다.
 \_config.yml 파일에서 comments 절의 내용을 수정하면 된다.  
 여기서는 facebook 소셜 플러그인을 사용하였다. 각 댓글 서비스별로 수정이 필요한 곳은 FIXME로 표시해둔 부분을 참조하면 된다.  
 
-{% highlight ruby %}
-comments :
-  provider : facebook #FIXME
-  disqus :
-    short_name : abc  #FIXME
-  livefyre :
-    site_id : abc #FIXME
-  intensedebate :
-    account : abc #FIXME
-  facebook :
-    appid : abc   #FIXME
-    num_posts: 5
-    width: 640
-    colorscheme: light
-{% endhighlight %}
+```ruby
+    comments :
+      provider : facebook #FIXME
+      disqus :
+        short_name : abc  #FIXME
+      livefyre :
+        site_id : abc #FIXME
+      intensedebate :
+        account : abc #FIXME
+      facebook :
+        appid : abc   #FIXME
+        num_posts: 5
+        width: 640
+        colorscheme: light
+```
 
 ### 사이트 분석툴 사용하기
 \_config.yml 파일에서 analytics 절의 내용을 수정하면 된다.  
 여기서는 Google Analytics를 사용하였다.  
 
-{% highlight ruby %}
+```ruby
 analytics :
     provider : google 
     google : 
@@ -111,7 +111,7 @@ analytics :
       site_id : abc     #FIXME
     mixpanel :
         token : '_MIXPANEL_TOKEN_'  #FIXME
-{% endhighlight %}
+```
 
 
 
@@ -120,9 +120,9 @@ Jekyll + Github Pages 를 활용한 블로깅은, 기본적으로 마크다운 �
 매우 개발스러운 방법이지만, Rich Text Editing을 싫어하며 웹 호스팅하기 아까운 나같은 사람한테는 딱 좋은 플랫폼인 셈이다.  
 
 ### 새 포스트 만들기
-{% highlight bash %}
-$ rake post title="Hello World"
-{% endhighlight %}
+```bash
+	$ rake post title="Hello World"
+```
 
 이렇게 rake를 사용한 명령어를 사용하면 지정된 포스트에 해당되는 마크다운 파일이 만들어진다.  
 
@@ -144,11 +144,11 @@ $ rake post title="Hello World"
 ### 페이지 만들기
 포스트 외에 페이지도 만들 수 있다.  
 
-{% highlight bash %}
-$ rake page name="about.md"
-$ rake page name="pages/profile.md"
-$ rake page name="pages/blogs"
-{% endhighlight %}
+```bash
+	$ rake page name="about.md"
+	$ rake page name="pages/profile.md"
+	$ rake page name="pages/blogs"
+```
 
 위와 같은 명령어를 실행한 후 결과메세지를 참고해서 해당 파일을 수정하면 된다.  
 
@@ -156,11 +156,11 @@ $ rake page name="pages/blogs"
 jekyll --server를 사용하여 로컬 웹서버로 생성한 페이지 및 포스트를 모두 확인했다면, 실제로 웹에 노출되도록 배포해야한다.  
 Git 페이지 기반이며, Github Pages에서는 저장소의 master 브랜치에 해당되는 내용을 표시하므로, 간단히 master 브랜치로 변경사항을 push 하기만 하면 된다.  
 
-{% highlight bash %}
-$ git add .
-$ git commit -m "new post(Jekyll 소개)"
-$ git push origin master
-{% endhighlight %}
+```bash
+	$ git add .
+	$ git commit -m "new post(Jekyll 소개)"
+	$ git push origin master
+```
 
 
 

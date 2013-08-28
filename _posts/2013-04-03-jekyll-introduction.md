@@ -25,7 +25,7 @@ rss는 물론 Atom도 지원하며, disqus나 facebook 소셜 플러그인을 �
 Jekyll은 Ruby gem으로 제공되므로 커멘드 라인에서 아래와 같이 설치한다.
 
 ```bash
-	$ gem install jekyll
+$ gem install jekyll
 ```
 
 ### Jekyll-Bootstrap 설치
@@ -36,10 +36,10 @@ SITENAME은 만들려는 사이트의 이름이다.
 Jekyll-Bootstrap은 Jekyll을 사용한 사이트를 만들기위해 필요한 작업을 간단하게 처리해준다.  
 
 ```bash
-    $ git clone https://github.com/plusjade/jekyll-bootstrap.git SITENAME.github.com
-    $ cd SITENAME.github.com
-    $ git remote set-url origin git@github.com:YOURACCOUNT/SITENAME.github.com.git
-    $ git push origin master
+$ git clone https://github.com/plusjade/jekyll-bootstrap.git SITENAME.github.com
+$ cd SITENAME.github.com
+$ git remote set-url origin git@github.com:YOURACCOUNT/SITENAME.github.com.git
+$ git push origin master
 ```
 
 앞서 만들어 두었던 SITENAME.github.com 저장소에 jekyll-bootstrap을 clone 한다.  
@@ -52,7 +52,7 @@ Jekyll-Bootstrap은 Jekyll을 사용한 사이트를 만들기위해 필요한 �
 jekyll은 로컬 웹서버도 지원한다.
 
 ```bash
-	$ jekyll --server
+$ jekyll --server
 ```
 
 웹 서버를 시작하면, 현재 사이트에서 변경된 파일들을 모아, static html 파일들을 자동으로 생성해준다.  
@@ -63,14 +63,16 @@ jekyll은 테마기능도 지원한다. [Jekyll 공식 테마 살펴보기](http
 테마는 여러개를 하나의 Jekyll 사이트에 설치할 수 있으며, 테마 스위칭 기능도 지원한다. 물론, 테마는 커스터마이징이 가능하다.
 
 **테마 설치하기**
+
 ```bash
-	$ rake theme:install git="https://github.com/jekyllbootstrap/theme-the-program.git"
-	$ rake theme:install git="https://github.com/boxersb/jekyll-theme-slate.git"
+$ rake theme:install git="https://github.com/jekyllbootstrap/theme-the-program.git"
+$ rake theme:install git="https://github.com/boxersb/jekyll-theme-slate.git"
 ```
 
 **테마 스위칭**
+
 ```bash
-	$ rake theme:switch name="the-program"
+$ rake theme:switch name="the-program"
 ```
   
   
@@ -83,19 +85,19 @@ Jekyll 사이트에 대한 설정은 /\_config.yml 파일에 수록된다.
 여기서는 facebook 소셜 플러그인을 사용하였다. 각 댓글 서비스별로 수정이 필요한 곳은 FIXME로 표시해둔 부분을 참조하면 된다.  
 
 ```ruby
-    comments :
-      provider : facebook #FIXME
-      disqus :
-        short_name : abc  #FIXME
-      livefyre :
-        site_id : abc #FIXME
-      intensedebate :
-        account : abc #FIXME
-      facebook :
-        appid : abc   #FIXME
-        num_posts: 5
-        width: 640
-        colorscheme: light
+comments :
+  provider : facebook #FIXME
+  disqus :
+    short_name : abc  #FIXME
+  livefyre :
+    site_id : abc #FIXME
+  intensedebate :
+    account : abc #FIXME
+  facebook :
+    appid : abc   #FIXME
+    num_posts: 5
+    width: 640
+    colorscheme: light
 ```
 
 ### 사이트 분석툴 사용하기
@@ -120,8 +122,9 @@ Jekyll + Github Pages 를 활용한 블로깅은, 기본적으로 마크다운 �
 매우 개발스러운 방법이지만, Rich Text Editing을 싫어하며 웹 호스팅하기 아까운 나같은 사람한테는 딱 좋은 플랫폼인 셈이다.  
 
 ### 새 포스트 만들기
+
 ```bash
-	$ rake post title="Hello World"
+$ rake post title="Hello World"
 ```
 
 이렇게 rake를 사용한 명령어를 사용하면 지정된 포스트에 해당되는 마크다운 파일이 만들어진다.  
@@ -145,9 +148,9 @@ Jekyll + Github Pages 를 활용한 블로깅은, 기본적으로 마크다운 �
 포스트 외에 페이지도 만들 수 있다.  
 
 ```bash
-	$ rake page name="about.md"
-	$ rake page name="pages/profile.md"
-	$ rake page name="pages/blogs"
+$ rake page name="about.md"
+$ rake page name="pages/profile.md"
+$ rake page name="pages/blogs"
 ```
 
 위와 같은 명령어를 실행한 후 결과메세지를 참고해서 해당 파일을 수정하면 된다.  
@@ -157,9 +160,9 @@ jekyll --server를 사용하여 로컬 웹서버로 생성한 페이지 및 포�
 Git 페이지 기반이며, Github Pages에서는 저장소의 master 브랜치에 해당되는 내용을 표시하므로, 간단히 master 브랜치로 변경사항을 push 하기만 하면 된다.  
 
 ```bash
-	$ git add .
-	$ git commit -m "new post(Jekyll 소개)"
-	$ git push origin master
+$ git add .
+$ git commit -m "new post(Jekyll 소개)"
+$ git push origin master
 ```
 
 

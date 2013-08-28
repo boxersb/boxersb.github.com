@@ -145,8 +145,8 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 <span class="p">}</span>
 </code></pre></div>
 <ul>
-<li><p>템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다.</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/button&gt;</span>
+<li><p>템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다. ㅋ</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;{{ foo=&#39;bar&#39; }} &quot;</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/button&gt;</span>
 </code></pre></div></li>
 <li><p>템플릿에서 ngInit 지시자(directive)를 사용한다. 이 방법은, 연습용으로만 사용하고 실 서비스에서는 지양하길 바란다.</p>
 <div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-init=</span><span class="s">&quot; foo = &#39;bar&#39; &quot;</span><span class="nt">&gt;</span> ... <span class="nt">&lt;/body&gt;</span>
@@ -248,7 +248,9 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">body</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">&quot;SpicyCtrl&quot;</span><span class="o">&gt;</span>
  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;chiliSpicy()&quot;</span><span class="o">&gt;</span><span class="nx">Chili</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;jalapenoSpicy()&quot;</span><span class="o">&gt;</span><span class="nx">Jalape</span><span class="err">ñ</span><span class="nx">o</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
- <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">The</span> <span class="nx">food</span> <span class="nx">is</span>  <span class="nx">spicy</span><span class="o">!&lt;</span><span class="err">/p&gt;</span>
+
+ <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">The</span> <span class="nx">food</span> <span class="nx">is</span> <span class="p">{{</span><span class="nx">spice</span><span class="p">}}</span> <span class="nx">spicy</span><span class="o">!&lt;</span><span class="err">/p&gt;</span>
+
 <span class="o">&lt;</span><span class="err">/body&gt;</span>
 
 <span class="kd">function</span> <span class="nx">SpicyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
@@ -280,7 +282,9 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
  <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">model</span><span class="o">=</span><span class="s2">&quot;customSpice&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;wasabi&quot;</span><span class="o">&gt;</span>
  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;spicy(&#39;chili&#39;)&quot;</span><span class="o">&gt;</span><span class="nx">Chili</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">click</span><span class="o">=</span><span class="s2">&quot;spicy(customSpice)&quot;</span><span class="o">&gt;</span><span class="nx">Custom</span> <span class="nx">spice</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
- <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">The</span> <span class="nx">food</span> <span class="nx">is</span>  <span class="nx">spicy</span><span class="o">!&lt;</span><span class="err">/p&gt;</span>
+
+ <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">The</span> <span class="nx">food</span> <span class="nx">is</span> <span class="p">{{</span><span class="nx">spice</span><span class="p">}}</span> <span class="nx">spicy</span><span class="o">!&lt;</span><span class="err">/p&gt;</span>
+
 <span class="o">&lt;</span><span class="err">/body&gt;</span>
 
 <span class="kd">function</span> <span class="nx">SpicyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
@@ -296,10 +300,10 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 
 <p>Angular에서 컨트롤러 상속은 Scope 상속에 기반한다. 예제를 살펴보자.</p>
 <div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">body</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">&quot;MainCtrl&quot;</span><span class="o">&gt;</span>
- <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Good</span> <span class="p">,</span> <span class="o">!&lt;</span><span class="err">/p&gt;</span>
+ <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Good</span> <span class="p">{{</span><span class="nx">timeOfDay</span><span class="p">}},</span> <span class="p">{{</span><span class="nx">name</span><span class="p">}}</span><span class="o">!&lt;</span><span class="err">/p&gt;</span>
  <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">&quot;ChildCtrl&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Good</span> <span class="p">,</span> <span class="o">!&lt;</span><span class="err">/p&gt;</span>
-  <span class="o">&lt;</span><span class="nx">p</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">&quot;BabyCtrl&quot;</span><span class="o">&gt;</span><span class="nx">Good</span> <span class="p">,</span> <span class="o">!&lt;</span><span class="err">/p&gt;</span>
+  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Good</span> <span class="p">{{</span><span class="nx">timeOfDay</span><span class="p">}},</span> <span class="p">{{</span><span class="nx">name</span><span class="p">}}</span><span class="o">!&lt;</span><span class="err">/p&gt;</span>
+  <span class="o">&lt;</span><span class="nx">p</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">controller</span><span class="o">=</span><span class="s2">&quot;BabyCtrl&quot;</span><span class="o">&gt;</span><span class="nx">Good</span> <span class="p">{{</span><span class="nx">timeOfDay</span><span class="p">}},</span> <span class="p">{{</span><span class="nx">name</span><span class="p">}}</span><span class="o">!&lt;</span><span class="err">/p&gt;</span>
  <span class="o">&lt;</span><span class="err">/div&gt;</span>
 <span class="o">&lt;</span><span class="err">/body&gt;</span>
 

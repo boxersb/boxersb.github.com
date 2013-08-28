@@ -52,10 +52,12 @@ function MyCtrl($scope) {
 }
 ```
 
-* 템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다.
+* 템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다. ㅋ
 
 	```html
-	<button ng-click="{{foo='bar'}}">Click me</button>
+	{% raw %}
+	<button ng-click="{{ foo='bar' }} ">Click me</button>
+	{% endraw %}
 	```
 
 * 템플릿에서 ngInit 지시자(directive)를 사용한다. 이 방법은, 연습용으로만 사용하고 실 서비스에서는 지양하길 바란다.
@@ -159,7 +161,9 @@ angular에서 컨트롤러가 동작하는 방식을 설명하기 위해, 다음
 <body ng-controller="SpicyCtrl">
  <button ng-click="chiliSpicy()">Chili</button>
  <button ng-click="jalapenoSpicy()">Jalapeño</button>
+{% raw %}
  <p>The food is {{spice}} spicy!</p>
+{% endraw %}
 </body>
  
 function SpicyCtrl($scope) {
@@ -192,7 +196,9 @@ function SpicyCtrl($scope) {
  <input ng-model="customSpice" value="wasabi">
  <button ng-click="spicy('chili')">Chili</button>
  <button ng-click="spicy(customSpice)">Custom spice</button>
+{% raw %}
  <p>The food is {{spice}} spicy!</p>
+{% endraw %}
 </body>
  
 function SpicyCtrl($scope) {
@@ -209,6 +215,7 @@ SpicyCtrl 컨트롤러는 이제 하나의 매개변수 spice 를 취하는 spic
 Angular에서 컨트롤러 상속은 Scope 상속에 기반한다. 예제를 살펴보자.
 
 ```js
+{% raw %}
 <body ng-controller="MainCtrl">
  <p>Good {{timeOfDay}}, {{name}}!</p>
  <div ng-controller="ChildCtrl">
@@ -230,6 +237,7 @@ function BabyCtrl($scope) {
  $scope.timeOfDay = 'evening';
  $scope.name = 'Gingerbreak Baby';
 }
+{% endraw %}
 ```
 	
 템플릿에서 3개의 ngController가 중첩되어 있는 구조에 주목하자. 이 템플릿은 결과적으로 뷰를 위한 4개의 스코프를 생성한다.

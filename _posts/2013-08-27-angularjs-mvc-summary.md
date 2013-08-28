@@ -45,32 +45,35 @@ function MyCtrl($scope) {
 
 * 템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다.
 
-```html
-<button ng-click="{{foo='bar'}}">Click me</button>
-```
+	```html
+	<button ng-click="{{foo='bar'}}">Click me</button>
+	```
+
 * 템플릿에서 ngInit 지시자(directive)를 사용한다. 이 방법은, 연습용으로만 사용하고 실 서비스에서는 지양하길 바란다.
 
-```html
-<body ng-init=" foo = 'bar' ">
-```
+	```html
+	<body ng-init=" foo = 'bar' "> ... </body>
+	```
 
-Angular는 다음의 템플릿을 생성하면 묵시적으로(scope 프로퍼티 생성과 적절한 값을 할당함으로써) 모델을 생성한다.  
+Angular는 다음의 템플릿을 생성하면 묵시적으로(scope 프로퍼티 생성과 적절한 값을 할당함으로써) 모델을 생성한다.
+
 * input과 select, textarea 등의 폼 요소
 
-```html
-<input ng-model="query" value="fluffy cloud">
-```
+	```html
+	<input ng-model="query" value="fluffy cloud">
+	```
 
 	위 코드는 현재 스코프에 "query"라는 모델을 생성하고 "fluffy cloud"라는 값을 설정한다.
 * ngRepeater를 통한 반복 선언시
 
-```html
-<p ng-repeat="phone in phones"></p>
-```
+	```html
+	<p ng-repeat="phone in phones"></p>
+	```
 
     위 코드는 "phones" 배열내 각 요소를 위한 하나의 자식 스코프를 생성하고, 각 스코프에 배열 원소의 값인 "phone" 객체 모델을 생성한다. 
 
 Angular에서는 아래의 경우에 자바스크립트 객체를 모델로 만들지 않는다.
+
 * Angular 스코프에 객체를 참조하는 프로퍼티가 없는경우
 * 가비지 컬렉션에 들어갈 수 있는 객체를 참조하는 프로퍼티를 포함한 모든 Angular 스코프
 

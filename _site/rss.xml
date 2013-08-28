@@ -5,8 +5,8 @@
         <description>Boxer's Front End - boxersb</description>
         <link>http://boxersb.github.io</link>
         <link>http://boxersb.github.io</link>
-        <lastBuildDate>2013-08-28T12:00:18+09:00</lastBuildDate>
-        <pubDate>2013-08-28T12:00:18+09:00</pubDate>
+        <lastBuildDate>2013-08-28T12:09:43+09:00</lastBuildDate>
+        <pubDate>2013-08-28T12:09:43+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -50,29 +50,33 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;p&gt;템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Click me&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;템플릿에서 ngInit 지시자(directive)를 사용한다. 이 방법은, 연습용으로만 사용하고 실 서비스에서는 지양하길 바란다.&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;템플릿에서 ngInit 지시자(directive)를 사용한다. 이 방법은, 연습용으로만 사용하고 실 서비스에서는 지양하길 바란다.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-init=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; foo = &amp;#39;bar&amp;#39; &amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; ... &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-init=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; foo = &amp;#39;bar&amp;#39; &amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Angular는 다음의 템플릿을 생성하면 묵시적으로(scope 프로퍼티 생성과 적절한 값을 할당함으로써) 모델을 생성한다.&lt;br&gt;
-* input과 select, textarea 등의 폼 요소&lt;/p&gt;
+
+&lt;p&gt;Angular는 다음의 템플릿을 생성하면 묵시적으로(scope 프로퍼티 생성과 적절한 값을 할당함으로써) 모델을 생성한다.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;input과 select, textarea 등의 폼 요소&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;query&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;fluffy cloud&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;위 코드는 현재 스코프에 &amp;quot;query&amp;quot;라는 모델을 생성하고 &amp;quot;fluffy cloud&amp;quot;라는 값을 설정한다.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;ngRepeater를 통한 반복 선언시&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;위 코드는 현재 스코프에 &amp;quot;query&amp;quot;라는 모델을 생성하고 &amp;quot;fluffy cloud&amp;quot;라는 값을 설정한다.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ngRepeater를 통한 반복 선언시&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-repeat=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;phone in phones&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;위 코드는 &amp;quot;phones&amp;quot; 배열내 각 요소를 위한 하나의 자식 스코프를 생성하고, 각 스코프에 배열 원소의 값인 &amp;quot;phone&amp;quot; 객체 모델을 생성한다. 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Angular에서는 아래의 경우에 자바스크립트 객체를 모델로 만들지 않는다.
-* Angular 스코프에 객체를 참조하는 프로퍼티가 없는경우
-* 가비지 컬렉션에 들어갈 수 있는 객체를 참조하는 프로퍼티를 포함한 모든 Angular 스코프&lt;/p&gt;
+&lt;p&gt;위 코드는 &amp;quot;phones&amp;quot; 배열내 각 요소를 위한 하나의 자식 스코프를 생성하고, 각 스코프에 배열 원소의 값인 &amp;quot;phone&amp;quot; 객체 모델을 생성한다. &lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Angular에서는 아래의 경우에 자바스크립트 객체를 모델로 만들지 않는다.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Angular 스코프에 객체를 참조하는 프로퍼티가 없는경우&lt;/li&gt;
+&lt;li&gt;가비지 컬렉션에 들어갈 수 있는 객체를 참조하는 프로퍼티를 포함한 모든 Angular 스코프&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;아래의 그림은 간단한 템플릿을 통해 데이터 모델이 묵시적으로 생성되는 모습을 보여준다.
 &lt;img src=&quot;/imgs/about_model_final.png&quot; alt=&quot;Model created implicitly from a simple Template&quot;&gt;&lt;/p&gt;

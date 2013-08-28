@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="description" content="Javascript에서 옵저버 패턴 활용하기 | Boxer's Front End" />
+	<title>Javascript에서 옵저버 패턴 활용하기 | Boxer's Front End</title>
+	<meta name="author" content="boxersb">
+	<link href='/assets/themes/slate/css/stylesheet.css' rel="stylesheet" media="all">
+	<link href='/assets/themes/slate/css/pygment_trac.css' rel="stylesheet" media="all">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="Javascript에서 옵저버 패턴 활용하기" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+      <a id="forkme_banner" href="https://github.com/boxersb">View on GitHub</a>
+
+      <h1 id="project_title"><a href="/">Boxer's Front End</a></h1>
+      <!-- <h2 id="project_tagline"></h2> -->
+
+		<nav class="nav-global">
+			<ul>
+				<li class="archive"><a href="/archive.html">Archive</a></li>
+				<li class="page"><a href="/pages.html">Pages</a></li>
+				<li class="category"><a href="/categories.html">Categories</a></li>
+				<li class="tag"><a href="/tags.html">tags</a></li>
+			</ul>
+		</nav>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+	<section id="main_content" class="inner">
+		
+
+<article class="unit-article layout-post">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title"><a href="/javascript/2010/04/01/observer-pattern-of-javascript">Javascript에서 옵저버 패턴 활용하기</a></h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					<div class="meta">
+						<ul class="list-date-category">
+							<li>
+								<date class="date-pub" title="2010-04-01T00:00:00+09:00" datetime="2010-04-01T00:00:00+09:00" pubdate>
+								<span class="month"><abbr>April</abbr></span>
+								<span class="day">01</span>
+								<span class="year">2010</span>
+								</date>
+							</li>
+							<li class="author">
+								by <a href="https://twitter.com/boxersb" target="twitter">boxersb</a> in 
+							</li>
+							
+							
+
+
+  
+     
+    	<li><a href="/categories.html#javascript-ref">
+    		javascript <span>3</span>
+    	</a></li>
+    
+  
+
+
+						</ul>
+						<ul class="list-tag list-linear">
+							<li class="list-head">tags: </li>
+							
+							
+
+
+  
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#observer-ref">observer <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#pattern-ref">pattern <span>1</span></a></li>
+    
+  
+
+
+
+						</ul>
+					</div><!-- meta -->
+
+					<div class="content-body">
+					<p>Observer Pattern이란 여러개의 Class를 작성하였을 때 각 Class들간의 연관성을 유지하기 위해 결합도를 높이는 대신 객체의 상태를 관찰하는 방법을 사용하는 디자인 패턴입니다.</p>
+
+<p>예를 들어 기본적인 MVC 패턴을 사용하여 어플리케이션을 개발하였을 경우 각 Model. View, Controller 클래스들은 각각 다른 역할을 하게됩니다. 그러나 Controller 가 Model과 View의 중심에서 각 객체들에게 명령을 내리면 명령을 받은 객체는 명령의 실행결과나 상태를 Controller에게 보고하여야 합니다.
+이때 일반적으로 높은 결합도를 가지게 됩니다. Model이나 View의 입장에선 Controller에게 보고하기 위한 수단으로 Controller의 참조를 취하게 되기 때문이죠</p>
+
+<p>Controller에서 Model의 메소드를 실행</p>
+
+<div class="highlight"><pre><code class="javascript">    <span class="nx">Controller</span><span class="p">.</span><span class="nx">Model</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Model</span><span class="p">(</span><span class="nx">Controller</span><span class="p">);</span>
+    <span class="nx">Controller</span><span class="p">.</span><span class="nx">View</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">View</span><span class="p">(</span><span class="nx">Controller</span><span class="p">);</span>
+
+    <span class="nx">Controller</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">getMemberList</span><span class="p">();</span>
+</code></pre></div>
+
+<p>Model은 Controller의 참조를 가지고 있으며 요청결과를 Controller에게 알려줌.</p>
+
+<div class="highlight"><pre><code class="javascript">   <span class="nx">Model</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">controller</span><span class="p">){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">controller</span> <span class="o">=</span> <span class="nx">controller</span><span class="p">;</span>
+   <span class="p">};</span>
+   <span class="nx">Model</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+       <span class="c1">//some code blocks</span>
+       <span class="nx">getMemberList</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+             <span class="c1">// request Query and Return</span>
+             <span class="k">this</span><span class="p">.</span><span class="nx">controller</span><span class="p">.</span><span class="nx">printMemberList</span><span class="p">();</span>
+       <span class="p">}</span>
+   <span class="p">};</span>
+</code></pre></div>
+
+<p>이런식으로 어플리케이션이 짜여질 경우 Model과 Controller와의 결합도가 매우 높아지기 때문에 재사용성이 떨어지며 유지보수가 힘들어지게 됩니다.</p>
+
+<p>이때 Observer Pattern을 적용하면 이러한 문제점을 어느정도 해소할 수 있습니다.
+JavaScript 기반의 Front End 환경에서는 쉽게 예를 들어 DOM Event 모델을 예로 들 수 있겠습니다.</p>
+
+<p>element가 element를 Control 하는 객체를 알 필요가 없음</p>
+
+<div class="highlight"><pre><code class="javascript">    <span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="nx">Controller</span><span class="p">.</span><span class="nx">onElementClick</span><span class="p">);</span>
+</code></pre></div>
+
+<p>일반객체에 Custom Event를 만들자
+﻿DOM Event 모델﻿ 이외에도 Observer 패턴은 얼마든지 활용할 수 있습니다.
+위에 나왔던 MVC 모델을 예로 들자면.. Model과 View는 Controller의 참조를 취득할 필요 없이..
+특정한 Event를 발생시키도록 작성할 수 있습니다.</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">var</span> <span class="nx">Controller</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Model</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Model</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">View</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">View</span><span class="p">();</span>
+    <span class="c1">// some code blocks</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">bindEvents</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">getMemberList</span><span class="p">();</span>
+<span class="p">};</span>
+<span class="nx">Controller</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="nx">bindEvents</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+       <span class="k">this</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s2">&quot;onGetMemberListComplete&quot;</span><span class="p">,</span>
+                         <span class="k">this</span><span class="p">.</span><span class="nx">printMemberList</span><span class="p">);</span>
+       <span class="c1">// some code blocks</span>
+   <span class="p">},</span>
+   <span class="nx">printMemberList</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+       <span class="k">this</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">showMemberList</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+       <span class="c1">// some code blocks</span>
+   <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>위와 같은 방식으로 하면 Model과 View는 Controller를 따로 알필요 없이 Event 모델만으로 동작을 하게 됩니다. 물론 저기서 나오는 addEvent라는 메소드와 onGetMemberListComplete 라는 이벤트 타입은 제가 만들어 낸것이죠.<br>
+그럼 어떻게 만드냐구요?? 제가 만든 Observer Class를 공개합니다.</p>
+
+<p><strong>Observer.js</strong></p>
+
+<div class="highlight"><pre><code class="javascript"> <span class="cm">/*!</span>
+<span class="cm"> * JavaScript Observer</span>
+<span class="cm"> *</span>
+<span class="cm"> * Date: 2010. 4. 1.</span>
+<span class="cm"> * Author: boxersb(Kyoungtaek Koo)</span>
+<span class="cm"> * blog: http://boxersb.github.io</span>
+<span class="cm"> * twitter: @boxersb</span>
+<span class="cm"> * gmail: boxersb@gmail.com</span>
+<span class="cm"> *</span>
+<span class="cm"> * Copyright (c) 2010 boxersb (Kyoungtaek Koo)</span>
+<span class="cm"> */</span>
+<span class="kd">var</span> <span class="nx">Observer</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">EVENTID</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">addEvent</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">hnd</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">listeners</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">])</span> <span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
+    
+    <span class="kd">var</span> <span class="nx">eventId</span> <span class="o">=</span> <span class="nx">Observer</span><span class="p">.</span><span class="nx">EVENTID</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">][</span><span class="nx">eventId</span><span class="p">]</span> <span class="o">=</span> <span class="nx">hnd</span><span class="p">;</span>
+    
+    <span class="k">return</span> <span class="nx">eventId</span><span class="p">;</span>
+  <span class="p">},</span>
+  
+  <span class="nx">fireEvent</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">type</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">listeners</span> <span class="o">||</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">])</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">handlers</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">],</span> <span class="nx">eventId</span><span class="p">,</span>
+      <span class="nx">args</span> <span class="o">=</span>  <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">handlers</span><span class="p">.</span><span class="nx">stop</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    
+    <span class="nx">args</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">eventId</span> <span class="k">in</span> <span class="nx">handlers</span><span class="p">)</span> <span class="k">if</span><span class="p">(</span><span class="nx">handlers</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">eventId</span><span class="p">)){</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">eventId</span> <span class="o">!==</span> <span class="s2">&quot;stop&quot;</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">handlers</span><span class="p">[</span><span class="nx">eventId</span><span class="p">].</span><span class="nx">stop</span><span class="p">){</span>
+          <span class="nx">handlers</span><span class="p">[</span><span class="nx">eventId</span><span class="p">].</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span> 
+    <span class="p">};</span>
+  <span class="p">},</span>
+  
+  <span class="nx">removeEvent</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">hnd</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">listeners</span> <span class="o">||</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">])</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">handlers</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">],</span> <span class="nx">eventId</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">hnd</span> <span class="o">===</span> <span class="s2">&quot;function&quot;</span><span class="p">){</span>
+      <span class="k">for</span><span class="p">(</span><span class="nx">eventId</span> <span class="k">in</span> <span class="nx">handlers</span><span class="p">)</span> <span class="k">if</span><span class="p">(</span><span class="nx">handlers</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">f</span><span class="p">)){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">handlers</span><span class="p">[</span><span class="nx">eventId</span><span class="p">]</span> <span class="o">===</span> <span class="nx">hnd</span><span class="p">){</span>
+          <span class="k">delete</span> <span class="nx">handlers</span><span class="p">[</span><span class="nx">eventId</span><span class="p">];</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span> 
+      <span class="p">};</span>
+      <span class="k">return</span> <span class="o">!</span><span class="nx">handlers</span><span class="p">[</span><span class="nx">eventId</span><span class="p">];</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">handlers</span><span class="p">[</span><span class="nx">hnd</span><span class="p">])</span> <span class="k">delete</span> <span class="nx">handlers</span><span class="p">[</span><span class="nx">hnd</span><span class="p">]</span>
+      <span class="k">return</span> <span class="o">!</span><span class="nx">handlers</span><span class="p">[</span><span class="nx">hnd</span><span class="p">];</span>
+    <span class="p">};</span>
+  <span class="p">},</span>
+  
+  <span class="nx">stopEvent</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">hnd</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">listeners</span> <span class="o">||</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">])</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">handlers</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">],</span> <span class="nx">eventId</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> 
+    <span class="k">if</span><span class="p">(</span><span class="nx">hnd</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">hnd</span> <span class="o">===</span> <span class="s2">&quot;function&quot;</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="nx">eventId</span> <span class="k">in</span> <span class="nx">handlers</span><span class="p">)</span> <span class="k">if</span><span class="p">(</span><span class="nx">handlers</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">f</span><span class="p">)){</span>
+          <span class="k">if</span><span class="p">(</span><span class="nx">handlers</span><span class="p">[</span><span class="nx">eventId</span><span class="p">]</span> <span class="o">===</span> <span class="nx">hnd</span><span class="p">){</span>
+            <span class="nx">handlers</span><span class="p">[</span><span class="nx">eventId</span><span class="p">].</span><span class="nx">stop</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">};</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">handlers</span><span class="p">[</span><span class="nx">hnd</span><span class="p">].</span><span class="nx">stop</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>  
+      <span class="nx">handlers</span><span class="p">.</span><span class="nx">stop</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  
+  <span class="nx">restoreEvent</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="nx">hnd</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">listeners</span> <span class="o">||</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">])</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">handlers</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">listeners</span><span class="p">[</span><span class="nx">type</span><span class="p">],</span> <span class="nx">eventId</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">hnd</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">hnd</span> <span class="o">===</span> <span class="s2">&quot;function&quot;</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="nx">eventId</span> <span class="k">in</span> <span class="nx">handlers</span><span class="p">)</span> <span class="k">if</span><span class="p">(</span><span class="nx">handlers</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">f</span><span class="p">)){</span>
+          <span class="k">if</span><span class="p">(</span><span class="nx">handlers</span><span class="p">[</span><span class="nx">eventId</span><span class="p">]</span> <span class="o">===</span> <span class="nx">hnd</span><span class="p">){</span>
+            <span class="nx">handlers</span><span class="p">[</span><span class="nx">eventId</span><span class="p">].</span><span class="nx">stop</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">};</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">handlers</span><span class="p">[</span><span class="nx">hnd</span><span class="p">].</span><span class="nx">stop</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="nx">handlers</span><span class="p">.</span><span class="nx">stop</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  
+  <span class="nx">applyObserver</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tclass</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">p</span> <span class="k">in</span> <span class="k">this</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">callee</span><span class="p">){</span>       
+        <span class="nx">tclass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">p</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>위 Observer 객체를 사용하여 Event 모델을 구축합니다.</p>
+
+<div class="highlight"><pre><code class="javascript">    <span class="c1">// Controller definitions...</span>
+   <span class="nx">Observer</span><span class="p">.</span><span class="nx">applyObserver</span><span class="p">(</span><span class="nx">Controller</span><span class="p">);</span>
+   <span class="nx">Model</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+       <span class="c1">// some code blocks</span>
+   <span class="p">};</span>
+   <span class="nx">Model</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+       <span class="c1">//some code blocks</span>
+       <span class="nx">getMemberList</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+             <span class="c1">// request Query and Return</span>
+            <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">xhr</span><span class="p">.</span><span class="nx">responseXML</span><span class="p">;</span>
+             <span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s2">&quot;onGetMemberListComplete&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+       <span class="p">}</span>
+   <span class="p">};</span>
+   <span class="nx">Observer</span><span class="p">.</span><span class="nx">applyObserver</span><span class="p">(</span><span class="nx">Model</span><span class="p">);</span>
+</code></pre></div>
+
+<ul>
+<li><strong>addEvent</strong>(<em>type, handler</em>) - 관찰(Observe)할 이벤트를 추가한다. 이벤트 타입은 자유롭게 설정.</li>
+<li><strong>fireEvent</strong>(<em>type, args..</em>) - 관찰하고 있는 이벤트 type의 모든 헨들러를 호출한다. </li>
+<li><strong>removeEvent</strong>(<em>type, handler</em>) - 특정 이벤트 옵저버를 제거한다.</li>
+<li><strong>stopEvent</strong>(<em>type, handler</em>) - 특정 이벤트 옵저버를 일시적으로 정지시킨다(제거하지 않음)</li>
+<li><strong>restoreEvent</strong>(<em>type, handler</em>) - 정지된 특정 이벤트 옵저버를 복원한다.</li>
+<li><strong>applyObserver</strong>(<em>tclass</em>) - 대상 클래스에 Observer API를 확장한다.</li>
+</ul>
+
+					</div>
+				</div><!-- entry-content -->
+				<div class="misc-content">
+					<div class="social">
+						<ul class="list-linear">
+							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="boxersb" data-lang="en">Tweet</a></div></li>
+							<li><div class="twitter-follow"><a href="https://twitter.com/boxersb" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
+						</ul>
+					</div>
+					<div class="comment">
+					
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123937814464693";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="/javascript/2010/04/01/observer-pattern-of-javascript" data-num-posts="5" data-width="640" data-colorscheme="light"></div>
+
+
+
+					</div>
+				</div><!-- misc-content -->
+			</div><!-- bd -->
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<nav class="pagination">
+						<ul>
+							
+							<li class="prev"><a class="internal" rel="prev"  href="/javascript/2007/03/12/firefox-korean-lang-trick" title="View 파이어폭스에서 한글관련 이벤트 처리 트릭">&laquo; 파이어폭스에서 한글관련 이벤트 처리 트릭</a></li>
+							
+							
+							<li class="pipe"> | </li>
+							
+							
+							<li class="next"><a class="internal" rel="next"  href="/javascript/2010/04/05/tostring-and-tovalue-of-object" title="View Object의 toString과 toValue 메서드에 대한 고찰">Object의 toString과 toValue 메서드에 대한 고찰 &raquo;</a></li>
+							
+						</ul>
+					</nav>
+					<p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p>
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+	</section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+	<footer class="inner">
+		<p>Published with <a href="http://pages.github.com">GitHub Pages</a> and <a href="http://jekyllbootstrap.com/">Jekyll</a></p>
+	</footer>
+</div>
+
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/javascript/2010/04/01/observer-pattern-of-javascript" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	}(document, 'script'));
+</script>
+
+	
+
+	<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
+	<script type="text/javascript">
+		if(!wcs_add) var wcs_add = {};
+		wcs_add["wa"] = "a7768d103fade8";
+		wcs_do();
+	</script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="description" content="AngularJS의 MVC 패턴 개요 | Boxer's Front End" />
+	<title>AngularJS의 MVC 패턴 개요 | Boxer's Front End</title>
+	<meta name="author" content="boxersb">
+	<link href='/assets/themes/slate/css/stylesheet.css' rel="stylesheet" media="all">
+	<link href='/assets/themes/slate/css/pygment_trac.css' rel="stylesheet" media="all">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="AngularJS의 MVC 패턴 개요" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+      <a id="forkme_banner" href="https://github.com/boxersb">View on GitHub</a>
+
+      <h1 id="project_title"><a href="/">Boxer's Front End</a></h1>
+      <!-- <h2 id="project_tagline"></h2> -->
+
+		<nav class="nav-global">
+			<ul>
+				<li class="archive"><a href="/archive.html">Archive</a></li>
+				<li class="page"><a href="/pages.html">Pages</a></li>
+				<li class="category"><a href="/categories.html">Categories</a></li>
+				<li class="tag"><a href="/tags.html">tags</a></li>
+			</ul>
+		</nav>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+	<section id="main_content" class="inner">
+		
+
+<article class="unit-article layout-post">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title"><a href="/angularjs/2013/08/27/angularjs-mvc-summary">AngularJS의 MVC 패턴 개요</a></h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					<div class="meta">
+						<ul class="list-date-category">
+							<li>
+								<date class="date-pub" title="2013-08-27T00:00:00+09:00" datetime="2013-08-27T00:00:00+09:00" pubdate>
+								<span class="month"><abbr>August</abbr></span>
+								<span class="day">27</span>
+								<span class="year">2013</span>
+								</date>
+							</li>
+							<li class="author">
+								by <a href="https://twitter.com/boxersb" target="twitter">boxersb</a> in 
+							</li>
+							
+							
+
+
+  
+     
+    	<li><a href="/categories.html#angularjs-ref">
+    		angularjs <span>1</span>
+    	</a></li>
+    
+  
+
+
+						</ul>
+						<ul class="list-tag list-linear">
+							<li class="list-head">tags: </li>
+							
+							
+
+
+  
+     
+    	<li><a href="/tags.html#angular-ref">angular <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#MVC-ref">MVC <span>1</span></a></li>
+    
+  
+
+
+
+						</ul>
+					</div><!-- meta -->
+
+					<div class="content-body">
+					<h2>Angular의 MVC</h2>
+
+<p>모델-뷰-컨트롤러(MVC)가 처음 나온 이후로 수년간 여러가지 다른 의미로 변화되고 있는 와중에, Angular는 본래의 MVC 소프트웨어 디자인 패턴 이면의 기본 원칙들을 클라이언트 웹 애플리케이션 개발에 적용하고자 했다.</p>
+
+<p>MVC 패턴을 요약하자면:</p>
+
+<ul>
+<li>애플리케이션은 개별적인 표현과 데이터, 로직 컴포넌트 단위로 분리한다.</li>
+<li>이런 컴포넌트간의 약한 결합성을 장려한다.</li>
+</ul>
+
+<p>서비스와 의존성 주입 개념을 통해, MVC는 angular 애플리케이션을 더 구조적이고 유지보수를 쉽게해주며, 더 testable 하게 만들어준다.</p>
+
+<p>아래의 주제들은 angular가 angular 특유의 웹 애플리케이션 개발 방법론에 어떤식으로 MVC 패턴을 적용했는지 설명한다.</p>
+
+<ul>
+<li>Model 컴포넌트의 이해</li>
+<li>Controller 컴포넌트의 이해</li>
+<li>View 컴포넌트의 이해</li>
+</ul>
+
+<h3>Model 컴포넌트의 이해</h3>
+
+<p>이 문서의 맥락에 따라, <strong><em>모델</em></strong>이라는 용어는 하나의 엔티티(예를 들어, 휴대폰 목록의 배열을 값으로 가지는 &quot;phones&quot;라고 불리는 모델)를 나타내는 단일 객체이거나 애플리케이션의 전체 데이터 모델 (모든 엔티티)중 하나를 가리킨다.</p>
+
+<p>Angular에서 모델은 angular Scope 객체의 프로퍼티로 접근 가능한 데이터를 말한다. 프로퍼티의 이름은 모델 식별자이며 해당 값은 모든 형태의 자바스크립트 객체이다. (원시타입의 값와 배열을 포함한다)</p>
+
+<p>Angular에서 자바스크립트 객체를 모델로 만들기 위한 요구사항은 객체가 scope 객체의 프로퍼티로써 Angular 스코프에 의해 참조되어야 한다는점 뿐이다. 이 프로퍼티 참조는 명시 또는 묵시적으로 생성할 수 있다.</p>
+
+<p>명시적으로 scope 프로퍼티들이 자바스크립트 객체를 참조하여 모델을 생성하는 방법은 다음과 같다.:
+* 코드상에서 scope 객체에 프로퍼티를 직접 할당한다. 컨트롤러에서 가장 일반적으로 사용될 수 있는 방법이다.</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">function</span> <span class="nx">MyCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// create property &#39;foo&#39; on the MyCtrl&#39;s scope</span>
+    <span class="c1">// and assign it an initial value &#39;bar&#39;</span>
+   <span class="nx">$scope</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다.</li>
+</ul>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<ul>
+<li>템플릿에서 ngInit 지시자(directive)를 사용한다. 이 방법은, 연습용으로만 사용하고 실 서비스에서는 지양하길 바란다.</li>
+</ul>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;body</span> <span class="na">ng-init=</span><span class="s">&quot; foo = &#39;bar&#39; &quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+<p>Angular는 다음의 템플릿을 생성하면 묵시적으로(scope 프로퍼티 생성과 적절한 값을 할당함으로써) 모델을 생성한다.<br>
+* input과 select, textarea 등의 폼 요소</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;input</span> <span class="na">ng-model=</span><span class="s">&quot;query&quot;</span> <span class="na">value=</span><span class="s">&quot;fluffy cloud&quot;</span><span class="nt">&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">위 코드는 현재 스코프에 &quot;query&quot;라는 모델을 생성하고 &quot;fluffy cloud&quot;라는 값을 설정한다.
+</code></pre></div>
+<ul>
+<li>ngRepeater를 통한 반복 선언시</li>
+</ul>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">ng-repeat=</span><span class="s">&quot;phone in phones&quot;</span><span class="nt">&gt;&lt;/p&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">위 코드는 &quot;phones&quot; 배열내 각 요소를 위한 하나의 자식 스코프를 생성하고, 각 스코프에 배열 원소의 값인 &quot;phone&quot; 객체 모델을 생성한다. 
+</code></pre></div>
+<p>Angular에서는 아래의 경우에 자바스크립트 객체를 모델로 만들지 않는다.
+* Angular 스코프에 객체를 참조하는 프로퍼티가 없는경우
+* 가비지 컬렉션에 들어갈 수 있는 객체를 참조하는 프로퍼티를 포함한 모든 Angular 스코프</p>
+
+<p>아래의 그림은 간단한 템플릿을 통해 데이터 모델이 묵시적으로 생성되는 모습을 보여준다.
+<img src="/imgs/about_model_final.png" alt="Model created implicitly from a simple Template"></p>
+
+					</div>
+				</div><!-- entry-content -->
+				<div class="misc-content">
+					<div class="social">
+						<ul class="list-linear">
+							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="boxersb" data-lang="en">Tweet</a></div></li>
+							<li><div class="twitter-follow"><a href="https://twitter.com/boxersb" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
+						</ul>
+					</div>
+					<div class="comment">
+					
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123937814464693";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="/angularjs/2013/08/27/angularjs-mvc-summary" data-num-posts="5" data-width="640" data-colorscheme="light"></div>
+
+
+
+					</div>
+				</div><!-- misc-content -->
+			</div><!-- bd -->
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<nav class="pagination">
+						<ul>
+							
+							<li class="prev"><a class="internal" rel="prev"  href="/jekyll/2013/04/03/jekyll-introduction" title="View Jekyll 소개">&laquo; Jekyll 소개</a></li>
+							
+							
+							
+						</ul>
+					</nav>
+					<p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p>
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+	</section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+	<footer class="inner">
+		<p>Published with <a href="http://pages.github.com">GitHub Pages</a> and <a href="http://jekyllbootstrap.com/">Jekyll</a></p>
+	</footer>
+</div>
+
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/angularjs/2013/08/27/angularjs-mvc-summary" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	}(document, 'script'));
+</script>
+
+	
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39442592-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+	<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
+	<script type="text/javascript">
+		if(!wcs_add) var wcs_add = {};
+		wcs_add["wa"] = "a7768d103fade8";
+		wcs_do();
+	</script>
+</body>
+</html>

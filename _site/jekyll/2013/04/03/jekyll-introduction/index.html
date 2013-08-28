@@ -117,7 +117,7 @@ rss는 물론 Atom도 지원하며, disqus나 facebook 소셜 플러그인을 �
 <h3>Jekyll 설치</h3>
 
 <p>Jekyll은 Ruby gem으로 제공되므로 커멘드 라인에서 아래와 같이 설치한다.</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">    <span class="nv">$ </span>gem install jekyll
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>gem install jekyll
 </code></pre></div>
 <h3>Jekyll-Bootstrap 설치</h3>
 
@@ -126,10 +126,10 @@ SITENAME은 만들려는 사이트의 이름이다.  </p>
 
 <p>다음으로, Jekyll-Bootstrap을 설치한다.<br>
 Jekyll-Bootstrap은 Jekyll을 사용한 사이트를 만들기위해 필요한 작업을 간단하게 처리해준다.  </p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">    <span class="nv">$ </span>git clone https://github.com/plusjade/jekyll-bootstrap.git SITENAME.github.com
-    <span class="nv">$ </span><span class="nb">cd </span>SITENAME.github.com
-    <span class="nv">$ </span>git remote <span class="nb">set</span>-url origin git@github.com:YOURACCOUNT/SITENAME.github.com.git
-    <span class="nv">$ </span>git push origin master
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>git clone https://github.com/plusjade/jekyll-bootstrap.git SITENAME.github.com
+<span class="nv">$ </span><span class="nb">cd </span>SITENAME.github.com
+<span class="nv">$ </span>git remote <span class="nb">set</span>-url origin git@github.com:YOURACCOUNT/SITENAME.github.com.git
+<span class="nv">$ </span>git push origin master
 </code></pre></div>
 <p>앞서 만들어 두었던 SITENAME.github.com 저장소에 jekyll-bootstrap을 clone 한다.<br>
 그런 다음, git remote set-url 을 사용하여 origin을 다시 SITENAME.github.com으로 수정한다.<br>
@@ -140,7 +140,7 @@ Jekyll-Bootstrap은 Jekyll을 사용한 사이트를 만들기위해 필요한 �
 <h3>로컬 서버 띄우기</h3>
 
 <p>jekyll은 로컬 웹서버도 지원한다.</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">    <span class="nv">$ </span>jekyll --server
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>jekyll --server
 </code></pre></div>
 <p>웹 서버를 시작하면, 현재 사이트에서 변경된 파일들을 모아, static html 파일들을 자동으로 생성해준다.<br>
 브라우저에서는 http://localhost:4000 으로 방금 만든 사이트를 테스트해볼 수 있다.</p>
@@ -150,17 +150,13 @@ Jekyll-Bootstrap은 Jekyll을 사용한 사이트를 만들기위해 필요한 �
 <p>jekyll은 테마기능도 지원한다. <a href="http://themes.jekyllbootstrap.com/">Jekyll 공식 테마 살펴보기</a><br>
 테마는 여러개를 하나의 Jekyll 사이트에 설치할 수 있으며, 테마 스위칭 기능도 지원한다. 물론, 테마는 커스터마이징이 가능하다.</p>
 
-<p><strong>테마 설치하기</strong>
-<code>bash
-    $ rake theme:install git=&quot;https://github.com/jekyllbootstrap/theme-the-program.git&quot;
-    $ rake theme:install git=&quot;https://github.com/boxersb/jekyll-theme-slate.git&quot;
-</code></p>
-
-<p><strong>테마 스위칭</strong>
-<code>bash
-    $ rake theme:switch name=&quot;the-program&quot;
-</code></p>
-
+<p><strong>테마 설치하기</strong></p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>rake theme:install <span class="nv">git</span><span class="o">=</span><span class="s2">&quot;https://github.com/jekyllbootstrap/theme-the-program.git&quot;</span>
+<span class="nv">$ </span>rake theme:install <span class="nv">git</span><span class="o">=</span><span class="s2">&quot;https://github.com/boxersb/jekyll-theme-slate.git&quot;</span>
+</code></pre></div>
+<p><strong>테마 스위칭</strong></p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>rake theme:switch <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;the-program&quot;</span>
+</code></pre></div>
 <h2>Jekyll 설정하기</h2>
 
 <p>Jekyll 사이트에 대한 설정은 /_config.yml 파일에 수록된다.<br>
@@ -170,19 +166,19 @@ Jekyll-Bootstrap은 Jekyll을 사용한 사이트를 만들기위해 필요한 �
 
 <p>_config.yml 파일에서 comments 절의 내용을 수정하면 된다.<br>
 여기서는 facebook 소셜 플러그인을 사용하였다. 각 댓글 서비스별로 수정이 필요한 곳은 FIXME로 표시해둔 부분을 참조하면 된다.  </p>
-<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby">    <span class="n">comments</span> <span class="p">:</span>
-      <span class="n">provider</span> <span class="p">:</span> <span class="n">facebook</span> <span class="c1">#FIXME</span>
-      <span class="n">disqus</span> <span class="p">:</span>
-        <span class="n">short_name</span> <span class="p">:</span> <span class="n">abc</span>  <span class="c1">#FIXME</span>
-      <span class="n">livefyre</span> <span class="p">:</span>
-        <span class="n">site_id</span> <span class="p">:</span> <span class="n">abc</span> <span class="c1">#FIXME</span>
-      <span class="n">intensedebate</span> <span class="p">:</span>
-        <span class="n">account</span> <span class="p">:</span> <span class="n">abc</span> <span class="c1">#FIXME</span>
-      <span class="n">facebook</span> <span class="p">:</span>
-        <span class="n">appid</span> <span class="p">:</span> <span class="n">abc</span>   <span class="c1">#FIXME</span>
-        <span class="n">num_posts</span><span class="p">:</span> <span class="mi">5</span>
-        <span class="ss">width</span><span class="p">:</span> <span class="mi">640</span>
-        <span class="ss">colorscheme</span><span class="p">:</span> <span class="n">light</span>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">comments</span> <span class="p">:</span>
+  <span class="n">provider</span> <span class="p">:</span> <span class="n">facebook</span> <span class="c1">#FIXME</span>
+  <span class="n">disqus</span> <span class="p">:</span>
+    <span class="n">short_name</span> <span class="p">:</span> <span class="n">abc</span>  <span class="c1">#FIXME</span>
+  <span class="n">livefyre</span> <span class="p">:</span>
+    <span class="n">site_id</span> <span class="p">:</span> <span class="n">abc</span> <span class="c1">#FIXME</span>
+  <span class="n">intensedebate</span> <span class="p">:</span>
+    <span class="n">account</span> <span class="p">:</span> <span class="n">abc</span> <span class="c1">#FIXME</span>
+  <span class="n">facebook</span> <span class="p">:</span>
+    <span class="n">appid</span> <span class="p">:</span> <span class="n">abc</span>   <span class="c1">#FIXME</span>
+    <span class="n">num_posts</span><span class="p">:</span> <span class="mi">5</span>
+    <span class="ss">width</span><span class="p">:</span> <span class="mi">640</span>
+    <span class="ss">colorscheme</span><span class="p">:</span> <span class="n">light</span>
 </code></pre></div>
 <h3>사이트 분석툴 사용하기</h3>
 
@@ -203,7 +199,7 @@ Jekyll-Bootstrap은 Jekyll을 사용한 사이트를 만들기위해 필요한 �
 매우 개발스러운 방법이지만, Rich Text Editing을 싫어하며 웹 호스팅하기 아까운 나같은 사람한테는 딱 좋은 플랫폼인 셈이다.  </p>
 
 <h3>새 포스트 만들기</h3>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">    <span class="nv">$ </span>rake post <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;Hello World&quot;</span>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>rake post <span class="nv">title</span><span class="o">=</span><span class="s2">&quot;Hello World&quot;</span>
 </code></pre></div>
 <p>이렇게 rake를 사용한 명령어를 사용하면 지정된 포스트에 해당되는 마크다운 파일이 만들어진다.  </p>
 
@@ -229,9 +225,9 @@ tags: []<br>
 <h3>페이지 만들기</h3>
 
 <p>포스트 외에 페이지도 만들 수 있다.  </p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">    <span class="nv">$ </span>rake page <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;about.md&quot;</span>
-    <span class="nv">$ </span>rake page <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;pages/profile.md&quot;</span>
-    <span class="nv">$ </span>rake page <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;pages/blogs&quot;</span>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>rake page <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;about.md&quot;</span>
+<span class="nv">$ </span>rake page <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;pages/profile.md&quot;</span>
+<span class="nv">$ </span>rake page <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;pages/blogs&quot;</span>
 </code></pre></div>
 <p>위와 같은 명령어를 실행한 후 결과메세지를 참고해서 해당 파일을 수정하면 된다.  </p>
 
@@ -239,9 +235,9 @@ tags: []<br>
 
 <p>jekyll --server를 사용하여 로컬 웹서버로 생성한 페이지 및 포스트를 모두 확인했다면, 실제로 웹에 노출되도록 배포해야한다.<br>
 Git 페이지 기반이며, Github Pages에서는 저장소의 master 브랜치에 해당되는 내용을 표시하므로, 간단히 master 브랜치로 변경사항을 push 하기만 하면 된다.  </p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">    <span class="nv">$ </span>git add .
-    <span class="nv">$ </span>git commit -m <span class="s2">&quot;new post(Jekyll 소개)&quot;</span>
-    <span class="nv">$ </span>git push origin master
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commit -m <span class="s2">&quot;new post(Jekyll 소개)&quot;</span>
+<span class="nv">$ </span>git push origin master
 </code></pre></div>
 					</div>
 				</div><!-- entry-content -->

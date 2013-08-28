@@ -4,7 +4,7 @@
  <title>Boxer's Front End</title>
  <link href="http://boxersb.github.io/" rel="self"/>
  <link href="http://boxersb.github.io"/>
- <updated>2013-08-28T18:29:10+09:00</updated>
+ <updated>2013-08-28T18:30:26+09:00</updated>
  <id>http://boxersb.github.io</id>
  <author>
    <name>boxersb</name>
@@ -55,8 +55,11 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 
 &lt;p&gt;Angular에서 자바스크립트 객체를 모델로 만들기 위한 요구사항은 객체가 scope 객체의 프로퍼티로써 Angular 스코프에 의해 참조되어야 한다는점 뿐이다. 이 프로퍼티 참조는 명시 또는 묵시적으로 생성할 수 있다.&lt;/p&gt;
 
-&lt;p&gt;명시적으로 scope 프로퍼티들이 자바스크립트 객체를 참조하여 모델을 생성하는 방법은 다음과 같다.:
-* 코드상에서 scope 객체에 프로퍼티를 직접 할당한다. 컨트롤러에서 가장 일반적으로 사용될 수 있는 방법이다.&lt;/p&gt;
+&lt;p&gt;명시적으로 scope 프로퍼티들이 자바스크립트 객체를 참조하여 모델을 생성하는 방법은 다음과 같다.:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;코드상에서 scope 객체에 프로퍼티를 직접 할당한다. 컨트롤러에서 가장 일반적으로 사용될 수 있는 방법이다.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyCtrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// create property &amp;#39;foo&amp;#39; on the MyCtrl&amp;#39;s scope&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// and assign it an initial value &amp;#39;bar&amp;#39;&lt;/span&gt;
@@ -99,9 +102,12 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 
 &lt;p&gt;Angular에서 컨트롤러는 루트 스코프를 제외한 angular 스코프의 인스턴스를 확장시키는데 사용되는 자바스크립트 함수(또는 클래스)이다.&lt;/p&gt;
 
-&lt;p&gt;컨트롤러는 다음의 경우에 사용한다.:
-* scope 객체의 초기 상태 설정
-* scope 객체에 동작 추가&lt;/p&gt;
+&lt;p&gt;컨트롤러는 다음의 경우에 사용한다.:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;scope 객체의 초기 상태 설정&lt;/li&gt;
+&lt;li&gt;scope 객체에 동작 추가&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3&gt;scope 객체의 초기 상태 설정하기&lt;/h3&gt;
 

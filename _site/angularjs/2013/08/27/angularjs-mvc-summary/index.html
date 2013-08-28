@@ -103,7 +103,9 @@
 AngularJS 공식 페이지의 튜토리얼을 하나씩 따라하다보니, 어느정도 구조가 눈에 들어왔다.
 AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개념을 설명하는 <a href="http://blog.outsider.ne.kr/975">@outsider 님의 포스트</a>를 먼저 읽어보면 도움이 많이 될것 같다.</p>
 
-<p>이 글에서는, <a href="http://docs.angularjs.org/guide/dev_guide.mvc">Angular에서 구현한 MVC의 기본 개념</a>에 대한, AngularJS 공식 페이지의 글을 옮겨보기로 하겠다.</p>
+<p>이 글에서는, <a href="http://docs.angularjs.org/guide/dev_guide.mvc">Angular에서 구현한 MVC의 기본 개념</a>에 대한, AngularJS 공식 페이지의 글을 옮겨보기로 하겠다.
+아직, AngularJS에 대해 깊히 알게 된게 아님으로, 평가 자체는 나중에 따로 포스팅 해보겠다.
+일단은, 구글이 이해하고 있는 방식의 Front-End MVC 라는 점에서 관전 포인트가 있을것 같다.</p>
 
 <h1>Angular의 MVC</h1>
 
@@ -121,12 +123,12 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 <p>아래의 주제들은 angular가 angular 특유의 웹 애플리케이션 개발 방법론에 어떤식으로 MVC 패턴을 적용했는지 설명한다.</p>
 
 <ul>
-<li>Model 컴포넌트의 이해</li>
-<li>Controller 컴포넌트의 이해</li>
-<li>View 컴포넌트의 이해</li>
+<li><a href="#ng-model">Model에 대한 이해</a></li>
+<li><a href="#ng-controller">Controller에 대한 이해</a></li>
+<li><a href="#ng-view">View에 대한 이해</a></li>
 </ul>
 
-<h2>Model의 이해</h2>
+<h2><a href="id:ng-model">Model에 대한 이해</a></h2>
 
 <p>이 문서의 맥락에 따라, <strong><em>모델</em></strong>이라는 용어는 하나의 엔티티(예를 들어, 휴대폰 목록의 배열을 값으로 가지는 &quot;phones&quot;라고 불리는 모델)를 나타내는 단일 객체이거나 애플리케이션의 전체 데이터 모델 (모든 엔티티)중 하나를 가리킨다.</p>
 
@@ -174,7 +176,7 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 <p>아래의 그림은 간단한 템플릿을 통해 데이터 모델이 묵시적으로 생성되는 모습을 보여준다.
 <img src="/imgs/about_model_final.png" alt="Model created implicitly from a simple Template"></p>
 
-<h2>Controller의 이해</h2>
+<h2><a href="id:ng-controller">Controller에 대한 이해</a></h2>
 
 <p>Angular에서 컨트롤러는 루트 스코프를 제외한 angular 스코프의 인스턴스를 확장시키는데 사용되는 자바스크립트 함수(또는 클래스)이다.</p>
 
@@ -385,7 +387,7 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
     <span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
-<h2>View의 이해</h2>
+<h2><a href="id:ng-view">View에 대한 이해</a></h2>
 
 <p>Angular에서 뷰는 브라우저에 불러들여져 렌더링된 DOM 이다. 그런 다음, Angular는 템플릿과 컨트롤러, 모델에 내재한 정보들을 기반으로 DOM을 변형 시킨다.</p>
 

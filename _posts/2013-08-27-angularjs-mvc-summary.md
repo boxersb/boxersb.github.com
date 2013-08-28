@@ -13,6 +13,8 @@ AngularJS 공식 페이지의 튜토리얼을 하나씩 따라하다보니, 어�
 AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개념을 설명하는 [@outsider 님의 포스트](http://blog.outsider.ne.kr/975)를 먼저 읽어보면 도움이 많이 될것 같다.
 
 이 글에서는, [Angular에서 구현한 MVC의 기본 개념](http://docs.angularjs.org/guide/dev_guide.mvc)에 대한, AngularJS 공식 페이지의 글을 옮겨보기로 하겠다.
+아직, AngularJS에 대해 깊히 알게 된게 아님으로, 평가 자체는 나중에 따로 포스팅 해보겠다.
+일단은, 구글이 이해하고 있는 방식의 Front-End MVC 라는 점에서 관전 포인트가 있을것 같다.
 
 # Angular의 MVC
 
@@ -27,11 +29,11 @@ MVC 패턴을 요약하자면:
 
 아래의 주제들은 angular가 angular 특유의 웹 애플리케이션 개발 방법론에 어떤식으로 MVC 패턴을 적용했는지 설명한다.
 
-* Model 컴포넌트의 이해
-* Controller 컴포넌트의 이해
-* View 컴포넌트의 이해
+* [Model에 대한 이해](#ng-model)
+* [Controller에 대한 이해](#ng-controller)
+* [View에 대한 이해](#ng-view)
 
-## Model의 이해
+## [Model에 대한 이해](id:ng-model)
 
 이 문서의 맥락에 따라, ___모델___이라는 용어는 하나의 엔티티(예를 들어, 휴대폰 목록의 배열을 값으로 가지는 "phones"라고 불리는 모델)를 나타내는 단일 객체이거나 애플리케이션의 전체 데이터 모델 (모든 엔티티)중 하나를 가리킨다.
 
@@ -87,7 +89,7 @@ Angular에서는 아래의 경우에 자바스크립트 객체를 모델로 만�
 아래의 그림은 간단한 템플릿을 통해 데이터 모델이 묵시적으로 생성되는 모습을 보여준다.
 ![Model created implicitly from a simple Template](/imgs/about_model_final.png)
 
-## Controller의 이해
+## [Controller에 대한 이해](id:ng-controller)
 Angular에서 컨트롤러는 루트 스코프를 제외한 angular 스코프의 인스턴스를 확장시키는데 사용되는 자바스크립트 함수(또는 클래스)이다.
 
 컨트롤러는 다음의 경우에 사용한다.:
@@ -306,12 +308,15 @@ describe('state', function() {
 });
 ```
 
-## View의 이해
+## [View에 대한 이해](id:ng-view)
 Angular에서 뷰는 브라우저에 불러들여져 렌더링된 DOM 이다. 그런 다음, Angular는 템플릿과 컨트롤러, 모델에 내재한 정보들을 기반으로 DOM을 변형 시킨다.
 
 ![Transformed DOM by Angular, based on template, controller and Model](/imgs/about_view_final.png)
 
 Angular의 MVC 구현체에서 뷰는 모델과 컨트롤러 양쪽 모두를 이해하고 있다. 뷰는 두 방향 데이터 바인딩이 발생하는 곳에서 부터 모델에 관해 알게된다. 또한, ngController 나 ngView 와 같은 Angular 지시자(directives)를 통해 컨트롤러에 대한 이해를 갖게되며 {{someControllerFunction()}} 과 같은 형태를 통해 바인딩된다. 이러한 구조에서 뷰는 조합된 컨트롤러의 함수를 호출할 수 있다.
+
+
+
 
 
 

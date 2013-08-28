@@ -5,8 +5,8 @@
         <description>Boxer's Front End - boxersb</description>
         <link>http://boxersb.github.io</link>
         <link>http://boxersb.github.io</link>
-        <lastBuildDate>2013-08-28T17:31:50+09:00</lastBuildDate>
-        <pubDate>2013-08-28T17:31:50+09:00</pubDate>
+        <lastBuildDate>2013-08-28T17:46:32+09:00</lastBuildDate>
+        <pubDate>2013-08-28T17:46:32+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -17,7 +17,9 @@
 AngularJS 공식 페이지의 튜토리얼을 하나씩 따라하다보니, 어느정도 구조가 눈에 들어왔다.
 AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개념을 설명하는 &lt;a href=&quot;http://blog.outsider.ne.kr/975&quot;&gt;@outsider 님의 포스트&lt;/a&gt;를 먼저 읽어보면 도움이 많이 될것 같다.&lt;/p&gt;
 
-&lt;p&gt;이 글에서는, &lt;a href=&quot;http://docs.angularjs.org/guide/dev_guide.mvc&quot;&gt;Angular에서 구현한 MVC의 기본 개념&lt;/a&gt;에 대한, AngularJS 공식 페이지의 글을 옮겨보기로 하겠다.&lt;/p&gt;
+&lt;p&gt;이 글에서는, &lt;a href=&quot;http://docs.angularjs.org/guide/dev_guide.mvc&quot;&gt;Angular에서 구현한 MVC의 기본 개념&lt;/a&gt;에 대한, AngularJS 공식 페이지의 글을 옮겨보기로 하겠다.
+아직, AngularJS에 대해 깊히 알게 된게 아님으로, 평가 자체는 나중에 따로 포스팅 해보겠다.
+일단은, 구글이 이해하고 있는 방식의 Front-End MVC 라는 점에서 관전 포인트가 있을것 같다.&lt;/p&gt;
 
 &lt;h1&gt;Angular의 MVC&lt;/h1&gt;
 
@@ -35,12 +37,12 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 &lt;p&gt;아래의 주제들은 angular가 angular 특유의 웹 애플리케이션 개발 방법론에 어떤식으로 MVC 패턴을 적용했는지 설명한다.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Model 컴포넌트의 이해&lt;/li&gt;
-&lt;li&gt;Controller 컴포넌트의 이해&lt;/li&gt;
-&lt;li&gt;View 컴포넌트의 이해&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#ng-model&quot;&gt;Model에 대한 이해&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#ng-controller&quot;&gt;Controller에 대한 이해&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#ng-view&quot;&gt;View에 대한 이해&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Model의 이해&lt;/h2&gt;
+&lt;h2&gt;&lt;a href=&quot;id:ng-model&quot;&gt;Model에 대한 이해&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;이 문서의 맥락에 따라, &lt;strong&gt;&lt;em&gt;모델&lt;/em&gt;&lt;/strong&gt;이라는 용어는 하나의 엔티티(예를 들어, 휴대폰 목록의 배열을 값으로 가지는 &amp;quot;phones&amp;quot;라고 불리는 모델)를 나타내는 단일 객체이거나 애플리케이션의 전체 데이터 모델 (모든 엔티티)중 하나를 가리킨다.&lt;/p&gt;
 
@@ -88,7 +90,7 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 &lt;p&gt;아래의 그림은 간단한 템플릿을 통해 데이터 모델이 묵시적으로 생성되는 모습을 보여준다.
 &lt;img src=&quot;/imgs/about_model_final.png&quot; alt=&quot;Model created implicitly from a simple Template&quot;&gt;&lt;/p&gt;
 
-&lt;h2&gt;Controller의 이해&lt;/h2&gt;
+&lt;h2&gt;&lt;a href=&quot;id:ng-controller&quot;&gt;Controller에 대한 이해&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Angular에서 컨트롤러는 루트 스코프를 제외한 angular 스코프의 인스턴스를 확장시키는데 사용되는 자바스크립트 함수(또는 클래스)이다.&lt;/p&gt;
 
@@ -299,7 +301,7 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
     &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;View의 이해&lt;/h2&gt;
+&lt;h2&gt;&lt;a href=&quot;id:ng-view&quot;&gt;View에 대한 이해&lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;Angular에서 뷰는 브라우저에 불러들여져 렌더링된 DOM 이다. 그런 다음, Angular는 템플릿과 컨트롤러, 모델에 내재한 정보들을 기반으로 DOM을 변형 시킨다.&lt;/p&gt;
 

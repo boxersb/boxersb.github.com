@@ -52,7 +52,7 @@ function MyCtrl($scope) {
 }
 ```
 
-* 템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다. ㅋ
+* 템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다.
 
 	```html
 	{% raw %}

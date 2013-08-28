@@ -5,8 +5,8 @@
         <description>Boxer's Front End - boxersb</description>
         <link>http://boxersb.github.io</link>
         <link>http://boxersb.github.io</link>
-        <lastBuildDate>2013-08-28T18:28:02+09:00</lastBuildDate>
-        <pubDate>2013-08-28T18:28:02+09:00</pubDate>
+        <lastBuildDate>2013-08-28T18:29:10+09:00</lastBuildDate>
+        <pubDate>2013-08-28T18:29:10+09:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -59,7 +59,7 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다. ㅋ&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;{{ foo=&amp;#39;bar&amp;#39; }} &amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Click me&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;템플릿에서 ngInit 지시자(directive)를 사용한다. 이 방법은, 연습용으로만 사용하고 실 서비스에서는 지양하길 바란다.&lt;/p&gt;

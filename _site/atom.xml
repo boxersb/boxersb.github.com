@@ -4,13 +4,131 @@
  <title>Boxer's Front End</title>
  <link href="http://boxersb.github.io/" rel="self"/>
  <link href="http://boxersb.github.io"/>
- <updated>2013-08-28T18:30:26+09:00</updated>
+ <updated>2013-09-03T11:11:16+09:00</updated>
  <id>http://boxersb.github.io</id>
  <author>
    <name>boxersb</name>
    <email>boxersb@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>AngularJS의 Directives</title>
+   <link href="http://boxersb.github.io/angularjs/2013/09/02/directives-in-angular-1st.md"/>
+   <updated>2013-09-02T00:00:00+09:00</updated>
+   <id>http://boxersb.github.io/angularjs/2013/09/02/directives-in-angular-1st.md</id>
+   <content type="html">
+
+
+서적 번역하던 영향으로(-_-;) 앞선 글에서는 Directives를 &quot;지시자&quot;로 번역했었는데, 워낙 자주 등작하며 중요한 개념이므로 혼란을 없애기 위해 이 글에서는 directive 라는 원 단어를 그대로 인용하도록 하겠다.
+
+
+http://docs.angularjs.org/guide/directive
+
+Directive는 새로운 HTML 트릭을 만드는 방법이다. Directive는 DOM이 파싱되는 동안 HTML에 매칭 및 실행된다. 즉, directive는 DOM의 변형이나 동작방식을 등록할 수 있게 한다.
+
+Angular는 웹 애플리케이션을 만드는데 유용한 자체 directive들을 내장하고 있지만, 마치 HTML이 선언적 도메인 특정 언어(DSL) 처럼 사용할 수 있도록 확장할 수도 있다.
+
+## HTML로 부터 directive 호출하기
+
+Directive는 _ngBind_처럼 케멀 케이스 형태의 이름을 가진다. directive는 케멀 케이스의 이름을 : 나 -, _등의 특수 문자를 사용한 스네이크 케이스로 변환함으로써 호출할 수 있다. 부가적으로 HTML 유효성 검사를 통과하기 위해서는, x- 나 data-와 같은 접두어를 사용하여 directive를 만들 수도 있다. ng:bind나 ng_bind, x-ng-bind, data-ng-bind 와 같은 형태 모두 directive로 사용 가능하다.
+
+Directive는 HTML 요소 테그명이나, 속성명, 클래스명은 물론, 주석으로도 사용 가능하다. 아래의 예제는 _myDir_ 이라는 directive를 호출하는 동일한 코드이다. (그러나, 대부분의 directive들은 속성에 국한되게 만드는 경우가 많다.)
+
+	```html
+	&lt;span my-dir=&quot;exp&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;my-dir: exp;&quot;&gt;&lt;/span&gt;
+	&lt;my-dir&gt;&lt;/my-dir&gt;
+	&lt;!-- directive: my-dir exp --&gt;
+	```
+
+Directive는 매우 다양한 방법으로 호출할 수 있지만, 최종적인 결과는 다음의 예제와 같다.
+
+### 소스코드
+
+### 데모
+
+## 텍스트 및 속성 바인딩
+Directive의 해석 단계에서 컴파일러는 $interpolate 서비스를 사용하여 HTML에 삽입된 표현식이 있는지를 판단하고, 해당 표현시에 텍스트와 속성을 매칭시킨다. 이 표현식들은 watches로써 등록되며 일반적인 digest 사이클의 일부로써 갱신된다. 다음은, HTML 보간(interpolate)의 예제이다.
+
+	```html
+	
+	&lt;a ng-href=&quot;img/{{username}}.jpg&quot;&gt;Hello {{username}}!&lt;/a&gt;
+	
+	```
+	
+## ngAttr 속성 바인딩
+'ng-attr-' 또는 'ng:attr-'로 보간되는 ngAttr 접두어를 사용한 속성을 바인딩하였다면, 해석단계에서 해당 접두어가 제거되고 일반 속성으로 바인딩된 값이 적용된다. 이렇게 하면 브라우저에 의해서 미리 처리되는 예외 속성들 (e.g img[src] 또는 svg의 circle[cx] 속성)에도 바인딩을 적용할 수 있다.
+
+예를들어, 다음과 같이 템플릿을 작성하고
+
+	```html
+	
+	&lt;svg&gt;
+	  &lt;circle ng-attr-cx=&quot;{{cx}}&quot;&gt;&lt;/circle&gt;
+	&lt;/svg&gt;
+	
+	```
+	
+모델 cx에 값을 5로 할당하면, 최종적으로 DOM은 아래와 같이 렌더링된다.
+
+	```html
+	&lt;svg&gt;
+	  &lt;circle cx=&quot;5&quot;&gt;&lt;/circle&gt;
+	&lt;/svg&gt;
+	```
+	
+
+{{cx}}를 cx 속성에 직접적으로 연결하면, 다음과 같은 오류가 발생한다.: _Error: Invalid value for attribute cx=&quot;{{cx}}&quot;._
+
+_ng-attr-cx_ 를 사용하면 이 문제를 해결할 수 있다.
+
+## HTML 해석 단계 및 directive 매칭
+[$compile]:http://docs.angularjs.org/api/ng.$compile &quot;$compile&quot;
+
+HTML의 해석 과정은 세 단계로 발생한다.
+
+1. 먼저, 표준 브라우저 API를 사용하여 HTML을 DOM으로 파싱한다. 템플릿은 HTML로 파싱 가능해야하므로, 이것을 이해하는것이 중요하다. 대부분의 템플릿 시스템은 DOM이 아니라 문자열을 사용하여 운용된다.
+2. DOM의 해석은 [$compile()][$compile] 메서드를 호출함으로써 실행된다. 이 메서드는 DOM을 탐색하여 directive를 찾는다. directive를 찾으면, 해당 DOM 요소에 조합된 directive의 목록에 해당 사항을 추가한다. 해당 DOM 요소에 대한 모든 directive가 식별되면, 해당 directive의 목록은 우선순위에 따라 정렬되고, 각 directive에서 정의한 compile() 함수를 실행한다. directive 컴파일 함수를 실행함으로써 해당 DOM 구조를 조정하여, 다음 단계인 link() 함수로 결과를 넘길 수 있게 한다. [$compile()][$compile] 메서드는 개별적인 directive 컴파일 함수로부터 반환된 모든 linking 함수의 목록을 조합하여 반환한다.
+3. 이전 단계에서 반환된 linking 함수를 호출함으로써 템플릿과 스코프를 연결한다. 개별적인 directive의 linking 함수를 호출함으로써 요소의 이벤트 리스터를 등록하고 해당 scope의 watches를 설정할 수 있게 된다. 결과적으로 scope와 DOM간의 실시간 바인딩이 이루어진다. scope의 변경은 DOM에 즉시 반영된다.
+
+	```js
+	var $compile = ...; // injected into your code
+	var scope = ...;
+	 
+	var html = '&lt;div ng-bind=&quot;exp&quot;&gt;&lt;/div&gt;';
+	 
+	// Step 1: parse HTML into DOM element
+	var template = angular.element(html);
+	 
+	// Step 2: compile the template
+	var linkFn = $compile(template);
+	 
+	// Step 3: link the compiled template with the scope.
+	linkFn(scope);
+	```
+	
+## compie과 link를 분리한 이유
+여기서는 해석 단계가 compile과 link 과정으로 분리된 이유에 대해 설명한다. 이 부분을 이해하기 위해, 실제적인 repeater 예제를 살펴보자.
+
+	```js
+	Hello , you have these actions:
+	
+	&lt;ul&gt;
+	  &lt;li ng-repeat=&quot;action in user.actions&quot;&gt;
+	    
+	  &lt;/li&gt;
+	&lt;/ul&gt;
+	```
+
+	
+
+
+
+
+
+</content>
+ </entry>
  
  <entry>
    <title>AngularJS의 MVC 패턴 개요</title>
@@ -322,7 +440,7 @@ AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개�
 
 &lt;p&gt;&lt;img src=&quot;/imgs/about_view_final.png&quot; alt=&quot;Transformed DOM by Angular, based on template, controller and Model&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;Angular의 MVC 구현체에서 뷰는 모델과 컨트롤러 양쪽 모두를 이해하고 있다. 뷰는 두 방향 데이터 바인딩이 발생하는 곳에서 부터 모델에 관해 알게된다. 또한, ngController 나 ngView 와 같은 Angular 지시자(directives)를 통해 컨트롤러에 대한 이해를 갖게되며  과 같은 형태를 통해 바인딩된다. 이러한 구조에서 뷰는 조합된 컨트롤러의 함수를 호출할 수 있다.&lt;/p&gt;
+&lt;p&gt;Angular의 MVC 구현체에서 뷰는 모델과 컨트롤러 양쪽 모두를 이해하고 있다. 뷰는 두 방향 데이터 바인딩이 발생하는 곳에서 부터 모델에 관해 알게된다. 또한, ngController 나 ngView 와 같은 Angular 지시자(directives)를 통해 컨트롤러에 대한 이해를 갖게되며 &lt;code&gt;{{someControllerFunction()}}&lt;/code&gt; 과 같은 형태를 통해 바인딩된다. 이러한 구조에서 뷰는 조합된 컨트롤러의 함수를 호출할 수 있다.&lt;/p&gt;
 </content>
  </entry>
  

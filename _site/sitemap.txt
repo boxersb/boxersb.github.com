@@ -8,6 +8,7 @@ http://boxersb.github.io/rss.xml
 http://boxersb.github.io/sitemap.txt
 http://boxersb.github.io/tags.html
 
+http://boxersb.github.io/angularjs/2013/09/02/directives-in-angular-1st.md
 http://boxersb.github.io/angularjs/2013/08/27/angularjs-mvc-summary
 http://boxersb.github.io/jekyll/2013/04/03/jekyll-introduction
 http://boxersb.github.io/typescript/2013/03/20/boxersbgithubcom

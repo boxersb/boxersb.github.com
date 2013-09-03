@@ -323,7 +323,7 @@ Angular에서 뷰는 브라우저에 불러들여져 렌더링된 DOM 이다. �
 
 ![Transformed DOM by Angular, based on template, controller and Model](/imgs/about_view_final.png)
 
-Angular의 MVC 구현체에서 뷰는 모델과 컨트롤러 양쪽 모두를 이해하고 있다. 뷰는 두 방향 데이터 바인딩이 발생하는 곳에서 부터 모델에 관해 알게된다. 또한, ngController 나 ngView 와 같은 Angular 지시자(directives)를 통해 컨트롤러에 대한 이해를 갖게되며 {{someControllerFunction()}} 과 같은 형태를 통해 바인딩된다. 이러한 구조에서 뷰는 조합된 컨트롤러의 함수를 호출할 수 있다.
+Angular의 MVC 구현체에서 뷰는 모델과 컨트롤러 양쪽 모두를 이해하고 있다. 뷰는 두 방향 데이터 바인딩이 발생하는 곳에서 부터 모델에 관해 알게된다. 또한, ngController 나 ngView 와 같은 Angular 지시자(directives)를 통해 컨트롤러에 대한 이해를 갖게되며 {% raw %}`{{someControllerFunction()}}`{% endraw %} 과 같은 형태를 통해 바인딩된다. 이러한 구조에서 뷰는 조합된 컨트롤러의 함수를 호출할 수 있다.
 
 
 

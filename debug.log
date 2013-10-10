@@ -1,0 +1,35 @@
+date: 2013-10-10 17:50:02.121
+argv: node /usr/local/bin/hexo generate
+os: Darwin 12.5.0 darwin x64
+version:
+  hexo: 2.2.0
+  http_parser: 1.0
+  node: 0.10.18
+  v8: 3.14.5.9
+  ares: 1.9.0-DEV
+  uv: 0.10.15
+  zlib: 1.2.3
+  modules: 11
+  openssl: 1.0.1e
+---
+
+[debug] 17:50:01.830 Configuration file load successfully
+[debug] 17:50:01.832 Version info checked successfully
+[debug] 17:50:01.833 Loading the database...
+[debug] 17:50:02.013 Theme layout loaded
+[debug] 17:50:02.024 Theme configuration loaded
+[debug] 17:50:02.047 Theme source loaded
+[debug] 17:50:02.067 Theme i18n loaded
+[debug] 17:50:02.109 Processed: _posts/hello-world.md
+[error] 17:50:02.117 { rawMessage: 'Unexpected characters near ":category/:year/:month/:day/:angular-mvc-summary""".',
+  parsedLine: 6,
+  snippet: 'permalink: "":category/:year/:month/:day/:angular-mvc-summary""',
+  parsedFile: null,
+  message: 'Unexpected characters near ":category/:year/:month/:day/:angular-mvc-summary""" at line 6 (near "permalink: "":category/:year/:month/:day/:angular-mvc-summary""").',
+  domain: 
+   { domain: null,
+     _events: { error: [Function] },
+     _maxListeners: 10,
+     members: [],
+     _disposed: true },
+  domainThrown: true }

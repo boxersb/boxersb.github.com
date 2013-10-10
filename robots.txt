@@ -1,9 +1,0 @@
-User-agent:*
-
-Disallow: /*PHPSESSID
-Disallow: /404*
-Disallow: /403*
-Disallow: /503*
-Disallow: /500*
-
-Sitemap: http://boxersb.github.io/sitemap.txt

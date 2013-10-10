@@ -1,4 +1,4 @@
-date: 2013-10-10 18:15:28.776
+date: 2013-10-10 18:57:17.445
 argv: node /usr/local/bin/hexo generate
 os: Darwin 12.5.0 darwin x64
 version:
@@ -13,19 +13,26 @@ version:
   openssl: 1.0.1e
 ---
 
-[debug] 18:15:28.515 Configuration file load successfully
-[debug] 18:15:28.517 Version info checked successfully
-[debug] 18:15:28.517 Loading the database...
-[debug] 18:15:28.693 Theme layout loaded
-[debug] 18:15:28.723 Processed: imgs/about_model_final.png
-[debug] 18:15:28.723 Processed: imgs/about_view_final.png
-[debug] 18:15:28.728 Processed: imgs/pie.jpg
-[debug] 18:15:28.728 Processed: imgs/state_of_webdev2010.jpg
-[debug] 18:15:28.739 Theme source loaded
-[debug] 18:15:28.742 Theme configuration loaded
-[debug] 18:15:28.746 Theme i18n loaded
-[error] 18:15:28.770 HexoError: Process failed: _posts/mvc-of-angularjs.md
-SyntaxError: Unexpected token !==
+[debug] 18:57:17.017 Configuration file load successfully
+[debug] 18:57:17.020 Version info checked successfully
+[debug] 18:57:17.020 Loading the database...
+[debug] 18:57:17.205 Theme layout loaded
+[debug] 18:57:17.255 Processed: imgs/about_model_final.png
+[debug] 18:57:17.255 Processed: imgs/about_view_final.png
+[debug] 18:57:17.256 Processed: imgs/pie.jpg
+[debug] 18:57:17.256 Processed: imgs/state_of_webdev2010.jpg
+[debug] 18:57:17.264 Theme source loaded
+[debug] 18:57:17.267 Theme configuration loaded
+[debug] 18:57:17.286 Theme i18n loaded
+[debug] 18:57:17.406 Processed: _posts/firefox-korean-lang-trick.md
+[debug] 18:57:17.411 Processed: _posts/jekyll-introduction.md
+[debug] 18:57:17.416 Processed: _posts/mvc-of-angularjs.md
+[debug] 18:57:17.424 Processed: _posts/observer-pattern-of-javascript.md
+[debug] 18:57:17.430 Processed: _posts/pi-type-competent-person.md
+[debug] 18:57:17.433 Processed: _posts/state-of-web-development-2010.md
+[debug] 18:57:17.437 Processed: _posts/tostring-and-tovalue-of-object.md
+[error] 18:57:17.442 HexoError: Process failed: _posts/typescript-spec-overview.md
+SyntaxError: Unexpected token ILLEGAL
     at Object.Function (<anonymous>)
     at createRenderFunc (/usr/local/lib/node_modules/hexo/node_modules/swig/lib/swig.js:44:10)
     at createTemplate (/usr/local/lib/node_modules/hexo/node_modules/swig/lib/swig.js:96:14)

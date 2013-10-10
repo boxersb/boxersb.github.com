@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="description" content="AngularJS의 Directives | Boxer's Front End" />
+	<title>AngularJS의 Directives | Boxer's Front End</title>
+	<meta name="author" content="boxersb">
+	<link href='/assets/themes/slate/css/stylesheet.css' rel="stylesheet" media="all">
+	<link href='/assets/themes/slate/css/pygment_trac.css' rel="stylesheet" media="all">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="AngularJS의 Directives" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+      <a id="forkme_banner" href="https://github.com/boxersb">View on GitHub</a>
+
+      <h1 id="project_title"><a href="/">Boxer's Front End</a></h1>
+      <!-- <h2 id="project_tagline"></h2> -->
+
+		<nav class="nav-global">
+			<ul>
+				<li class="archive"><a href="/archive.html">Archive</a></li>
+				<li class="page"><a href="/pages.html">Pages</a></li>
+				<li class="category"><a href="/categories.html">Categories</a></li>
+				<li class="tag"><a href="/tags.html">tags</a></li>
+			</ul>
+		</nav>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+	<section id="main_content" class="inner">
+		
+
+<article class="unit-article layout-post">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title"><a href="/angularjs/2013/09/02/directives-in-angular-1st">AngularJS의 Directives</a></h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					<div class="meta">
+						<ul class="list-date-category">
+							<li>
+								<date class="date-pub" title="2013-09-02T00:00:00+09:00" datetime="2013-09-02T00:00:00+09:00" pubdate>
+								<span class="month"><abbr>September</abbr></span>
+								<span class="day">02</span>
+								<span class="year">2013</span>
+								</date>
+							</li>
+							<li class="author">
+								by <a href="https://twitter.com/boxersb" target="twitter">boxersb</a> in 
+							</li>
+							
+							
+
+
+  
+     
+    	<li><a href="/categories.html#angularjs-ref">
+    		angularjs <span>2</span>
+    	</a></li>
+    
+  
+
+
+						</ul>
+						<ul class="list-tag list-linear">
+							<li class="list-head">tags: </li>
+							
+							
+
+
+  
+     
+    	<li><a href="/tags.html#angular-ref">angular <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#MVC-ref">MVC <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#directives-ref">directives <span>1</span></a></li>
+    
+  
+
+
+
+						</ul>
+					</div><!-- meta -->
+
+					<div class="content-body">
+					<p>서적 번역하던 영향으로(-_-;) 앞선 글에서는 Directives를 &quot;지시자&quot;로 번역했었는데, 워낙 자주 등작하며 중요한 개념이므로 혼란을 없애기 위해 이 글에서는 directive 라는 원 단어를 그대로 인용하도록 하겠다.</p>
+
+<p><a href="http://docs.angularjs.org/guide/directive">http://docs.angularjs.org/guide/directive</a></p>
+
+<p>Directive는 새로운 HTML 트릭을 만드는 방법이다. Directive는 DOM이 파싱되는 동안 HTML에 매칭 및 실행된다. 즉, directive는 DOM의 변형이나 동작방식을 등록할 수 있게 한다.</p>
+
+<p>Angular는 웹 애플리케이션을 만드는데 유용한 자체 directive들을 내장하고 있지만, 마치 HTML이 선언적 도메인 특정 언어(DSL) 처럼 사용할 수 있도록 확장할 수도 있다.</p>
+
+<h2>HTML로 부터 directive 호출하기</h2>
+
+<p>Directive는 <em>ngBind_처럼 케멀 케이스 형태의 이름을 가진다. directive는 케멀 케이스의 이름을 : 나 -, _등의 특수 문자를 사용한 스네이크 케이스로 변환함으로써 호출할 수 있다. 부가적으로 HTML 유효성 검사를 통과하기 위해서는, x- 나 data-와 같은 접두어를 사용하여 directive를 만들 수도 있다. ng:bind나 ng</em>bind, x-ng-bind, data-ng-bind 와 같은 형태 모두 directive로 사용 가능하다.</p>
+
+<p>Directive는 HTML 요소 테그명이나, 속성명, 클래스명은 물론, 주석으로도 사용 가능하다. 아래의 예제는 <em>myDir</em> 이라는 directive를 호출하는 동일한 코드이다. (그러나, 대부분의 directive들은 속성에 국한되게 만드는 경우가 많다.)</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">my-dir=</span><span class="s">&quot;exp&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;my-dir: exp;&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;my</span><span class="na">-dir</span><span class="nt">&gt;</span><span class="err">&lt;</span>/my-dir&gt;
+<span class="c">&lt;!-- directive: my-dir exp --&gt;</span>
+</code></pre></div>
+<p>Directive는 매우 다양한 방법으로 호출할 수 있지만, 최종적인 결과는 다음의 예제와 같다.</p>
+
+<h3>소스코드</h3>
+
+<h3>데모</h3>
+
+<h2>텍스트 및 속성 바인딩</h2>
+
+<p>Directive의 해석 단계에서 컴파일러는 $interpolate 서비스를 사용하여 HTML에 삽입된 표현식이 있는지를 판단하고, 해당 표현시에 텍스트와 속성을 매칭시킨다. 이 표현식들은 watches로써 등록되며 일반적인 digest 사이클의 일부로써 갱신된다. 다음은, HTML 보간(interpolate)의 예제이다.</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">ng-href=</span><span class="s">&quot;img/{{username}}.jpg&quot;</span><span class="nt">&gt;</span>Hello {{username}}!<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+<h2>ngAttr 속성 바인딩</h2>
+
+<p>&#39;ng-attr-&#39; 또는 &#39;ng:attr-&#39;로 보간되는 ngAttr 접두어를 사용한 속성을 바인딩하였다면, 해석단계에서 해당 접두어가 제거되고 일반 속성으로 바인딩된 값이 적용된다. 이렇게 하면 브라우저에 의해서 미리 처리되는 예외 속성들 (e.g img[src] 또는 svg의 circle[cx] 속성)에도 바인딩을 적용할 수 있다.</p>
+
+<p>예를들어, 다음과 같이 템플릿을 작성하고</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;svg&gt;</span>
+  <span class="nt">&lt;circle</span> <span class="na">ng-attr-cx=</span><span class="s">&quot;{{cx}}&quot;</span><span class="nt">&gt;&lt;/circle&gt;</span>
+<span class="nt">&lt;/svg&gt;</span>
+</code></pre></div>
+<p>모델 cx에 값을 5로 할당하면, 최종적으로 DOM은 아래와 같이 렌더링된다.</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;svg&gt;</span>
+  <span class="nt">&lt;circle</span> <span class="na">cx=</span><span class="s">&quot;5&quot;</span><span class="nt">&gt;&lt;/circle&gt;</span>
+<span class="nt">&lt;/svg&gt;</span>
+</code></pre></div>
+<p>{{cx}}를 cx 속성에 직접적으로 연결하면, 다음과 같은 오류가 발생한다.: <em>Error: Invalid value for attribute cx=&quot;{{cx}}&quot;.</em></p>
+
+<p><em>ng-attr-cx</em> 를 사용하면 이 문제를 해결할 수 있다.</p>
+
+<h2>HTML 해석 단계 및 directive 매칭</h2>
+
+<p>HTML의 해석 과정은 세 단계로 발생한다.</p>
+
+<ol>
+<li>먼저, 표준 브라우저 API를 사용하여 HTML을 DOM으로 파싱한다. 템플릿은 HTML로 파싱 가능해야하므로, 이것을 이해하는것이 중요하다. 대부분의 템플릿 시스템은 DOM이 아니라 문자열을 사용하여 운용된다.</li>
+<li>DOM의 해석은 <a href="http://docs.angularjs.org/api/ng.$compile" title="$compile">$compile()</a> 메서드를 호출함으로써 실행된다. 이 메서드는 DOM을 탐색하여 directive를 찾는다. directive를 찾으면, 해당 DOM 요소에 조합된 directive의 목록에 해당 사항을 추가한다. 해당 DOM 요소에 대한 모든 directive가 식별되면, 해당 directive의 목록은 우선순위에 따라 정렬되고, 각 directive에서 정의한 compile() 함수를 실행한다. directive 컴파일 함수를 실행함으로써 해당 DOM 구조를 조정하여, 다음 단계인 link() 함수로 결과를 넘길 수 있게 한다. <a href="http://docs.angularjs.org/api/ng.$compile" title="$compile">$compile()</a> 메서드는 개별적인 directive 컴파일 함수로부터 반환된 모든 linking 함수의 목록을 조합하여 반환한다.</li>
+<li>이전 단계에서 반환된 linking 함수를 호출함으로써 템플릿과 스코프를 연결한다. 개별적인 directive의 linking 함수를 호출함으로써 요소의 이벤트 리스터를 등록하고 해당 scope의 watches를 설정할 수 있게 된다. 결과적으로 scope와 DOM간의 실시간 바인딩이 이루어진다. scope의 변경은 DOM에 즉시 반영된다.</li>
+</ol>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">var</span> <span class="nx">$compile</span> <span class="o">=</span> <span class="p">...;</span> <span class="c1">// injected into your code</span>
+<span class="kd">var</span> <span class="nx">scope</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="s1">&#39;&lt;div ng-bind=&quot;exp&quot;&gt;&lt;/div&gt;&#39;</span><span class="p">;</span>
+
+<span class="c1">// Step 1: parse HTML into DOM element</span>
+<span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">element</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+
+<span class="c1">// Step 2: compile the template</span>
+<span class="kd">var</span> <span class="nx">linkFn</span> <span class="o">=</span> <span class="nx">$compile</span><span class="p">(</span><span class="nx">template</span><span class="p">);</span>
+
+<span class="c1">// Step 3: link the compiled template with the scope.</span>
+<span class="nx">linkFn</span><span class="p">(</span><span class="nx">scope</span><span class="p">);</span>
+</code></pre></div>
+<h2>compile과 link를 분리한 이유</h2>
+
+<p>여기서는 해석 단계가 compile과 link 과정으로 분리된 이유에 대해 설명한다. 이 부분을 이해하기 위해, 실제적인 repeater 예제를 살펴보자.</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">Hello</span> <span class="p">{{</span><span class="nx">user</span><span class="p">}},</span> <span class="nx">you</span> <span class="nx">have</span> <span class="nx">these</span> <span class="nx">actions</span><span class="o">:</span>
+
+<span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">ng</span><span class="o">-</span><span class="nx">repeat</span><span class="o">=</span><span class="s2">&quot;action in user.actions&quot;</span><span class="o">&gt;</span>
+    <span class="p">{{</span><span class="nx">action</span><span class="p">.</span><span class="nx">description</span><span class="p">}}</span>
+  <span class="o">&lt;</span><span class="err">/li&gt;</span>
+<span class="o">&lt;</span><span class="err">/ul&gt;</span>
+</code></pre></div>
+<p>쉽게 말해서 compile과 link 과정으로 분리된 이유는 repeater처럼 언제라도 모델이 변경될때 DOM 구조도 변경될 수 있게 하기 위함이다.</p>
+
+<p>위 예제가 해석될때, 컴파일러는 모든 노드를 방문하여 directive를 찾는다. {{user}} 가 보간 directive의 예이다. <em>ngRepeat_는 또 다른 directive다. 그러나, <em>ngRepeat_에는 모순이 있다. 해당 directive는 _user.actions</em>의 모든 _action</em> 항목에 따른 새로운 목록을 빠르게 찍어낼 필요가 있다. 즉, 요소를 빠르게 복제하기 위해서는 li 요소의 깨끗한 사본이 필요하며, 새 _action_이 삽입됨에따라, 템플릿의 li 요소가 복제되어 ul에 삽입되어야 한다. 그러나, li 요소를 복제하는것 만으론 충분하지 않다. 마찬가지로 li를 해석하여 {{action.description}}과 같은 directive를 올바른 scope과 연결해야한다. 메서드 본연의 기능은 li 요소의 복사본을 삽입한 다음 해석할 것이지만, 해석시 DOM 트리르 탐색하고 directive를 찾아서 실행하는 한, 모든 li 요소의 사본을 해석한다는것은 느릴 수 밖에 없다. repeater 내부에 100개의 항목에 대한 빠른 해석 과정을 포함하길 원한다면, 성능문제에 직면하게 된다.</p>
+
+<p>해결 방법으로 해석 단계를 두개의 과정으로 나눈다.<br>
+compile 과정은 모든 directive들을 식별하고 우선순위에 따라 정렬하며, linking 과정은 스코프의 특정 인스턴스와 li의 특정 인스턴스를 연결한다.</p>
+
+<p><em>ngRepeat_는 li 요소 하위로의 해석 단계 진행을 막으며 동작한다. 대신, _ngRepeat</em> directive는 li를 분리하여 해석한다. li 요소 해석 단계의 결과는 li 요소내 포함된 모든 directive들을 포함하고 있는 linking 함수이며, DOM에 추가될 준비가 된 특정 li 요소의 사본이다. 실행시점에 _ngRepeat_는 표현식을 감시하여 배열에 항목이 추가될때 li 요소를 복제하고, li 요소 사본을 위한 새로운 스코프를 생성하며, li 요소 사본의 link 함수를 호출한다.</p>
+
+<p>요약하자면</p>
+
+<ul>
+<li>compile 함수 - compile 함수는 대부분의 direcvie들이 DOM 요소로 변환하는 템플릿과는 달리 특정 DOM 요소와 함께 동작하는것을 염두에 두고 작성되기 때문에 directive와 매우 관련이 깊다. directive의 인스턴스 사이에서 공유가 가능한 모든 작업들은 성능상의 이유로 compile 함수 내부로 이동하여야 한다.</li>
+<li>link 함수 - 
+l
+ink function - It is rare for the directive not to have a link function. A link function allows the directive to register listeners to the specific cloned DOM element instance as well as to copy content into the DOM from the scope.</li>
+</ul>
+
+					</div>
+				</div><!-- entry-content -->
+				<div class="misc-content">
+					<div class="social">
+						<ul class="list-linear">
+							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="boxersb" data-lang="en">Tweet</a></div></li>
+							<li><div class="twitter-follow"><a href="https://twitter.com/boxersb" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
+						</ul>
+					</div>
+					<div class="comment">
+					
+
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123937814464693";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="/angularjs/2013/09/02/directives-in-angular-1st" data-num-posts="5" data-width="640" data-colorscheme="light"></div>
+
+
+
+					</div>
+				</div><!-- misc-content -->
+			</div><!-- bd -->
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<nav class="pagination">
+						<ul>
+							
+							<li class="prev"><a class="internal" rel="prev"  href="/angularjs/2013/08/27/angularjs-mvc-summary" title="View AngularJS의 MVC 패턴 개요">&laquo; AngularJS의 MVC 패턴 개요</a></li>
+							
+							
+							
+						</ul>
+					</nav>
+					<p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p>
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+	</section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+	<footer class="inner">
+		<p>Published with <a href="http://pages.github.com">GitHub Pages</a> and <a href="http://jekyllbootstrap.com/">Jekyll</a></p>
+	</footer>
+</div>
+
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/angularjs/2013/09/02/directives-in-angular-1st" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	}(document, 'script'));
+</script>
+
+	
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39442592-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+	<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
+	<script type="text/javascript">
+		if(!wcs_add) var wcs_add = {};
+		wcs_add["wa"] = "a7768d103fade8";
+		wcs_do();
+	</script>
+</body>
+</html>

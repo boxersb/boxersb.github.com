@@ -1,4 +1,4 @@
-date: 2013-10-10 17:50:02.121
+date: 2013-10-10 18:15:28.776
 argv: node /usr/local/bin/hexo generate
 os: Darwin 12.5.0 darwin x64
 version:
@@ -13,23 +13,26 @@ version:
   openssl: 1.0.1e
 ---
 
-[debug] 17:50:01.830 Configuration file load successfully
-[debug] 17:50:01.832 Version info checked successfully
-[debug] 17:50:01.833 Loading the database...
-[debug] 17:50:02.013 Theme layout loaded
-[debug] 17:50:02.024 Theme configuration loaded
-[debug] 17:50:02.047 Theme source loaded
-[debug] 17:50:02.067 Theme i18n loaded
-[debug] 17:50:02.109 Processed: _posts/hello-world.md
-[error] 17:50:02.117 { rawMessage: 'Unexpected characters near ":category/:year/:month/:day/:angular-mvc-summary""".',
-  parsedLine: 6,
-  snippet: 'permalink: "":category/:year/:month/:day/:angular-mvc-summary""',
-  parsedFile: null,
-  message: 'Unexpected characters near ":category/:year/:month/:day/:angular-mvc-summary""" at line 6 (near "permalink: "":category/:year/:month/:day/:angular-mvc-summary""").',
-  domain: 
-   { domain: null,
-     _events: { error: [Function] },
-     _maxListeners: 10,
-     members: [],
-     _disposed: true },
-  domainThrown: true }
+[debug] 18:15:28.515 Configuration file load successfully
+[debug] 18:15:28.517 Version info checked successfully
+[debug] 18:15:28.517 Loading the database...
+[debug] 18:15:28.693 Theme layout loaded
+[debug] 18:15:28.723 Processed: imgs/about_model_final.png
+[debug] 18:15:28.723 Processed: imgs/about_view_final.png
+[debug] 18:15:28.728 Processed: imgs/pie.jpg
+[debug] 18:15:28.728 Processed: imgs/state_of_webdev2010.jpg
+[debug] 18:15:28.739 Theme source loaded
+[debug] 18:15:28.742 Theme configuration loaded
+[debug] 18:15:28.746 Theme i18n loaded
+[error] 18:15:28.770 HexoError: Process failed: _posts/mvc-of-angularjs.md
+SyntaxError: Unexpected token !==
+    at Object.Function (<anonymous>)
+    at createRenderFunc (/usr/local/lib/node_modules/hexo/node_modules/swig/lib/swig.js:44:10)
+    at createTemplate (/usr/local/lib/node_modules/hexo/node_modules/swig/lib/swig.js:96:14)
+    at getTemplate (/usr/local/lib/node_modules/hexo/node_modules/swig/lib/swig.js:124:20)
+    at Object.exports.compile (/usr/local/lib/node_modules/hexo/node_modules/swig/lib/swig.js:186:14)
+    at /usr/local/lib/node_modules/hexo/lib/post/render.js:60:29
+    at /usr/local/lib/node_modules/hexo/node_modules/async/lib/async.js:548:21
+    at /usr/local/lib/node_modules/hexo/node_modules/async/lib/async.js:224:13
+    at iterate (/usr/local/lib/node_modules/hexo/node_modules/async/lib/async.js:131:13)
+    at async.eachSeries (/usr/local/lib/node_modules/hexo/node_modules/async/lib/async.js:147:9)

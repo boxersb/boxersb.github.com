@@ -68,11 +68,15 @@ per_page: 1
 pagination_dir: page
 
 # Disqus
-disqus_shortname:
+disqus_shortname: boxersbgithub
 
 # Extensions
 ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
+plugins:
+- hexo-generator-sitemap
+- hexo-generator-feed
+
 theme: light
 exclude_generator:
 

@@ -51,400 +51,54 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-08-27T08:38:58.000Z"><a href="/angularJS/2013/08/27/angular-mvc-summary/">8월 27 2013</a></time>
+        <time datetime="2013-10-11T01:58:42.000Z"><a href="/그래픽스 기초수학/2013/10/11/math-points-and-lines/">Oct 11 2013</a></time>
       
       
   
-    <h1 class="title"><a href="/angularJS/2013/08/27/angular-mvc-summary/">AngularJS의 MVC 패턴 개요</a></h1>
+    <h1 class="title"><a href="/그래픽스 기초수학/2013/10/11/math-points-and-lines/">1. 점과 직선</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>한동안 Backbone.js에 관해 업계에서 관심이 많다가, 최근에는 <a href="http://angularjs.org/" target="_blank">AngularJS</a>에 대한 관심이 높아지는 느낌이다.<br>그래서, AngularJS에 대해 좀 살펴봤다. 주위에서 들은 바로는 AngularJS에 대해 러닝커브가 높은 편이라고 해서, 좀 긴장했었는데..<br>AngularJS 공식 페이지의 튜토리얼을 하나씩 따라하다보니, 어느정도 구조가 눈에 들어왔다.<br>AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개념을 설명하는 <a href="http://blog.outsider.ne.kr/975" target="_blank">@outsider 님의 포스트</a>를 먼저 읽어보면 도움이 많이 될것 같다.</p>
-<p>이 글에서는, <a href="http://docs.angularjs.org/guide/dev_guide.mvc" target="_blank">Angular에서 구현한 MVC의 기본 개념</a>에 대한, AngularJS 공식 페이지의 글을 옮겨보기로 하겠다.<br>아직, AngularJS에 대해 깊히 알게 된게 아님으로, 평가 자체는 나중에 따로 포스팅 해보겠다.<br>일단은, 구글이 이해하고 있는 방식의 Front-End MVC 라는 점에서 관전 포인트가 있을것 같다.</p>
-<h1>Angular의 MVC</h1>
-<p>모델-뷰-컨트롤러(MVC)가 처음 나온 이후로 수년간 여러가지 다른 의미로 변화되고 있는 와중에, Angular는 본래의 MVC 소프트웨어 디자인 패턴 이면의 기본 원칙들을 클라이언트 웹 애플리케이션 개발에 적용하고자 했다.</p>
-<p>MVC 패턴을 요약하자면:</p>
-<ul>
-<li>애플리케이션은 개별적인 표현과 데이터, 로직 컴포넌트 단위로 분리한다.</li>
-<li>이런 컴포넌트간의 약한 결합성을 장려한다.</li>
-</ul>
-<p>서비스와 의존성 주입 개념을 통해, MVC는 angular 애플리케이션을 더 구조적이고 유지보수를 쉽게해주며, 더 testable 하게 만들어준다.</p>
-<p>아래의 주제들은 angular가 angular 특유의 웹 애플리케이션 개발 방법론에 어떤식으로 MVC 패턴을 적용했는지 설명한다.</p>
-<ul>
-<li><a href="#ng-model">Model에 대한 이해</a></li>
-<li><a href="#ng-controller">Controller에 대한 이해</a></li>
-<li><a href="#ng-view">View에 대한 이해</a></li>
-</ul>
-<h2><a href="id:ng-model">Model에 대한 이해</a></h2>
-<p>이 문서의 맥락에 따라, <strong><em>모델</em></strong>이라는 용어는 하나의 엔티티(예를 들어, 휴대폰 목록의 배열을 값으로 가지는 “phones”라고 불리는 모델)를 나타내는 단일 객체이거나 애플리케이션의 전체 데이터 모델 (모든 엔티티)중 하나를 가리킨다.</p>
-<p>Angular에서 모델은 angular Scope 객체의 프로퍼티로 접근 가능한 데이터를 말한다. 프로퍼티의 이름은 모델 식별자이며 해당 값은 모든 형태의 자바스크립트 객체이다. (원시타입의 값와 배열을 포함한다)</p>
-<p>Angular에서 자바스크립트 객체를 모델로 만들기 위한 요구사항은 객체가 scope 객체의 프로퍼티로써 Angular 스코프에 의해 참조되어야 한다는점 뿐이다. 이 프로퍼티 참조는 명시 또는 묵시적으로 생성할 수 있다.</p>
-<p>명시적으로 scope 프로퍼티들이 자바스크립트 객체를 참조하여 모델을 생성하는 방법은 다음과 같다.:</p>
-<ul>
-<li>코드상에서 scope 객체에 프로퍼티를 직접 할당한다. 컨트롤러에서 가장 일반적으로 사용될 수 있는 방법이다.</li>
-</ul>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">MyCtrl</span><span class="params">($scope)</span> {</span>
-    <span class="comment">// create property 'foo' on the MyCtrl's scope</span>
-    <span class="comment">// and assign it an initial value 'bar'</span>
-   $scope.foo = <span class="string">'bar'</span>;
-}
-</pre></td></tr></table></figure>
-
-<ul>
-<li><p>템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다.</p>
-  <figure class="highlight lang-html"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"{{ foo='bar' }} "</span>&gt;</span>Click me<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-</pre></td></tr></table></figure>
-</li>
-<li><p>템플릿에서 ngInit 지시자(directive)를 사용한다. 이 방법은, 연습용으로만 사용하고 실 서비스에서는 지양하길 바란다.</p>
-  <figure class="highlight lang-html"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">body</span> <span class="attribute">ng-init</span>=<span class="value">" foo = 'bar' "</span>&gt;</span> ... <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>Angular는 다음의 템플릿을 생성하면 묵시적으로(scope 프로퍼티 생성과 적절한 값을 할당함으로써) 모델을 생성한다.</p>
-<ul>
-<li><p>input과 select, textarea 등의 폼 요소</p>
-<p>  <figure class="highlight lang-html"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">input</span> <span class="attribute">ng-model</span>=<span class="value">"query"</span> <span class="attribute">value</span>=<span class="value">"fluffy cloud"</span>&gt;</span>
-</pre></td></tr></table></figure><br>  위 코드는 현재 스코프에 “query”라는 모델을 생성하고 “fluffy cloud”라는 값을 설정한다.</p>
-</li>
-<li><p>ngRepeater를 통한 반복 선언시</p>
-  <figure class="highlight lang-html"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">ng-repeat</span>=<span class="value">"phone in phones"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-</pre></td></tr></table></figure>
-
-<p>  위 코드는 “phones” 배열내 각 요소를 위한 하나의 자식 스코프를 생성하고, 각 스코프에 배열 원소의 값인 “phone” 객체 모델을 생성한다. </p>
-</li>
-</ul>
-<p>Angular에서는 아래의 경우에 자바스크립트 객체를 모델로 만들지 않는다.</p>
-<ul>
-<li>Angular 스코프에 객체를 참조하는 프로퍼티가 없는경우</li>
-<li>가비지 컬렉션에 들어갈 수 있는 객체를 참조하는 프로퍼티를 포함한 모든 Angular 스코프</li>
-</ul>
-<p>아래의 그림은 간단한 템플릿을 통해 데이터 모델이 묵시적으로 생성되는 모습을 보여준다.<br><img src="/imgs/about_model_final.png" alt="Model created implicitly from a simple Template"></p>
-<h2><a href="id:ng-controller">Controller에 대한 이해</a></h2>
-<p>Angular에서 컨트롤러는 루트 스코프를 제외한 angular 스코프의 인스턴스를 확장시키는데 사용되는 자바스크립트 함수(또는 클래스)이다.</p>
-<p>컨트롤러는 다음의 경우에 사용한다.:</p>
-<ul>
-<li>scope 객체의 초기 상태 설정</li>
-<li>scope 객체에 동작 추가</li>
-</ul>
-<h3>scope 객체의 초기 상태 설정하기</h3>
-<p>일반적으로, 애플리케이션 생성시에는 Angular 스코프의 초기 상태도 설정이 필요하다.</p>
-<p>Angular는 컨트롤러의 생성자 함수에 새로운 Angular scope 객체를 apply (자바스크립트 함수의 apply의 개념) 한다. 즉, Angular는 컨트롤러 형태의 인스턴스는(컨트롤러 생성자의 new 연산자를 통하는 식의) 만들지 않는다. 생성자들은 항상 기존의 scope 객체에 apply 된다.</p>
-<p>예를 들면, 다음과 같이 모델 프로퍼티를 생성함으로써 scope의 초기 상태를 설정할 수 있다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">GreetingCtrl</span><span class="params">($scope)</span> {</span>
-	$scope.greeting = <span class="string">'Hola!'</span>;
-}
-</pre></td></tr></table></figure>
-
-
-<p>GreetingCtrl 컨트롤러는 템플릿에서 참조 가능한 greeting 모델을 생성한다.</p>
-<p><strong><em>NOTE:</em></strong> 이 문서의 예제 중 대부분은 설명을 돕기위한 목적으로 전역 스코프에 함수를 생성한다. 실제 애플리케이션에서는 다음과 같이 해당 애플리케이션을 위한 Angular 모듈의 .controller 메서드를 사용하는것이 바람직하다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> myApp = angular.module(<span class="string">'myApp'</span>,[]);
-
-myApp.controller(<span class="string">'GreetingCtrl'</span>, [<span class="string">'$scope'</span>, <span class="keyword">function</span>($scope) {
-   	$scope.greeting = <span class="string">'Hola!'</span>;
-}]);
-</pre></td></tr></table></figure>
-
-<p>Angular에 의해 $scope 서비스를 명시적으로 컨트롤러에 의존시킴을 보여주기 위해 배열 표기법을 사용한것에 주목하자.</p>
-<h3>Scope 객체에 동작 추가하기</h3>
-<p>Angular 스코프 객체에서의 동작은 템플릿/뷰에서 사용 가능한 스코프 메서드 프로퍼티의 형태이다. 이런 동작은 애플리케이션 모델을 조작하고 상호 작용할 수 있게 해준다.</p>
-<p>모델 부분에서 설명했듯이, 스코프에 할당되는 어떠한 객체라도 모델이 될 수 있다. 그러므로, 어떤 함수든지 스코프에 할당하여 템플릿/뷰에서 사용할 수 있으며, angular 표현식이나 ng 이벤트 헨들러 지시자(directives)를 통해 호출할 수 있다. (e.g. ngClick)</p>
-<h3>컨트롤러의 올바른 사용법</h3>
-<p>전반적으로, 컨트롤러에서 많은 작업을 처리해서는 안된다. 오직 단일 뷰에서 필요한 비즈니스 로직만을 포함해야한다.</p>
-<p>컨트롤러를 가볍게 유지하기 위해서는, 특정 로직을 컨트롤러에 두지 않고 서비스로 만들고, 해당 서비스를 의존성 주입을 통해 컨트롤러에서 사용하도록 캡슐화 하는 것이 가장 보편적인 방법이다. 이 부분은 서비스 의존성 주입에서 다룬다.</p>
-<p>다음과 같은 상황들은 컨트롤러에서 구현하면 안된다.</p>
-<ul>
-<li>DOM 조작 - 컨트롤러에는 비즈니스 로직만을 구현해야 한다. DOM 조작(애플리케이션의 표현 로직)은 테스트가 매우 힘들다. 약간의 표현 로직이라도 컨트롤러에 삽입되면 비즈니스 로직의 테스트에 상당한 영향을 준다. Angluar는 DOM 조작을 자동화 하기 위해서 데이터바인딩 기법을 제공하고 있다. 특수하게 수동적인 DOM 조작이 필요하다면, 지시자(directives)에 표현 로직을 캡슐화 시키면 된다.</li>
-<li>입력 포매팅 - angular 폼 컨트롤을 사용하는것이 좋다.</li>
-<li>출력 필터링 - angular 필터를 사용하는것이 좋다.</li>
-<li>컨트롤러들 사이에서 상태가 있거나 없는 코드 공유 - angular 서비스를 사용하는것이 좋다.</li>
-<li>다른 구성요소의 생명주기 관리 (서비스 인스턴스 생성 등)</li>
-</ul>
-<h3>Angular Scope 객체와 컨트롤러 조합하기</h3>
-<p>ngController 지시자 또는 $routeService 를 통해 묵시적으로 scope 객체와 컨트롤러를 조합할 수 있다.</p>
-<h4>컨트롤러 생성자와 메서드 예제</h4>
-<p>angular에서 컨트롤러가 동작하는 방식을 설명하기 위해, 다음의 구성요소를 갖춘 작은 앱을 만들어 보자.</p>
-<ul>
-<li>두개의 버튼과 간단한 메세지를 표현하는 템플릿</li>
-<li>spice 라는 이름의 문자열 프로퍼티와 연관된 모델</li>
-<li>spice 의 값을 설정하는 두개의 함수를 가진 컨트롤러</li>
-</ul>
-<p>템플릿에서 message는 기본값이 문자열 “very”로 설정되고, spice 모델에 바인딩 된다.  어느 버튼이 클릭되느냐에 따라서, spice 모델은 <em>chili</em> 또는 <em>jalapeño</em> 로 설정되며, message는 데이터 바인딩에 의해 자동으로 수정된다.</p>
-<h3>Spicy 컨트롤러 예제</h3>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="code"><pre>&lt;body ng-controller=<span class="string">"SpicyCtrl"</span>&gt;
- <span class="xml"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"chiliSpicy()"</span>&gt;</span>Chili<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
- <span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"jalapenoSpicy()"</span>&gt;</span>Jalapeño<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-
- <span class="tag">&lt;<span class="title">p</span>&gt;</span>The food is {{spice}} spicy!<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
- 
-function SpicyCtrl($scope) {
- $scope.spice = 'very';
- $scope.chiliSpicy = function() {
-   $scope.spice = 'chili';
- }
- $scope.jalapenoSpicy = function() {
-  $scope.spice = 'jalapeño';
- }
-}</span>
-</pre></td></tr></table></figure>
-
-
-<p>위 예제에서 주의 해야 할것들은</p>
-<ul>
-<li>ngController 지시자는 템플릿의 스코프를 생성(묵시적으로)하기 위해 사용되었으며, 스코프는 SpicyCtrl 컨트롤러에 의해서 확장(관리)된다.</li>
-<li>SpicyCtrl 은 일반적인 자바스크립트 함수이다. 명명 규칙에 의해서 이름은 대문자로 시작하고 “Ctrl” 또는 “Controller”로 끝마친다.</li>
-<li>$scope 에 프로퍼티를 할당함으로써 모델을 생성하거나 갱신한다.</li>
-<li>컨트롤러 메서드는 scope에 직접 할당(chiliSpicy 메서드)함으로써 생성할 수 있다.</li>
-<li>두 컨트롤러 메서드 모두 템플릿에서 사용 가능하다. (body 요소와 해당 자식노드 모두 포함)</li>
-<li>NB: 1.0 RC 이전 버전의 Angular에서는 $scope 메서드 사용시 this를 대신해서 사용할 수 있었으나, 해당 케이스는 더 이상 지원하지 않는다.</li>
-<li>NB: 1.0 RC 이전 버전의 Angular에서는 자동으로 스코프에 프로토타입 메서드들을 추가했으나, 해당 케이스는 더 이상 지원하지 않는다.</li>
-</ul>
-<p>컨트롤러 메서드는 위 예제를 변형한 다음의 예제에서 볼 수 있듯이, 매개변수도 취할 수 있다.</p>
-<h3>컨트롤러 메서드 매개변수 예제</h3>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre>&lt;body ng-controller=<span class="string">"SpicyCtrl"</span>&gt;
- <span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">ng-model</span>=<span class="value">"customSpice"</span> <span class="attribute">value</span>=<span class="value">"wasabi"</span>&gt;</span>
- <span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"spicy('chili')"</span>&gt;</span>Chili<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
- <span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"spicy(customSpice)"</span>&gt;</span>Custom spice<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-
- <span class="tag">&lt;<span class="title">p</span>&gt;</span>The food is {{spice}} spicy!<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
- 
-function SpicyCtrl($scope) {
- $scope.spice = 'very';
- $scope.spicy = function(spice) {
-   $scope.spice = spice;
- }
-}</span>
-</pre></td></tr></table></figure>
-
-
-<p>SpicyCtrl 컨트롤러는 이제 하나의 매개변수 spice 를 취하는 spicy 라는 단 하나의 메서드만을 정의한다. 템플릿은 이제 이 컨트롤러 메서드를 참조하고 첫 번째 버튼으로 문자열 ‘chili’를 넘기고, 두 번째 버튼으로 입력 상자에 연결된 값을 넘겨서 모델 프로퍼티 spice를 변경한다.</p>
-<h3>컨트롤러 상속 예제</h3>
-<p>Angular에서 컨트롤러 상속은 Scope 상속에 기반한다. 예제를 살펴보자.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-</pre></td><td class="code"><pre>
-&lt;body ng-controller=<span class="string">"MainCtrl"</span>&gt;
- <span class="xml"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Good {{timeOfDay}}, {{name}}!<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
- <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-controller</span>=<span class="value">"ChildCtrl"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Good {{timeOfDay}}, {{name}}!<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">p</span> <span class="attribute">ng-controller</span>=<span class="value">"BabyCtrl"</span>&gt;</span>Good {{timeOfDay}}, {{name}}!<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
- <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
- 
-function MainCtrl($scope) {
- $scope.timeOfDay = 'morning';
- $scope.name = 'Nikki';
-}
- 
-function ChildCtrl($scope) {
- $scope.name = 'Mattie';
-}
- 
-function BabyCtrl($scope) {
- $scope.timeOfDay = 'evening';
- $scope.name = 'Gingerbreak Baby';
-}</span>
-</pre></td></tr></table></figure>
-
-
-<p>템플릿에서 3개의 ngController가 중첩되어 있는 구조에 주목하자. 이 템플릿은 결과적으로 뷰를 위한 4개의 스코프를 생성한다.</p>
-<ul>
-<li>루트 스코프</li>
-<li>MainCtrl 스코프. timeOfDay 와 name 모델을 포함한다.</li>
-<li>ChildCtrl 스코프. 이전 스코프로 부터 name 모델은 수정하고, timeOfDay 모델은 상속 받는다.</li>
-<li>BabyCtrl 스코프. MainCtrl에 정의된 timeOfDay 모델과, ChildCtrl에 정의된 name 모델 까지 모두 재정의한다.</li>
-</ul>
-<p>컨트롤러 사이에서의 상속은 모델의 상속과 동일한 방식으로 동작한다. 그러므로, 이전 예제에서 모든 모델은 문자값을 반환하는 컨트롤러 메서드와 치환할 수 있다.</p>
-<p>Note: 표준 프로토타입 방식으로 두 컨트롤러를 상속시키면 의도한대로 동작하지 않는데, 앞서 언급했던것 처럼, Angular에 의해 직접적으로  컨트롤러가 초기화되지 않고, 묵시적으로 scope 객체에 apply 되기 때문이다.</p>
-<h3>컨트롤러 테스트하기</h3>
-<p>컨트롤러를 테스트하는 수 많은 방법이 있지만, 가장 좋은 방법중 하나는 아래에 기술한것처럼 $rootScope와 $controller를 주입시키는 것이다.</p>
-<p>컨트롤러 함수:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">myController</span><span class="params">($scope)</span> {</span>
-   $scope.spices = [{<span class="string">"name"</span>:<span class="string">"pasilla"</span>, <span class="string">"spiciness"</span>:<span class="string">"mild"</span>},
-                  {<span class="string">"name"</span>:<span class="string">"jalapeno"</span>, <span class="string">"spiceiness"</span>:<span class="string">"hot hot hot!"</span>},
-                  {<span class="string">"name"</span>:<span class="string">"habanero"</span>, <span class="string">"spiceness"</span>:<span class="string">"LAVA HOT!!"</span>}];
- 
-   $scope.spice = <span class="string">"habanero"</span>;
-}
-</pre></td></tr></table></figure>
-
-
-<p>컨트롤러 테스트:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="code"><pre>describe(<span class="string">'myController function'</span>, <span class="keyword">function</span>() {
- 
-  describe(<span class="string">'myController'</span>, <span class="keyword">function</span>() {
-    <span class="keyword">var</span> scope;
- 
-    beforeEach(inject(<span class="keyword">function</span>($rootScope, $controller) {
-      scope = $rootScope.$<span class="keyword">new</span>();
-      <span class="keyword">var</span> ctrl = $controller(myController, {$scope: scope});
-    }));
- 
-    it(<span class="string">'should create "spices" model with 3 spices'</span>, <span class="keyword">function</span>() {
-      expect(scope.spices.length).toBe(<span class="number">3</span>);
-    });
- 
-    it(<span class="string">'should set the default value of spice'</span>, <span class="keyword">function</span>() {
-      expect(scope.spice).toBe(<span class="string">'habanero'</span>);
-    });
-  });
-});
-</pre></td></tr></table></figure>
-
-
-<p>중첩된 컨트롤러를 테스트해야 할 경우에는, 테스트상에 이미 존재하는 스코프와 동일한 계층의 스코프를 생성해야 한다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre></td><td class="code"><pre>describe(<span class="string">'state'</span>, <span class="keyword">function</span>() {
-    <span class="keyword">var</span> mainScope, childScope, babyScope;
- 
-    beforeEach(inject(<span class="keyword">function</span>($rootScope, $controller) {
-        mainScope = $rootScope.$<span class="keyword">new</span>();
-        <span class="keyword">var</span> mainCtrl = $controller(MainCtrl, {$scope: mainScope});
-        childScope = mainScope.$<span class="keyword">new</span>();
-        <span class="keyword">var</span> childCtrl = $controller(ChildCtrl, {$scope: childScope});
-        babyScope = childScope.$<span class="keyword">new</span>();
-        <span class="keyword">var</span> babyCtrl = $controller(BabyCtrl, {$scope: babyScope});
-    }));
- 
-    it(<span class="string">'should have over and selected'</span>, <span class="keyword">function</span>() {
-        expect(mainScope.timeOfDay).toBe(<span class="string">'morning'</span>);
-        expect(mainScope.name).toBe(<span class="string">'Nikki'</span>);
-        expect(childScope.timeOfDay).toBe(<span class="string">'morning'</span>);
-        expect(childScope.name).toBe(<span class="string">'Mattie'</span>);
-        expect(babyScope.timeOfDay).toBe(<span class="string">'evening'</span>);
-        expect(babyScope.name).toBe(<span class="string">'Gingerbreak Baby'</span>);
-    });
-});
-</pre></td></tr></table></figure>
-
-<h2><a href="id:ng-view">View에 대한 이해</a></h2>
-<p>Angular에서 뷰는 브라우저에 불러들여져 렌더링된 DOM 이다. 그런 다음, Angular는 템플릿과 컨트롤러, 모델에 내재한 정보들을 기반으로 DOM을 변형 시킨다.</p>
-<p><img src="/imgs/about_view_final.png" alt="Transformed DOM by Angular, based on template, controller and Model"></p>
-<p>Angular의 MVC 구현체에서 뷰는 모델과 컨트롤러 양쪽 모두를 이해하고 있다. 뷰는 두 방향 데이터 바인딩이 발생하는 곳에서 부터 모델에 관해 알게된다. 또한, ngController 나 ngView 와 같은 Angular 지시자(directives)를 통해 컨트롤러에 대한 이해를 갖게되며 <code>{{someControllerFunction()}}</code> 과 같은 형태를 통해 바인딩된다. 이러한 구조에서 뷰는 조합된 컨트롤러의 함수를 호출할 수 있다.</p>
+        <h2>함수</h2>
+<p>함수라는 용어는 개발자 친구들에게는 아주 익숙할 것이다.<br>수학에서의 정의도 프로그래밍 세계와 크게 다르지 않는데, 일반적으로 입력값을 넣으면 함수는 그 정보를 토대로 새로운 정보를 반환하는 일을 한다.  </p>
+<p>수학에서 함수는 일반적인 수를 다룬다. (프로그래밍에서 문자열등을 처리하는것과는 달리) 함수를 정의하는 방법에는 두 가지가 있다.</p>
+<p>첫 번째는, 입력값에 상응하는 출력값으로 구성된 순서 쌍의 참조 테이블을 만드는 것이다.</p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>이렇게 참조 테이블을 만드는것은 매우 간단하고 빠른 방법이다.<br>프로그래밍에서도 복잡하고 느리지만 자주 사용되는 연산 결과들을 저런식으로 해시 테이블로 저장해두고 참조하면, 성능상의 이점이 있는것이 사실이다.</p>
+<p>그러나, 이 방식에는 큰 문제가 있는데, 해당 참조 테이블에 존재하지 않는 값을 입력으로 사용하면, 결과를 알 수 없을 뿐만 아니라, 매우 다양한 케이스를 처리하게 하려면, 거대한 참조 테이블을 생성하여야 한다는 단점이 있다.</p>
+<p>따라서, 두 번째 방법으로 위 함수를 y=2x 와 같이 정의할 수 있다.<br>이렇게 함수를 방정식으로 정의해 두면, x의 입력값에 대한 모든 y의 값을 알아낼 수 있다.</p>
+<h2>2D에서의 위치 표시</h2>
 
       
     </div>
@@ -489,6 +143,8 @@ function BabyCtrl($scope) {
   
     <li><a href="/categories/typescript/">typescript</a><small>1</small></li>
   
+    <li><a href="/categories/그래픽스 기초수학/">그래픽스 기초수학</a><small>1</small></li>
+  
   </ul>
 </div>
 
@@ -520,6 +176,8 @@ function BabyCtrl($scope) {
   
     <li><a href="/tags/language/">language</a><small>1</small></li>
   
+    <li><a href="/tags/lines/">lines</a><small>1</small></li>
+  
     <li><a href="/tags/mozilla/">mozilla</a><small>1</small></li>
   
     <li><a href="/tags/object/">object</a><small>1</small></li>
@@ -532,6 +190,8 @@ function BabyCtrl($scope) {
   
     <li><a href="/tags/pi/">pi</a><small>1</small></li>
   
+    <li><a href="/tags/points/">points</a><small>1</small></li>
+  
     <li><a href="/tags/specification/">specification</a><small>1</small></li>
   
     <li><a href="/tags/toString/">toString</a><small>1</small></li>
@@ -539,6 +199,10 @@ function BabyCtrl($scope) {
     <li><a href="/tags/toValue/">toValue</a><small>1</small></li>
   
     <li><a href="/tags/typescript/">typescript</a><small>1</small></li>
+  
+    <li><a href="/tags/그래픽스/">그래픽스</a><small>1</small></li>
+  
+    <li><a href="/tags/수학/">수학</a><small>1</small></li>
   
     <li><a href="/tags/웹개발/">웹개발</a><small>1</small></li>
   

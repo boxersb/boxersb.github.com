@@ -1,0 +1,388 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>그래픽스 | Boxer's Frontend</title>
+  <meta name="author" content="boxersb">
+  
+  <meta name="description" content="boxersb의 front-end 개발 이야기">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Boxer's Frontend"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="alternate" href="/atom.xml" title="Boxer's Frontend" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39442592-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Boxer's Frontend</a></h1>
+  <h2><a href="/">for all front-end matters..</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/atom.xml">ATOM</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+
+<img style="position: absolute; top: 0; right: 0; border: 0;z-index:1" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub" usemap="#github-ribbon">
+<map id="github-ribbon" name="github-ribbon"><area shape="poly" alt="" title="" coords="12,0,149,129,149,0" href="https://github.com/boxersb" target="_blank" /></map></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">그래픽스</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-10-11T01:58:42.000Z"><a href="/mathematics/2013/10/11/math-equation-of-lines/">Oct 11 2013</a> &gt;
+        <a href="/categories/mathematics/">mathematics</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/mathematics/2013/10/11/math-equation-of-lines/">점과 직선의 공식</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>함수</h2>
+<p>함수라는 용어는 개발자 친구들에게는 아주 익숙할 것이다.<br>수학에서의 정의도 프로그래밍 세계와 크게 다르지 않는데, 일반적으로 입력값을 넣으면 함수는 그 정보를 토대로 새로운 정보를 반환하는 일을 한다.  </p>
+<p>수학에서 함수는 일반적인 수를 다룬다. (프로그래밍에서 문자열등을 처리하는것과는 달리) 함수를 정의하는 방법에는 두 가지가 있다.</p>
+<p>첫 번째는, 입력값에 상응하는 출력값으로 구성된 순서 쌍의 참조 테이블을 만드는 것이다.</p>
+<style type="text/css">
+table.math-1 { text-align:center; }
+</style>
+<table class="math-1" width="400">
+<tr>
+	<th>x</th>
+	<th>y</th>
+</tr>
+<tr>
+	<td>0</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>4</td>
+	<td>8</td>
+</tr>
+</table>
+
+
+<p>이렇게 참조 테이블을 만드는것은 매우 간단하고 빠른 방법이다.<br>프로그래밍에서도 복잡하고 느리지만 자주 사용되는 연산 결과들을 저런식으로 해시 테이블로 저장해두고 참조하면, 성능상의 이점이 있는것이 사실이다.</p>
+<p>그러나, 이 방식에는 큰 문제가 있는데, 해당 참조 테이블에 존재하지 않는 값을 입력으로 사용하면, 결과를 알 수 없을 뿐만 아니라, 매우 다양한 케이스를 처리하게 하려면, 거대한 참조 테이블을 생성하여야 한다는 단점이 있다.</p>
+<p>따라서, 두 번째 방법으로 위 함수를 y=2x 와 같이 정의할 수 있다.<br>이렇게 함수를 방정식으로 정의해 두면, x의 입력값에 대한 모든 y의 값을 알아낼 수 있다.</p>
+<h2>좌표계</h2>
+<p>이렇게 정의된 함수를 사용하면, 컴퓨터 화면에서 특정 위치를 표현하는데 사용할 수 있을 것이다.  </p>
+<p>먼저, 컴퓨터상의 화면 좌표계와 데카르트 좌표계(Cartesian Coordinate System)를 알아보자.</p>
+<p><img src="/imgs/coord_system_2d.png" alt="화면 좌표계와 데카르트 좌표계"></p>
+<p>왼쪽의 화면 좌표계는 우리가 흔하게 알고 있는 좌표계로써, 좌상단을 기준으로 아래로 향할 수록 y값이 증가하고, 오른쪽으로 갈 수록 x값이 증가한다.  </p>
+<p>그러나, 오른쪽의 데카르트 좌표계는 화면 좌표계와 유사하지만, 좌하단을 기준으로 위로 향할 수록 y값이 증가하고, 아래로 향하면, y값이 감소한다. 우리가 학생시절 교과 과정을 통해 배웠던 좌표계가 바로 이 데카르트 좌표계이며, WebGL과 같은 그래픽스 프로그래밍에서도 사용할 좌표계이다.</p>
+<p>그래픽스 프로그래밍에서는 데카르트 좌표계 상에 모델을 배치하고 회전이나 이동과 같은 작업을 수행후 최종 렌더링 과정에서는 화면 좌표계로 변화해서 표시해야한다. (이 방법은 추후에 설명)</p>
+<p>이와 같은 좌표계를 3차원으로 확장하는것도 마찬가지인데, 3번째 좌표계인 z축을 추가해보면 다음과 같다.</p>
+<p><img src="/imgs/coord_system_3d.png" alt="3차원 오른손 좌표계"></p>
+<p>각 엔진별로 좌표계를 사용하는 방식이 조금씩 틀린데, 어떤 시스템에서는 오른손 좌표계를, 어떤 시스템에서는 왼손 좌표계를 사용할 수도 있다.<br>위 그림은, 전형적인 오른손 좌표계를 표현한 것으로써, z축이 화면으로부터 관찰자 쪽으로 뻗어 나온다. 즉, 관찰자로 다가올 수록 z축의 값이 커진다.</p>
+<p><img src="/imgs/left_right_hand.gif" alt="왼손 좌표계와 오른손 좌표계. 이미지 출처: http://www.learnopengles.com/understanding-opengls-matrices/left_right_hand"></p>
+<p>우리는, 상향 y축을 갖는 오른손 좌표계를 사용할 것이다. 전통적인 수학 좌표계이며, OpenGL, WebGL에서 사용하는 좌표계이기 때문이다.</p>
+<p>좌표계 위에서의 점은 (x, y)와 같이 기술할 수 있으며, 3차원에서는 z축을 추가하여 (x, y, z)로 표기한다.</p>
+<p><img src="/imgs/2d_coords.png" alt="점 A(7, 4), B(0, 8), C(-5, 0), D(-3, -7), E(6, -5) 에 대한 2차원 좌표 표기"></p>
+<h2>직선의 정의</h2>
+<p>좌표계상의 점들을 직선으로 연결할 수 있다면, 이 점의 집합들을 이용해서 직선의 방정식을 정의할 수 있다.<br>직선의 방정식은 <code>Ax + By = C</code> 와 같이 정의한다.</p>
+<blockquote><p>Ax + By = C</p>
+<footer><strong>직선의 방정식</strong></footer></blockquote>
+
+
+<p>글의 맨 앞에서 정의한 참조 테이블을 대입한 방정식 y = 2x 의 해집합을 좌표계상에 표시해보면 다음과 같다.<br><img src="/imgs/y=2x.png" alt="y = 2x의 해집합"></p>
+<p><code>y = 2x</code>의 방정식의 경우 언뜻 보면 <code>Ax + By = C</code>의 꼴이 아닌것처럼 보이는데,<br>실제로는 <code>2x - y = 0</code> 과 같이 풀이해 볼 수 있다.<br><code>y = 3</code> 과 같은 식도 마찬가지로, <code>0x + y = 3</code> 과 같은 직선의 방정식이다.</p>
+<p>이런 형태의 1차 방정식은, 좌표계상에 직선으로 표시할 수 있으므로, 해집합이 직선이 되는 직선의 방정식이라고 할 수 있다.</p>
+<h2>직선의 성질</h2>
+<h3>기울기</h3>
+<p>두점 P와 Q가 존재한다고 가정했을때, 두 점을 이어서 직선으로 만들면, 직선의 기울기를 정의할 수 있다.<br>기울기는 경사도라고도 하며, 직선의 이동량(x축의 변위)에 대한 상승량(y축의 변위)의 비율, 즉 상승량/이동량 이다.</p>
+<p>예를 들어, P(0, 0)이고 Q(2, 1)일때 이동량은 2, 상승량은 1이며, x축이 2만큼 이동할 동안 y축은 1만큼 이동하였고 이동량에 대한 상승량의 비율인 1/2이 직선의 기울기이다.</p>
+<blockquote><p>기울기 m = (y2 - y1) / (x2 - x1)</p>
+<footer><strong>기울기 공식</strong></footer></blockquote>
+
+
+<p>위 공식을 사용하여 기울기를 구하려면, 특정 직선의 방정식으로 부터 임의의 두 점을 구한 다음, 이동량과 상승량을 구해야한다.<br>그러나, 직선의 방정식이 Ax + By = C 형태의 표준형이라면, 아래와 같이 간단한 계산법을 사용하여 기울기를 구할 수 있다.</p>
+<blockquote><p>m = -A/B</p>
+<footer><strong>Ax + By = C로 정의된 직선의 기울기 m</strong></footer></blockquote>
+
+
+<p>직선의 기울기에는 다음과 같은 정보가 숨어 있다.</p>
+<ul>
+<li>기울기가 음수이면, 그래프는 왼쪽에서 오른쪽으로 갈수록 내려간다. (\ 형태)</li>
+<li>기울기가 양수이면, 그래프는 왼쪽에서 오른쪽으로 갈수록 올라간다. (/ 형태)</li>
+<li>기울기가 0이면, 그래프는 수평이다. (- 형태)</li>
+<li>기울기 공식 <code>m = (y2 - y1) / (x2 - x1)</code> 에서 제수(x2 - x1)가 0이면,<br>기울기는 정의할 수 없고 그래프는 수직선이다.</li>
+</ul>
+<p>두 직선과 각 직선의 기울기가 있을때는 다음과 같은 사실이 성립한다.</p>
+<ul>
+<li>두 직선의 기울기가 같으면, 두 직선은 평행하다. (교점이 없다.)</li>
+<li>두 직선이 직교(수직선으로 만날때)할때, 두 직선의 기울기를 곱하면 -1이된다.  <blockquote><p>m1m2 = -1 또는<br>m1 = -1/m2 또는<br>m2 = -1/m1</p>
+<footer><strong>서로 직교하는 두 직선의 기울기 m1과 m2의 관계</strong></footer></blockquote>
+
+
+</li>
+</ul>
+<p>기울기를 사용하면, 표준형 직선의 방정식 이외에 프로그래밍적으로도 유용한 두가지 다른 표현 방법을 적용할 수 있다.</p>
+<blockquote><p>y = mx + b</p>
+<footer><strong>기울기-절편 공식. b는 y절편</strong></footer></blockquote>
+
+
+<p>기울기-절편 공식은 y의 결과 값이 식의 나머지 부분으로 결정되기 때문에, 프로그래밍 코드로 방정식을 구현하기가 용이하다.<br>y의 절편 b는 그래프 상에서 직선이 y축과 교차하는 지점으로써 x가 0일때의 y 값이다. 반대로 x의 절편은 y가 0일때의 x 값이다.</p>
+<blockquote><p>(y - y1) = m(x - x1)</p>
+<footer><strong>점-기울기 공식. x1과 y1은 직선 위의 한 점</strong></footer></blockquote>
+
+
+<p>점-기울기 공식으로 표현하면, 두 점만 가지고도 직선의 방정식을 도출해낼 수 있게된다.<br>예를 들어, 현재 위치와 목표 위치를 알고 있지만, 직선의 방정식을 알고 있지 않다면, 이 공식을 적용해 볼 수 있다.</p>
+<p>케릭터가 점 S(50, 200)에서 E(150, 400)로 움직이는 직선에 대한 방정식을 구하는 단계는 다음과 같다.  </p>
+<ol>
+<li>x와 y의 변위를 이용하여 기울기를 구한다.<br><code>기울기 = m = (Ye - Ys) / (Xe - Xs) = (400 - 200) / (150 - 50) = 200 / 100 = 2</code></li>
+<li>점-기울기 공식에 임의의 점을 대입한다.<br><code>(y - y1) = m(x - x1)</code><br>점 E(150, 400)를 대입<br><code>(y - 400) = 2(x - 150)</code><br><code>y - 400 = 2x - 300</code><br><code>y = 2x + 100</code></li>
+</ol>
+<p>점-기울기 공식을 이용하여, 기울기-절편 공식 형태로 직선의 방정식을 구했다.<br>코드로 표현하기 위해, x좌표에 대응하는 y의 값을 알아낼때는 기울기-절편 공식이 유리하다.<br>기울기-절편 공식은 표준형 직선의 방정식처럼 이미 만들어진 방정식을 사용하기 간편하게 해주며, 점-기울기 공식은 점과 기울기를 이용해 이런 방벙식을 유도하기 쉽게 해준다.</p>
+<p>이제, 위에서 알아본 직선의 방정식과 기울기 공식들을 응용하면, 직선 운동을 하는 물체의 방정식으로 부터 직교하는 다른 직선의 방정식을 구할 수 있다.<br>한 물체가 <code>y = 2/3x + 20</code>을 따라서 움직이고 있다고 가정하자. 이 물체가 (30, 40)의 위치에서 왼쪽 90도 방향으로 꺾은 직선 방향으로 가도록 하고자 할때, 꺾은 후의 이동 경로에 대한 방정식은 다음과 같이 유도할 수 있다.</p>
+<ol>
+<li><code>y = 2/3x + 20</code>는 <code>기울기-절편</code> 형태의 방정식이므로 <code>기울기 m = 2/3</code>이다.</li>
+<li><code>기울기 m = 2/3</code>과 직교하는 새 직선의 <code>기울기 m2</code>는 <code>-1/m</code> 이므로 <code>m2 = -3/2</code> 가 된다.</li>
+<li>점 (30, 40)도 새 직선상의 한 점이므로 2번에서 알아낸 기울기를 사용해 점-기울기 공식에 대입한다.<br><code>(y - y1) = m(x - x1)</code><br><code>(y - 40) = -3/2(x - 30)</code><br><code>(y - 40) = -3/2x + 45</code></li>
+<li>3번의 식을 <code>기울기-절편</code> 공식으로 변환한다.<br><code>y = -3/2x + 85</code></li>
+</ol>
+<p>그림으로 표현하면 다음과 같다.<br><img src="/imgs/ortho-1.png" alt="(30, 40) 지점에서 y = 2/3x + 20 과 직교하는 직선 y = -3/2x + 85"></p>
+<p>3차원에서의 직선도 2차원과 크게 다르지 않다. 단지 z축이 추가되었을 뿐이다. 여기서는 단순하게 좌표와 직선의 공식을 통해서 표현하고 있지만, 차후에는 벡터를 다루어 직선과 좌표를 표현할 것이다.<br>2차원 직선을 벡터로 표기하면 점은 <code>&lt;x, y&gt;</code> 또는 <code>&lt;30, 40&gt;</code>의 형태, 기울기는 <code>&lt;∆x, ∆y&gt;</code> 또는 <code>&lt;2, -3&gt;</code>의 형태로 표기한다. 3차원에서는 점 <code>&lt;x, y, z&gt;</code>와 기울기 <code>&lt;∆x, ∆y, ∆z&gt;</code>로 표기하면 된다.</p>
+<p>따라서, 3차원상의 점 <code>&lt;50, 200, 75&gt;</code>에서 <code>&lt;100, 50, 225&gt;</code>로 이동했다고 가정하면, 두 점의 기울기는 다음과 같이 구할 수 있다.  </p>
+<p><code>∆x = 100 - 50 = 50</code><br><code>∆y = 50 - 200 = -150</code><br><code>∆z = 225 - 75 = 150</code><br>위치의 변화량(변위)는 <code>&lt;50, -150, 150&gt;</code></p>
+<h2>직선의 성질을 이용한 충돌 검사</h2>
+<p>그래픽스 프로그래밍을 하다보면, 두 물체의 이동경로상에서 충돌지점을 알아야할 경우가 있을 것이다.<br>즉, 두 직선의 방정식의 교점을 구하면 된다. 그러나, 두 직선이 충돌한다면 충돌 지점은 하나겠지만, 두 직선이 평행하다면 영원히 충돌하지 않을 것이다. 따라서, 직선의 성질을 이용해서 충돌지점의 개수를 먼저 파악해보는것이 예외상황을 보다 빨리 예측할 수 있을것이다.</p>
+<p>각 직선의 방정식이 정의되어 있다고 한다면, <code>기울기-절편</code> 공식을 통해 기울기와 y절편으로 다음과 같이 충돌지점의 개수를 예측할 수 있다.</p>
+<ul>
+<li>두 직선의 기울기가 서로 다르면, 충돌지점은 하나</li>
+<li>두 직선의 기울기와 y절편이 모두 같으면, 충돌지점은 무한</li>
+<li>두 직선의 기울기는 같으나, y절편이 다르면, 충돌지점은 없음</li>
+</ul>
+<p>이런, 두 직선의 관계는 1차 연립방정식을 통해 정의되며, 정확한 충돌지점 또한 알아낼 수 있다.</p>
+<h2>두 직선의 충돌지점 알아내기</h2>
+<p>두 직선의 교차점. 즉, 충돌지점을 알아내는데는 두 가지 방법을 사용할 수 있다.</p>
+<ul>
+<li>선형결합법</li>
+<li>치환법</li>
+</ul>
+<p>미지수가 2개인 연립방정식의 해를 구하는 방법이다.</p>
+<h3>선형결합법</h3>
+<p>선형결합법은 등식의 성질을 이용하여 연립방정식을 풀기 편하게 변환하는 방법이다. 방정식의 양변에 0이 아닌 같은 수를 곱해서, 두 방정식의 x나 y의 계수가 같아지도록 만드는 방법이다.<br>다음과 같은 두 방정식을 살펴보자.</p>
+<p><code>3x + 2y = 10</code><br><code>4x + 3y = 6</code></p>
+<p>위 두 방정식에서 특정 미지수의 계수가 같아지도록 공배수를 곱해서, 계수가 같아지도록 만들어 보자. 여기서는 y의 계수를 일치 시켜보았다.</p>
+<p><code>3(3x) + 3(2y) = 3(10)</code><br><code>2(4x) + 2(3y) = 2(6)</code>  </p>
+<p>이렇게 양변을 곱해주면, y의 계수가 6으로 같아진다.  </p>
+<p><code>9x + 6y = 30</code><br><code>8x + 6y = 12</code>  </p>
+<p>이제, 위 두개의 방정식을 결합한다. 단순히 한 방정식을 다른 방정식에서 빼주면 된다.<br><code>9x + 6y = 30</code><br><code>-(8x + 6y = 12)</code><br><code>x + 0y = 18</code><br><code>x = 18</code>  </p>
+<p>교점의 x좌표를 구했으니, 두 방정식 중 하나에 대입하면 y의 좌표도 구할 수 있다.<br><code>3x + 2y = 10</code><br><code>3(18) + 2y = 10</code><br><code>54 + 2y = 10</code><br><code>y = -22</code>  </p>
+<p>결과적으로, 이 연립방정식의 해는 <code>(18, -22)</code>이며 두 직선의 충돌지점(교점)이다.</p>
+<p>위 단계를 요약해보면 다음과 같다.</p>
+<ol>
+<li>x, y중에서 소거할 변수 선택</li>
+<li>소거할 변수의 계수가 같아지도록 공배수를 곱한다.</li>
+<li>한 방정식에서 다른 방정식을 빼서 연립방정식의 <code>선형 결합</code>을 구한다.</li>
+<li>첫 번째 변수의 값을 구한다.</li>
+<li>첫 번째 변수의 값을 방정식에 대입하여 나머지 변수의 값을 구한다.</li>
+</ol>
+<h3>치환법</h3>
+<p>치환법은 좀 더 일반적인 연립방정식의 풀이법이다.<br>이 방식은 주어진 두 방정식중 하나를 하나의 변수에 대해서 정리한 다음, 나머지 방정식에 대입한다.<br>다음과 같은 두 방정식을 살펴보자.  </p>
+<p><code>x + 2y = 5</code><br><code>3x - 2y = -1</code>  </p>
+<p>첫 번째 방정식을 x에 대해 정리하면, 다음과 같다.<br><code>x + 2y = 5</code><br><code>x = -2y + 5</code>  </p>
+<p>x에 대해 정리된 첫 번째 방정식을 나머지 방정식의 x와 치환한다.<br><code>3x - 2y = -1</code><br><code>3(-2y + 5) - 2y = -1</code><br><code>-6y + 15 - 2y = -1</code><br><code>-8y = -16</code><br><code>y = 2</code>  </p>
+<p>교점의 y좌표를 구했으니, 두 방정식 중 하나에 대입하면 x의 좌표도 구할 수 있다.<br><code>x + 2y = x + 2(2) = 5</code><br><code>x + 4 = 5</code><br><code>x = 1</code>  </p>
+<p>이 연립방정식의 해는 <code>(1, 2)</code>이며 두 직선의 충돌지점(교점)이 구해졌다.</p>
+<p>위 단계를 요약해보면 다음과 같다.</p>
+<ol>
+<li>두 방정식 중 하나를 골라, 변수 하나에 대해 정리한다.</li>
+<li>정리한 등식을 다른 방정식에 치환한다. (이 때, 1번 단계에서 선택된 변수가 소거된다.)</li>
+<li>남은 변수에 대한 방정식의 답을 구한다.</li>
+<li>3단계에서 구해진 답을 두 방정식 중 하나에 대입하여, 나머지 변수를 구한다.</li>
+</ol>
+<h3>충돌지점 알아내기에 대한 결론</h3>
+<p>선형결합법과 치환법 모두 한개의 해를 가지는 임의의 1차 연립방정식을 푸는데 사용할 수 있다.<br>두 방정식 중 어느 한 변수의 계수가 1이라면, 치환법이 해룰 구하는데 유리하며, 그렇지 않다면 선형결합법을 사용하는것이 좋다.</p>
+<p>이제, 이것을 코드로 풀어봐야할 차례이다.<br>먼저, 두 직선을 <code>점-기울기</code> 공식으로 정의해보자. 두 직선이 교차하므로, x와 y는 두 직선의 교점이된다.</p>
+<blockquote>
+<p>y - y1 = m1(x - x1)<br>y - y2 = m2(x - x2)</p>
+</blockquote>
+<p>그런 다음, 두 식을 y에 대해 정리한다.  </p>
+<blockquote>
+<p>y = m1(x - x1) + y1<br>y = m2(x - x2) + y2</p>
+</blockquote>
+<p>y가 두 직선의 교점 이므로, 위 식은 등식이된다.  </p>
+<blockquote>
+<p>m1(x - x1) + y1 = m2(x - x2) + y2</p>
+</blockquote>
+<p>이제, x에 대해 정리하면 최종적으로 다음과 같은 식이 유도된다.  </p>
+<blockquote>
+<p>m1x - m1x1 + y1 = m2x - m2x2 + y2<br>m1x - m2x = m1x1 - m2x2 + y2 - y1<br>x(m1 - m2) = m1x1 - m2x2 + y2 - y1</p>
+<p>x = (m1x1 - m2x2 + y2 - y1) / (m1 - m2)</p>
+</blockquote>
+<p>이제, 각 직선을 특정 좌표와 기울기로 정의하여 충돌지점을 알아내는 자바스크립트 함수 코드를 살펴보자.<br>어렵지 않은 코드이니 위의 공식을 대입하여 생각해보자.</p>
+<figure class="highlight lang-js"><figcaption><span>점1과 기울기1, 점2와 기울기2를 통해 충돌지점을 알아내는 함수</span></figcaption><pre><span class="comment">/**
+ * point1, point2 는 x와 y를 가지는 좌표 객체 1,2
+ * slope1, slope2 는 Number 타입의 기울기 1,2
+ */</span>
+<span class="function"><span class="keyword">function</span> <span class="title">getLineIntersect</span><span class="params">(point1, slope1, point2, slope2)</span> {</span>
+    <span class="keyword">var</span> intersectX = <span class="number">0</span>,
+        intersectY = <span class="number">0</span>;
+
+    <span class="comment">// x = (m1x1 - m2x2 + y2 - y1) / (m1 - m2)</span>
+    intersectX = ((slope1 * point1.x) - (slope2 * point2.x) + point2.y - point1.y)
+                / (slope1 - slope2);
+    <span class="comment">// y = m1(x - x1) + y1</span>
+    intersectY = slope1 * (intersectX - point1.x) + point1.y;
+
+    <span class="keyword">return</span> {
+        x: intersectX,
+        y: intersectY
+    };
+}
+</pre></figure>
+
+<p>다음 글에서는, 그래픽스 프로그래밍에서 필요한 기하학적 기초에 대해 설명하도록 하겠다.<br>기하학적 기초에는 점 사이의 거리, 포물선, 원과 구, 원과 원, 구와 구의 충돌 검출 응용 등에 대해 다룬다.</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:boxersb.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+  	
+    <li><a href="/categories/angularJS/">angularJS</a><small>1</small></li>
+    
+  
+  	
+  
+  	
+    <li><a href="/categories/javascript/">javascript</a><small>3</small></li>
+    
+  
+  	
+    <li><a href="/categories/mathematics/">mathematics</a><small>1</small></li>
+    
+  
+  	
+    <li><a href="/categories/typescript/">typescript</a><small>1</small></li>
+    
+  
+  	<li><a href="/categories/etc/">etc</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag Cloud</h3>
+  <div class="entry">
+    <a href="/tags/-형/" style="font-size: 10.00px;">-형</a><a href="/tags/2010/" style="font-size: 10.00px;">2010</a><a href="/tags/I형/" style="font-size: 10.00px;">I형</a><a href="/tags/MVC/" style="font-size: 10.00px;">MVC</a><a href="/tags/angular/" style="font-size: 10.00px;">angular</a><a href="/tags/firefox/" style="font-size: 10.00px;">firefox</a><a href="/tags/git/" style="font-size: 10.00px;">git</a><a href="/tags/github/" style="font-size: 10.00px;">github</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/jekyll/" style="font-size: 10.00px;">jekyll</a><a href="/tags/language/" style="font-size: 10.00px;">language</a><a href="/tags/lines/" style="font-size: 10.00px;">lines</a><a href="/tags/mozilla/" style="font-size: 10.00px;">mozilla</a><a href="/tags/object/" style="font-size: 10.00px;">object</a><a href="/tags/observer/" style="font-size: 10.00px;">observer</a><a href="/tags/pages/" style="font-size: 10.00px;">pages</a><a href="/tags/pattern/" style="font-size: 10.00px;">pattern</a><a href="/tags/pi/" style="font-size: 10.00px;">pi</a><a href="/tags/points/" style="font-size: 10.00px;">points</a><a href="/tags/specification/" style="font-size: 10.00px;">specification</a><a href="/tags/toString/" style="font-size: 10.00px;">toString</a><a href="/tags/toValue/" style="font-size: 10.00px;">toValue</a><a href="/tags/typescript/" style="font-size: 10.00px;">typescript</a><a href="/tags/그래픽스/" style="font-size: 10.00px;">그래픽스</a><a href="/tags/수학/" style="font-size: 10.00px;">수학</a><a href="/tags/웹개발/" style="font-size: 10.00px;">웹개발</a><a href="/tags/인재/" style="font-size: 10.00px;">인재</a><a href="/tags/트랜드/" style="font-size: 10.00px;">트랜드</a><a href="/tags/파이형/" style="font-size: 10.00px;">파이형</a>
+  </div>
+</div>
+
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 boxersb
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

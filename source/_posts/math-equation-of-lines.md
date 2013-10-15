@@ -1,6 +1,6 @@
 title: "점과 직선의 공식"
 date: 2013-10-11 10:58:42
-category: 그래픽스 기초수학
+category: mathematics
 tags: [points, lines, 수학, 그래픽스]
 ---
 

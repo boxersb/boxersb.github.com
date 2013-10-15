@@ -4,7 +4,7 @@
   <subtitle><![CDATA[for all front-end matters..]]></subtitle>
   <link href="http://boxersb.github.io/atom.xml" rel="self"/>
   <link href="http://boxersb.github.io"/>
-  <updated>2013-10-15T08:54:55.679Z</updated>
+  <updated>2013-10-15T09:07:24.180Z</updated>
   <id>http://boxersb.github.io/</id>
   <author>
     <name><![CDATA[boxersb]]></name>
@@ -13,10 +13,10 @@
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
     <title type="html"><![CDATA[점과 직선의 공식]]></title>
-    <link href="http://boxersb.github.io/그래픽스 기초수학/2013/10/11/math-equation-of-lines/"/>
-    <id>http://boxersb.github.io/그래픽스 기초수학/2013/10/11/math-equation-of-lines/</id>
+    <link href="http://boxersb.github.io/mathematics/2013/10/11/math-equation-of-lines/"/>
+    <id>http://boxersb.github.io/mathematics/2013/10/11/math-equation-of-lines/</id>
     <published>2013-10-11T01:58:42.000Z</published>
-    <updated>2013-10-15T08:44:03.000Z</updated>
+    <updated>2013-10-15T09:07:06.000Z</updated>
     <content type="html"><![CDATA[<h2>함수</h2>
 <p>함수라는 용어는 개발자 친구들에게는 아주 익숙할 것이다.<br>수학에서의 정의도 프로그래밍 세계와 크게 다르지 않는데, 일반적으로 입력값을 넣으면 함수는 그 정보를 토대로 새로운 정보를 반환하는 일을 한다.  </p>
 <p>수학에서 함수는 일반적인 수를 다룬다. (프로그래밍에서 문자열등을 처리하는것과는 달리) 함수를 정의하는 방법에는 두 가지가 있다.</p>
@@ -230,7 +230,7 @@ table.math-1 { text-align:center; }
     <category scheme="http://boxersb.github.io/tags/lines/" term="lines"/>
     <category scheme="http://boxersb.github.io/tags/수학/" term="수학"/>
     <category scheme="http://boxersb.github.io/tags/그래픽스/" term="그래픽스"/>
-    <category scheme="http://boxersb.github.io/categories/그래픽스 기초수학/" term="그래픽스 기초수학"/>
+    <category scheme="http://boxersb.github.io/categories/mathematics/" term="mathematics"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[AngularJS의 MVC 패턴 개요]]></title>

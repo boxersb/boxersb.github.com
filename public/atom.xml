@@ -4,7 +4,7 @@
   <subtitle><![CDATA[for all front-end matters..]]></subtitle>
   <link href="http://boxersb.github.io/atom.xml" rel="self"/>
   <link href="http://boxersb.github.io"/>
-  <updated>2013-10-11T09:47:15.646Z</updated>
+  <updated>2013-10-15T08:54:55.679Z</updated>
   <id>http://boxersb.github.io/</id>
   <author>
     <name><![CDATA[boxersb]]></name>
@@ -12,45 +12,46 @@
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
-    <title type="html"><![CDATA[1. 점과 직선]]></title>
-    <link href="http://boxersb.github.io/그래픽스 기초수학/2013/10/11/math-points-and-lines/"/>
-    <id>http://boxersb.github.io/그래픽스 기초수학/2013/10/11/math-points-and-lines/</id>
+    <title type="html"><![CDATA[점과 직선의 공식]]></title>
+    <link href="http://boxersb.github.io/그래픽스 기초수학/2013/10/11/math-equation-of-lines/"/>
+    <id>http://boxersb.github.io/그래픽스 기초수학/2013/10/11/math-equation-of-lines/</id>
     <published>2013-10-11T01:58:42.000Z</published>
-    <updated>2013-10-11T09:47:03.000Z</updated>
+    <updated>2013-10-15T08:44:03.000Z</updated>
     <content type="html"><![CDATA[<h2>함수</h2>
 <p>함수라는 용어는 개발자 친구들에게는 아주 익숙할 것이다.<br>수학에서의 정의도 프로그래밍 세계와 크게 다르지 않는데, 일반적으로 입력값을 넣으면 함수는 그 정보를 토대로 새로운 정보를 반환하는 일을 한다.  </p>
 <p>수학에서 함수는 일반적인 수를 다룬다. (프로그래밍에서 문자열등을 처리하는것과는 달리) 함수를 정의하는 방법에는 두 가지가 있다.</p>
 <p>첫 번째는, 입력값에 상응하는 출력값으로 구성된 순서 쌍의 참조 테이블을 만드는 것이다.</p>
-<table>
-<thead>
+<style type="text/css">
+table.math-1 { text-align:center; }
+</style>
+<table class="math-1" width="400">
 <tr>
-<th>x</th>
-<th>y</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
+	<th>x</th>
+	<th>y</th>
 </tr>
 <tr>
-<td>1</td>
-<td>2</td>
+	<td>0</td>
+	<td>0</td>
 </tr>
 <tr>
-<td>2</td>
-<td>4</td>
+	<td>1</td>
+	<td>2</td>
 </tr>
 <tr>
-<td>3</td>
-<td>6</td>
+	<td>2</td>
+	<td>4</td>
 </tr>
 <tr>
-<td>4</td>
-<td>8</td>
+	<td>3</td>
+	<td>6</td>
 </tr>
-</tbody>
+<tr>
+	<td>4</td>
+	<td>8</td>
+</tr>
 </table>
+
+
 <p>이렇게 참조 테이블을 만드는것은 매우 간단하고 빠른 방법이다.<br>프로그래밍에서도 복잡하고 느리지만 자주 사용되는 연산 결과들을 저런식으로 해시 테이블로 저장해두고 참조하면, 성능상의 이점이 있는것이 사실이다.</p>
 <p>그러나, 이 방식에는 큰 문제가 있는데, 해당 참조 테이블에 존재하지 않는 값을 입력으로 사용하면, 결과를 알 수 없을 뿐만 아니라, 매우 다양한 케이스를 처리하게 하려면, 거대한 참조 테이블을 생성하여야 한다는 단점이 있다.</p>
 <p>따라서, 두 번째 방법으로 위 함수를 y=2x 와 같이 정의할 수 있다.<br>이렇게 함수를 방정식으로 정의해 두면, x의 입력값에 대한 모든 y의 값을 알아낼 수 있다.</p>
@@ -64,10 +65,166 @@
 <p>이와 같은 좌표계를 3차원으로 확장하는것도 마찬가지인데, 3번째 좌표계인 z축을 추가해보면 다음과 같다.</p>
 <p><img src="/imgs/coord_system_3d.png" alt="3차원 오른손 좌표계"></p>
 <p>각 엔진별로 좌표계를 사용하는 방식이 조금씩 틀린데, 어떤 시스템에서는 오른손 좌표계를, 어떤 시스템에서는 왼손 좌표계를 사용할 수도 있다.<br>위 그림은, 전형적인 오른손 좌표계를 표현한 것으로써, z축이 화면으로부터 관찰자 쪽으로 뻗어 나온다. 즉, 관찰자로 다가올 수록 z축의 값이 커진다.</p>
-<p><img src="/imgs/left_right_hand.gif" alt="왼손 좌표계와 오른손 좌표계"></p>
+<p><img src="/imgs/left_right_hand.gif" alt="왼손 좌표계와 오른손 좌표계. 이미지 출처: http://www.learnopengles.com/understanding-opengls-matrices/left_right_hand"></p>
 <p>우리는, 상향 y축을 갖는 오른손 좌표계를 사용할 것이다. 전통적인 수학 좌표계이며, OpenGL, WebGL에서 사용하는 좌표계이기 때문이다.</p>
 <p>좌표계 위에서의 점은 (x, y)와 같이 기술할 수 있으며, 3차원에서는 z축을 추가하여 (x, y, z)로 표기한다.</p>
-<p><img src="/imgs/2d_coords.png" alt="점 A(7, 4), B(0, 8), C(-5, 0), D(-3, -7), E(6, -5) 에 대한 좌표 표기"></p>
+<p><img src="/imgs/2d_coords.png" alt="점 A(7, 4), B(0, 8), C(-5, 0), D(-3, -7), E(6, -5) 에 대한 2차원 좌표 표기"></p>
+<h2>직선의 정의</h2>
+<p>좌표계상의 점들을 직선으로 연결할 수 있다면, 이 점의 집합들을 이용해서 직선의 방정식을 정의할 수 있다.<br>직선의 방정식은 <code>Ax + By = C</code> 와 같이 정의한다.</p>
+<blockquote><p>Ax + By = C</p>
+<footer><strong>직선의 방정식</strong></footer></blockquote>
+
+
+<p>글의 맨 앞에서 정의한 참조 테이블을 대입한 방정식 y = 2x 의 해집합을 좌표계상에 표시해보면 다음과 같다.<br><img src="/imgs/y=2x.png" alt="y = 2x의 해집합"></p>
+<p><code>y = 2x</code>의 방정식의 경우 언뜻 보면 <code>Ax + By = C</code>의 꼴이 아닌것처럼 보이는데,<br>실제로는 <code>2x - y = 0</code> 과 같이 풀이해 볼 수 있다.<br><code>y = 3</code> 과 같은 식도 마찬가지로, <code>0x + y = 3</code> 과 같은 직선의 방정식이다.</p>
+<p>이런 형태의 1차 방정식은, 좌표계상에 직선으로 표시할 수 있으므로, 해집합이 직선이 되는 직선의 방정식이라고 할 수 있다.</p>
+<h2>직선의 성질</h2>
+<h3>기울기</h3>
+<p>두점 P와 Q가 존재한다고 가정했을때, 두 점을 이어서 직선으로 만들면, 직선의 기울기를 정의할 수 있다.<br>기울기는 경사도라고도 하며, 직선의 이동량(x축의 변위)에 대한 상승량(y축의 변위)의 비율, 즉 상승량/이동량 이다.</p>
+<p>예를 들어, P(0, 0)이고 Q(2, 1)일때 이동량은 2, 상승량은 1이며, x축이 2만큼 이동할 동안 y축은 1만큼 이동하였고 이동량에 대한 상승량의 비율인 1/2이 직선의 기울기이다.</p>
+<blockquote><p>기울기 m = (y2 - y1) / (x2 - x1)</p>
+<footer><strong>기울기 공식</strong></footer></blockquote>
+
+
+<p>위 공식을 사용하여 기울기를 구하려면, 특정 직선의 방정식으로 부터 임의의 두 점을 구한 다음, 이동량과 상승량을 구해야한다.<br>그러나, 직선의 방정식이 Ax + By = C 형태의 표준형이라면, 아래와 같이 간단한 계산법을 사용하여 기울기를 구할 수 있다.</p>
+<blockquote><p>m = -A/B</p>
+<footer><strong>Ax + By = C로 정의된 직선의 기울기 m</strong></footer></blockquote>
+
+
+<p>직선의 기울기에는 다음과 같은 정보가 숨어 있다.</p>
+<ul>
+<li>기울기가 음수이면, 그래프는 왼쪽에서 오른쪽으로 갈수록 내려간다. (\ 형태)</li>
+<li>기울기가 양수이면, 그래프는 왼쪽에서 오른쪽으로 갈수록 올라간다. (/ 형태)</li>
+<li>기울기가 0이면, 그래프는 수평이다. (- 형태)</li>
+<li>기울기 공식 <code>m = (y2 - y1) / (x2 - x1)</code> 에서 제수(x2 - x1)가 0이면,<br>기울기는 정의할 수 없고 그래프는 수직선이다.</li>
+</ul>
+<p>두 직선과 각 직선의 기울기가 있을때는 다음과 같은 사실이 성립한다.</p>
+<ul>
+<li>두 직선의 기울기가 같으면, 두 직선은 평행하다. (교점이 없다.)</li>
+<li>두 직선이 직교(수직선으로 만날때)할때, 두 직선의 기울기를 곱하면 -1이된다.  <blockquote><p>m1m2 = -1 또는<br>m1 = -1/m2 또는<br>m2 = -1/m1</p>
+<footer><strong>서로 직교하는 두 직선의 기울기 m1과 m2의 관계</strong></footer></blockquote>
+
+
+</li>
+</ul>
+<p>기울기를 사용하면, 표준형 직선의 방정식 이외에 프로그래밍적으로도 유용한 두가지 다른 표현 방법을 적용할 수 있다.</p>
+<blockquote><p>y = mx + b</p>
+<footer><strong>기울기-절편 공식. b는 y절편</strong></footer></blockquote>
+
+
+<p>기울기-절편 공식은 y의 결과 값이 식의 나머지 부분으로 결정되기 때문에, 프로그래밍 코드로 방정식을 구현하기가 용이하다.<br>y의 절편 b는 그래프 상에서 직선이 y축과 교차하는 지점으로써 x가 0일때의 y 값이다. 반대로 x의 절편은 y가 0일때의 x 값이다.</p>
+<blockquote><p>(y - y1) = m(x - x1)</p>
+<footer><strong>점-기울기 공식. x1과 y1은 직선 위의 한 점</strong></footer></blockquote>
+
+
+<p>점-기울기 공식으로 표현하면, 두 점만 가지고도 직선의 방정식을 도출해낼 수 있게된다.<br>예를 들어, 현재 위치와 목표 위치를 알고 있지만, 직선의 방정식을 알고 있지 않다면, 이 공식을 적용해 볼 수 있다.</p>
+<p>케릭터가 점 S(50, 200)에서 E(150, 400)로 움직이는 직선에 대한 방정식을 구하는 단계는 다음과 같다.  </p>
+<ol>
+<li>x와 y의 변위를 이용하여 기울기를 구한다.<br><code>기울기 = m = (Ye - Ys) / (Xe - Xs) = (400 - 200) / (150 - 50) = 200 / 100 = 2</code></li>
+<li>점-기울기 공식에 임의의 점을 대입한다.<br><code>(y - y1) = m(x - x1)</code><br>점 E(150, 400)를 대입<br><code>(y - 400) = 2(x - 150)</code><br><code>y - 400 = 2x - 300</code><br><code>y = 2x + 100</code></li>
+</ol>
+<p>점-기울기 공식을 이용하여, 기울기-절편 공식 형태로 직선의 방정식을 구했다.<br>코드로 표현하기 위해, x좌표에 대응하는 y의 값을 알아낼때는 기울기-절편 공식이 유리하다.<br>기울기-절편 공식은 표준형 직선의 방정식처럼 이미 만들어진 방정식을 사용하기 간편하게 해주며, 점-기울기 공식은 점과 기울기를 이용해 이런 방벙식을 유도하기 쉽게 해준다.</p>
+<p>이제, 위에서 알아본 직선의 방정식과 기울기 공식들을 응용하면, 직선 운동을 하는 물체의 방정식으로 부터 직교하는 다른 직선의 방정식을 구할 수 있다.<br>한 물체가 <code>y = 2/3x + 20</code>을 따라서 움직이고 있다고 가정하자. 이 물체가 (30, 40)의 위치에서 왼쪽 90도 방향으로 꺾은 직선 방향으로 가도록 하고자 할때, 꺾은 후의 이동 경로에 대한 방정식은 다음과 같이 유도할 수 있다.</p>
+<ol>
+<li><code>y = 2/3x + 20</code>는 <code>기울기-절편</code> 형태의 방정식이므로 <code>기울기 m = 2/3</code>이다.</li>
+<li><code>기울기 m = 2/3</code>과 직교하는 새 직선의 <code>기울기 m2</code>는 <code>-1/m</code> 이므로 <code>m2 = -3/2</code> 가 된다.</li>
+<li>점 (30, 40)도 새 직선상의 한 점이므로 2번에서 알아낸 기울기를 사용해 점-기울기 공식에 대입한다.<br><code>(y - y1) = m(x - x1)</code><br><code>(y - 40) = -3/2(x - 30)</code><br><code>(y - 40) = -3/2x + 45</code></li>
+<li>3번의 식을 <code>기울기-절편</code> 공식으로 변환한다.<br><code>y = -3/2x + 85</code></li>
+</ol>
+<p>그림으로 표현하면 다음과 같다.<br><img src="/imgs/ortho-1.png" alt="(30, 40) 지점에서 y = 2/3x + 20 과 직교하는 직선 y = -3/2x + 85"></p>
+<p>3차원에서의 직선도 2차원과 크게 다르지 않다. 단지 z축이 추가되었을 뿐이다. 여기서는 단순하게 좌표와 직선의 공식을 통해서 표현하고 있지만, 차후에는 벡터를 다루어 직선과 좌표를 표현할 것이다.<br>2차원 직선을 벡터로 표기하면 점은 <code>&lt;x, y&gt;</code> 또는 <code>&lt;30, 40&gt;</code>의 형태, 기울기는 <code>&lt;∆x, ∆y&gt;</code> 또는 <code>&lt;2, -3&gt;</code>의 형태로 표기한다. 3차원에서는 점 <code>&lt;x, y, z&gt;</code>와 기울기 <code>&lt;∆x, ∆y, ∆z&gt;</code>로 표기하면 된다.</p>
+<p>따라서, 3차원상의 점 <code>&lt;50, 200, 75&gt;</code>에서 <code>&lt;100, 50, 225&gt;</code>로 이동했다고 가정하면, 두 점의 기울기는 다음과 같이 구할 수 있다.  </p>
+<p><code>∆x = 100 - 50 = 50</code><br><code>∆y = 50 - 200 = -150</code><br><code>∆z = 225 - 75 = 150</code><br>위치의 변화량(변위)는 <code>&lt;50, -150, 150&gt;</code></p>
+<h2>직선의 성질을 이용한 충돌 검사</h2>
+<p>그래픽스 프로그래밍을 하다보면, 두 물체의 이동경로상에서 충돌지점을 알아야할 경우가 있을 것이다.<br>즉, 두 직선의 방정식의 교점을 구하면 된다. 그러나, 두 직선이 충돌한다면 충돌 지점은 하나겠지만, 두 직선이 평행하다면 영원히 충돌하지 않을 것이다. 따라서, 직선의 성질을 이용해서 충돌지점의 개수를 먼저 파악해보는것이 예외상황을 보다 빨리 예측할 수 있을것이다.</p>
+<p>각 직선의 방정식이 정의되어 있다고 한다면, <code>기울기-절편</code> 공식을 통해 기울기와 y절편으로 다음과 같이 충돌지점의 개수를 예측할 수 있다.</p>
+<ul>
+<li>두 직선의 기울기가 서로 다르면, 충돌지점은 하나</li>
+<li>두 직선의 기울기와 y절편이 모두 같으면, 충돌지점은 무한</li>
+<li>두 직선의 기울기는 같으나, y절편이 다르면, 충돌지점은 없음</li>
+</ul>
+<p>이런, 두 직선의 관계는 1차 연립방정식을 통해 정의되며, 정확한 충돌지점 또한 알아낼 수 있다.</p>
+<h2>두 직선의 충돌지점 알아내기</h2>
+<p>두 직선의 교차점. 즉, 충돌지점을 알아내는데는 두 가지 방법을 사용할 수 있다.</p>
+<ul>
+<li>선형결합법</li>
+<li>치환법</li>
+</ul>
+<p>미지수가 2개인 연립방정식의 해를 구하는 방법이다.</p>
+<h3>선형결합법</h3>
+<p>선형결합법은 등식의 성질을 이용하여 연립방정식을 풀기 편하게 변환하는 방법이다. 방정식의 양변에 0이 아닌 같은 수를 곱해서, 두 방정식의 x나 y의 계수가 같아지도록 만드는 방법이다.<br>다음과 같은 두 방정식을 살펴보자.</p>
+<p><code>3x + 2y = 10</code><br><code>4x + 3y = 6</code></p>
+<p>위 두 방정식에서 특정 미지수의 계수가 같아지도록 공배수를 곱해서, 계수가 같아지도록 만들어 보자. 여기서는 y의 계수를 일치 시켜보았다.</p>
+<p><code>3(3x) + 3(2y) = 3(10)</code><br><code>2(4x) + 2(3y) = 2(6)</code>  </p>
+<p>이렇게 양변을 곱해주면, y의 계수가 6으로 같아진다.  </p>
+<p><code>9x + 6y = 30</code><br><code>8x + 6y = 12</code>  </p>
+<p>이제, 위 두개의 방정식을 결합한다. 단순히 한 방정식을 다른 방정식에서 빼주면 된다.<br><code>9x + 6y = 30</code><br><code>-(8x + 6y = 12)</code><br><code>x + 0y = 18</code><br><code>x = 18</code>  </p>
+<p>교점의 x좌표를 구했으니, 두 방정식 중 하나에 대입하면 y의 좌표도 구할 수 있다.<br><code>3x + 2y = 10</code><br><code>3(18) + 2y = 10</code><br><code>54 + 2y = 10</code><br><code>y = -22</code>  </p>
+<p>결과적으로, 이 연립방정식의 해는 <code>(18, -22)</code>이며 두 직선의 충돌지점(교점)이다.</p>
+<p>위 단계를 요약해보면 다음과 같다.</p>
+<ol>
+<li>x, y중에서 소거할 변수 선택</li>
+<li>소거할 변수의 계수가 같아지도록 공배수를 곱한다.</li>
+<li>한 방정식에서 다른 방정식을 빼서 연립방정식의 <code>선형 결합</code>을 구한다.</li>
+<li>첫 번째 변수의 값을 구한다.</li>
+<li>첫 번째 변수의 값을 방정식에 대입하여 나머지 변수의 값을 구한다.</li>
+</ol>
+<h3>치환법</h3>
+<p>치환법은 좀 더 일반적인 연립방정식의 풀이법이다.<br>이 방식은 주어진 두 방정식중 하나를 하나의 변수에 대해서 정리한 다음, 나머지 방정식에 대입한다.<br>다음과 같은 두 방정식을 살펴보자.  </p>
+<p><code>x + 2y = 5</code><br><code>3x - 2y = -1</code>  </p>
+<p>첫 번째 방정식을 x에 대해 정리하면, 다음과 같다.<br><code>x + 2y = 5</code><br><code>x = -2y + 5</code>  </p>
+<p>x에 대해 정리된 첫 번째 방정식을 나머지 방정식의 x와 치환한다.<br><code>3x - 2y = -1</code><br><code>3(-2y + 5) - 2y = -1</code><br><code>-6y + 15 - 2y = -1</code><br><code>-8y = -16</code><br><code>y = 2</code>  </p>
+<p>교점의 y좌표를 구했으니, 두 방정식 중 하나에 대입하면 x의 좌표도 구할 수 있다.<br><code>x + 2y = x + 2(2) = 5</code><br><code>x + 4 = 5</code><br><code>x = 1</code>  </p>
+<p>이 연립방정식의 해는 <code>(1, 2)</code>이며 두 직선의 충돌지점(교점)이 구해졌다.</p>
+<p>위 단계를 요약해보면 다음과 같다.</p>
+<ol>
+<li>두 방정식 중 하나를 골라, 변수 하나에 대해 정리한다.</li>
+<li>정리한 등식을 다른 방정식에 치환한다. (이 때, 1번 단계에서 선택된 변수가 소거된다.)</li>
+<li>남은 변수에 대한 방정식의 답을 구한다.</li>
+<li>3단계에서 구해진 답을 두 방정식 중 하나에 대입하여, 나머지 변수를 구한다.</li>
+</ol>
+<h3>충돌지점 알아내기에 대한 결론</h3>
+<p>선형결합법과 치환법 모두 한개의 해를 가지는 임의의 1차 연립방정식을 푸는데 사용할 수 있다.<br>두 방정식 중 어느 한 변수의 계수가 1이라면, 치환법이 해룰 구하는데 유리하며, 그렇지 않다면 선형결합법을 사용하는것이 좋다.</p>
+<p>이제, 이것을 코드로 풀어봐야할 차례이다.<br>먼저, 두 직선을 <code>점-기울기</code> 공식으로 정의해보자. 두 직선이 교차하므로, x와 y는 두 직선의 교점이된다.</p>
+<blockquote>
+<p>y - y1 = m1(x - x1)<br>y - y2 = m2(x - x2)</p>
+</blockquote>
+<p>그런 다음, 두 식을 y에 대해 정리한다.  </p>
+<blockquote>
+<p>y = m1(x - x1) + y1<br>y = m2(x - x2) + y2</p>
+</blockquote>
+<p>y가 두 직선의 교점 이므로, 위 식은 등식이된다.  </p>
+<blockquote>
+<p>m1(x - x1) + y1 = m2(x - x2) + y2</p>
+</blockquote>
+<p>이제, x에 대해 정리하면 최종적으로 다음과 같은 식이 유도된다.  </p>
+<blockquote>
+<p>m1x - m1x1 + y1 = m2x - m2x2 + y2<br>m1x - m2x = m1x1 - m2x2 + y2 - y1<br>x(m1 - m2) = m1x1 - m2x2 + y2 - y1</p>
+<p>x = (m1x1 - m2x2 + y2 - y1) / (m1 - m2)</p>
+</blockquote>
+<p>이제, 각 직선을 특정 좌표와 기울기로 정의하여 충돌지점을 알아내는 자바스크립트 함수 코드를 살펴보자.<br>어렵지 않은 코드이니 위의 공식을 대입하여 생각해보자.</p>
+<figure class="highlight lang-js"><figcaption><span>점1과 기울기1, 점2와 기울기2를 통해 충돌지점을 알아내는 함수</span></figcaption><pre><span class="comment">/**
+ * point1, point2 는 x와 y를 가지는 좌표 객체 1,2
+ * slope1, slope2 는 Number 타입의 기울기 1,2
+ */</span>
+<span class="function"><span class="keyword">function</span> <span class="title">getLineIntersect</span><span class="params">(point1, slope1, point2, slope2)</span> {</span>
+    <span class="keyword">var</span> intersectX = <span class="number">0</span>,
+        intersectY = <span class="number">0</span>;
+
+    <span class="comment">// x = (m1x1 - m2x2 + y2 - y1) / (m1 - m2)</span>
+    intersectX = ((slope1 * point1.x) - (slope2 * point2.x) + point2.y - point1.y)
+                / (slope1 - slope2);
+    <span class="comment">// y = m1(x - x1) + y1</span>
+    intersectY = slope1 * (intersectX - point1.x) + point1.y;
+
+    <span class="keyword">return</span> {
+        x: intersectX,
+        y: intersectY
+    };
+}
+</pre></figure>
+
+<p>다음 글에서는, 그래픽스 프로그래밍에서 필요한 기하학적 기초에 대해 설명하도록 하겠다.<br>기하학적 기초에는 점 사이의 거리, 포물선, 원과 구, 원과 원, 구와 구의 충돌 검출 응용 등에 대해 다룬다.</p>
 ]]></content>
     <category scheme="http://boxersb.github.io/tags/points/" term="points"/>
     <category scheme="http://boxersb.github.io/tags/lines/" term="lines"/>
@@ -105,44 +262,34 @@
 <ul>
 <li>코드상에서 scope 객체에 프로퍼티를 직접 할당한다. 컨트롤러에서 가장 일반적으로 사용될 수 있는 방법이다.</li>
 </ul>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">MyCtrl</span><span class="params">($scope)</span> {</span>
+<figure class="highlight lang-js"><pre><span class="function"><span class="keyword">function</span> <span class="title">MyCtrl</span><span class="params">($scope)</span> {</span>
     <span class="comment">// create property 'foo' on the MyCtrl's scope</span>
     <span class="comment">// and assign it an initial value 'bar'</span>
    $scope.foo = <span class="string">'bar'</span>;
 }
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <ul>
 <li><p>템플릿에서 할당 연산자를 통한 angular 표현식을 사용한다.</p>
-  <figure class="highlight lang-html"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
+  <figure class="highlight lang-html"><pre>
 <span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"{{ foo='bar' }} "</span>&gt;</span>Click me<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 </li>
 <li><p>템플릿에서 ngInit 지시자(directive)를 사용한다. 이 방법은, 연습용으로만 사용하고 실 서비스에서는 지양하길 바란다.</p>
-  <figure class="highlight lang-html"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">body</span> <span class="attribute">ng-init</span>=<span class="value">" foo = 'bar' "</span>&gt;</span> ... <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-</pre></td></tr></table></figure>
+  <figure class="highlight lang-html"><pre><span class="tag">&lt;<span class="title">body</span> <span class="attribute">ng-init</span>=<span class="value">" foo = 'bar' "</span>&gt;</span> ... <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+</pre></figure>
 
 </li>
 </ul>
 <p>Angular는 다음의 템플릿을 생성하면 묵시적으로(scope 프로퍼티 생성과 적절한 값을 할당함으로써) 모델을 생성한다.</p>
 <ul>
 <li><p>input과 select, textarea 등의 폼 요소</p>
-<p>  <figure class="highlight lang-html"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">input</span> <span class="attribute">ng-model</span>=<span class="value">"query"</span> <span class="attribute">value</span>=<span class="value">"fluffy cloud"</span>&gt;</span>
-</pre></td></tr></table></figure><br>  위 코드는 현재 스코프에 “query”라는 모델을 생성하고 “fluffy cloud”라는 값을 설정한다.</p>
+<p>  <figure class="highlight lang-html"><pre><span class="tag">&lt;<span class="title">input</span> <span class="attribute">ng-model</span>=<span class="value">"query"</span> <span class="attribute">value</span>=<span class="value">"fluffy cloud"</span>&gt;</span>
+</pre></figure><br>  위 코드는 현재 스코프에 “query”라는 모델을 생성하고 “fluffy cloud”라는 값을 설정한다.</p>
 </li>
 <li><p>ngRepeater를 통한 반복 선언시</p>
-  <figure class="highlight lang-html"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">ng-repeat</span>=<span class="value">"phone in phones"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-</pre></td></tr></table></figure>
+  <figure class="highlight lang-html"><pre><span class="tag">&lt;<span class="title">p</span> <span class="attribute">ng-repeat</span>=<span class="value">"phone in phones"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</pre></figure>
 
 <p>  위 코드는 “phones” 배열내 각 요소를 위한 하나의 자식 스코프를 생성하고, 각 스코프에 배열 원소의 값인 “phone” 객체 모델을 생성한다. </p>
 </li>
@@ -164,28 +311,20 @@
 <p>일반적으로, 애플리케이션 생성시에는 Angular 스코프의 초기 상태도 설정이 필요하다.</p>
 <p>Angular는 컨트롤러의 생성자 함수에 새로운 Angular scope 객체를 apply (자바스크립트 함수의 apply의 개념) 한다. 즉, Angular는 컨트롤러 형태의 인스턴스는(컨트롤러 생성자의 new 연산자를 통하는 식의) 만들지 않는다. 생성자들은 항상 기존의 scope 객체에 apply 된다.</p>
 <p>예를 들면, 다음과 같이 모델 프로퍼티를 생성함으로써 scope의 초기 상태를 설정할 수 있다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">GreetingCtrl</span><span class="params">($scope)</span> {</span>
+<figure class="highlight lang-js"><pre><span class="function"><span class="keyword">function</span> <span class="title">GreetingCtrl</span><span class="params">($scope)</span> {</span>
 	$scope.greeting = <span class="string">'Hola!'</span>;
 }
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <p>GreetingCtrl 컨트롤러는 템플릿에서 참조 가능한 greeting 모델을 생성한다.</p>
 <p><strong><em>NOTE:</em></strong> 이 문서의 예제 중 대부분은 설명을 돕기위한 목적으로 전역 스코프에 함수를 생성한다. 실제 애플리케이션에서는 다음과 같이 해당 애플리케이션을 위한 Angular 모듈의 .controller 메서드를 사용하는것이 바람직하다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="keyword">var</span> myApp = angular.module(<span class="string">'myApp'</span>,[]);
+<figure class="highlight lang-js"><pre><span class="keyword">var</span> myApp = angular.module(<span class="string">'myApp'</span>,[]);
 
 myApp.controller(<span class="string">'GreetingCtrl'</span>, [<span class="string">'$scope'</span>, <span class="keyword">function</span>($scope) {
    	$scope.greeting = <span class="string">'Hola!'</span>;
 }]);
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>Angular에 의해 $scope 서비스를 명시적으로 컨트롤러에 의존시킴을 보여주기 위해 배열 표기법을 사용한것에 주목하자.</p>
 <h3>Scope 객체에 동작 추가하기</h3>
@@ -213,24 +352,7 @@ myApp.controller(<span class="string">'GreetingCtrl'</span>, [<span class="strin
 </ul>
 <p>템플릿에서 message는 기본값이 문자열 “very”로 설정되고, spice 모델에 바인딩 된다.  어느 버튼이 클릭되느냐에 따라서, spice 모델은 <em>chili</em> 또는 <em>jalapeño</em> 로 설정되며, message는 데이터 바인딩에 의해 자동으로 수정된다.</p>
 <h3>Spicy 컨트롤러 예제</h3>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="code"><pre>&lt;body ng-controller=<span class="string">"SpicyCtrl"</span>&gt;
+<figure class="highlight lang-js"><pre>&lt;body ng-controller=<span class="string">"SpicyCtrl"</span>&gt;
  <span class="xml"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"chiliSpicy()"</span>&gt;</span>Chili<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"jalapenoSpicy()"</span>&gt;</span>Jalapeño<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
 
@@ -247,7 +369,7 @@ function SpicyCtrl($scope) {
   $scope.spice = 'jalapeño';
  }
 }</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <p>위 예제에서 주의 해야 할것들은</p>
@@ -262,22 +384,7 @@ function SpicyCtrl($scope) {
 </ul>
 <p>컨트롤러 메서드는 위 예제를 변형한 다음의 예제에서 볼 수 있듯이, 매개변수도 취할 수 있다.</p>
 <h3>컨트롤러 메서드 매개변수 예제</h3>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre>&lt;body ng-controller=<span class="string">"SpicyCtrl"</span>&gt;
+<figure class="highlight lang-js"><pre>&lt;body ng-controller=<span class="string">"SpicyCtrl"</span>&gt;
  <span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">ng-model</span>=<span class="value">"customSpice"</span> <span class="attribute">value</span>=<span class="value">"wasabi"</span>&gt;</span>
  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"spicy('chili')"</span>&gt;</span>Chili<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"spicy(customSpice)"</span>&gt;</span>Custom spice<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
@@ -292,35 +399,13 @@ function SpicyCtrl($scope) {
    $scope.spice = spice;
  }
 }</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <p>SpicyCtrl 컨트롤러는 이제 하나의 매개변수 spice 를 취하는 spicy 라는 단 하나의 메서드만을 정의한다. 템플릿은 이제 이 컨트롤러 메서드를 참조하고 첫 번째 버튼으로 문자열 ‘chili’를 넘기고, 두 번째 버튼으로 입력 상자에 연결된 값을 넘겨서 모델 프로퍼티 spice를 변경한다.</p>
 <h3>컨트롤러 상속 예제</h3>
 <p>Angular에서 컨트롤러 상속은 Scope 상속에 기반한다. 예제를 살펴보자.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-</pre></td><td class="code"><pre>
+<figure class="highlight lang-js"><pre>
 &lt;body ng-controller=<span class="string">"MainCtrl"</span>&gt;
  <span class="xml"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Good {{timeOfDay}}, {{name}}!<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-controller</span>=<span class="value">"ChildCtrl"</span>&gt;</span>
@@ -342,7 +427,7 @@ function BabyCtrl($scope) {
  $scope.timeOfDay = 'evening';
  $scope.name = 'Gingerbreak Baby';
 }</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <p>템플릿에서 3개의 ngController가 중첩되어 있는 구조에 주목하자. 이 템플릿은 결과적으로 뷰를 위한 4개의 스코프를 생성한다.</p>
@@ -357,44 +442,18 @@ function BabyCtrl($scope) {
 <h3>컨트롤러 테스트하기</h3>
 <p>컨트롤러를 테스트하는 수 많은 방법이 있지만, 가장 좋은 방법중 하나는 아래에 기술한것처럼 $rootScope와 $controller를 주입시키는 것이다.</p>
 <p>컨트롤러 함수:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">myController</span><span class="params">($scope)</span> {</span>
+<figure class="highlight lang-js"><pre><span class="function"><span class="keyword">function</span> <span class="title">myController</span><span class="params">($scope)</span> {</span>
    $scope.spices = [{<span class="string">"name"</span>:<span class="string">"pasilla"</span>, <span class="string">"spiciness"</span>:<span class="string">"mild"</span>},
                   {<span class="string">"name"</span>:<span class="string">"jalapeno"</span>, <span class="string">"spiceiness"</span>:<span class="string">"hot hot hot!"</span>},
                   {<span class="string">"name"</span>:<span class="string">"habanero"</span>, <span class="string">"spiceness"</span>:<span class="string">"LAVA HOT!!"</span>}];
  
    $scope.spice = <span class="string">"habanero"</span>;
 }
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <p>컨트롤러 테스트:</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="code"><pre>describe(<span class="string">'myController function'</span>, <span class="keyword">function</span>() {
+<figure class="highlight lang-js"><pre>describe(<span class="string">'myController function'</span>, <span class="keyword">function</span>() {
  
   describe(<span class="string">'myController'</span>, <span class="keyword">function</span>() {
     <span class="keyword">var</span> scope;
@@ -413,32 +472,11 @@ function BabyCtrl($scope) {
     });
   });
 });
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <p>중첩된 컨트롤러를 테스트해야 할 경우에는, 테스트상에 이미 존재하는 스코프와 동일한 계층의 스코프를 생성해야 한다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre></td><td class="code"><pre>describe(<span class="string">'state'</span>, <span class="keyword">function</span>() {
+<figure class="highlight lang-js"><pre>describe(<span class="string">'state'</span>, <span class="keyword">function</span>() {
     <span class="keyword">var</span> mainScope, childScope, babyScope;
  
     beforeEach(inject(<span class="keyword">function</span>($rootScope, $controller) {
@@ -459,7 +497,7 @@ function BabyCtrl($scope) {
         expect(babyScope.name).toBe(<span class="string">'Gingerbreak Baby'</span>);
     });
 });
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <h2><a href="id:ng-view">View에 대한 이해</a></h2>
 <p>Angular에서 뷰는 브라우저에 불러들여져 렌더링된 DOM 이다. 그런 다음, Angular는 템플릿과 컨트롤러, 모델에 내재한 정보들을 기반으로 DOM을 변형 시킨다.</p>
@@ -484,45 +522,36 @@ function BabyCtrl($scope) {
 <p>Github Pages와 Jekyll을 사용하면 git 기반 블로그를 만들 수 있다.<br>rss는 물론 Atom도 지원하며, disqus나 facebook 소셜 플러그인을 사용하면, 댓글 기능도 활성화 할 수 있다.  </p>
 <h3>Jekyll 설치</h3>
 <p>Jekyll은 Ruby gem으로 제공되므로 커멘드 라인에서 아래와 같이 설치한다.</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ gem install jekyll
-</pre></td></tr></table></figure>
+<figure class="highlight lang-bash"><pre>$ gem install jekyll
+</pre></figure>
 
 <h3>Jekyll-Bootstrap 설치</h3>
 <p>먼저, <a href="https://github.com" target="_blank">Github</a>에서 SITENAME.github.com 과 같은 이름의 저장소를 만든다.<br>SITENAME은 만들려는 사이트의 이름이다.  </p>
 <p>다음으로, Jekyll-Bootstrap을 설치한다.<br>Jekyll-Bootstrap은 Jekyll을 사용한 사이트를 만들기위해 필요한 작업을 간단하게 처리해준다.  </p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>$ git clone https://github.com/plusjade/jekyll-bootstrap.git SITENAME.github.com
+<figure class="highlight lang-bash"><pre>$ git clone https://github.com/plusjade/jekyll-bootstrap.git SITENAME.github.com
 $ cd SITENAME.github.com
 $ git remote <span class="keyword">set</span>-url origin git@github.com:YOURACCOUNT/SITENAME.github.com.git
 $ git push origin master
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>앞서 만들어 두었던 SITENAME.github.com 저장소에 jekyll-bootstrap을 clone 한다.<br>그런 다음, git remote set-url 을 사용하여 origin을 다시 SITENAME.github.com으로 수정한다.<br>마지막으로, clone 받아둔 jekyll-bootstrap 파일들까지 원격 저장소에 push 한다.  </p>
 <p>여기까지 수행하면, 블로그를 만들기위한 기본적인 jekyll 설정이 끝난셈이다. <strong><em>Very Simple!!</em></strong>  </p>
 <h3>로컬 서버 띄우기</h3>
 <p>jekyll은 로컬 웹서버도 지원한다.</p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ jekyll --server
-</pre></td></tr></table></figure>
+<figure class="highlight lang-bash"><pre>$ jekyll --server
+</pre></figure>
 
 <p>웹 서버를 시작하면, 현재 사이트에서 변경된 파일들을 모아, static html 파일들을 자동으로 생성해준다.<br>브라우저에서는 <a href="http://localhost:4000" target="_blank">http://localhost:4000</a> 으로 방금 만든 사이트를 테스트해볼 수 있다.</p>
 <h3>테마 사용하기</h3>
 <p>jekyll은 테마기능도 지원한다. <a href="http://themes.jekyllbootstrap.com/" target="_blank">Jekyll 공식 테마 살펴보기</a><br>테마는 여러개를 하나의 Jekyll 사이트에 설치할 수 있으며, 테마 스위칭 기능도 지원한다. 물론, 테마는 커스터마이징이 가능하다.</p>
 <p><strong>테마 설치하기</strong></p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ rake theme:install git=<span class="string">"https://github.com/jekyllbootstrap/theme-the-program.git"</span>
+<figure class="highlight lang-bash"><pre>$ rake theme:install git=<span class="string">"https://github.com/jekyllbootstrap/theme-the-program.git"</span>
 $ rake theme:install git=<span class="string">"https://github.com/boxersb/jekyll-theme-slate.git"</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p><strong>테마 스위칭</strong></p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ rake theme:switch name=<span class="string">"the-program"</span>
-</pre></td></tr></table></figure>
+<figure class="highlight lang-bash"><pre>$ rake theme:switch name=<span class="string">"the-program"</span>
+</pre></figure>
 
 
 
@@ -530,20 +559,7 @@ $ rake theme:install git=<span class="string">"https://github.com/boxersb/jekyll
 <p>Jekyll 사이트에 대한 설정은 /_config.yml 파일에 수록된다.<br>여기서는, 포스트의 permalink 스키마 변경이나, 사이트 소유자 정보, 사이트명, 코멘트나 분석툴 같은 외부 도구등을 설정할 수 있다.  </p>
 <h3>댓글 사용하기</h3>
 <p>_config.yml 파일에서 comments 절의 내용을 수정하면 된다.<br>여기서는 facebook 소셜 플러그인을 사용하였다. 각 댓글 서비스별로 수정이 필요한 곳은 FIXME로 표시해둔 부분을 참조하면 된다.  </p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre>comments <span class="symbol">:</span>
+<figure class="highlight lang-ruby"><pre>comments <span class="symbol">:</span>
   provider <span class="symbol">:</span> facebook <span class="comment">#FIXME</span>
   disqus <span class="symbol">:</span>
     short_name <span class="symbol">:</span> abc  <span class="comment">#FIXME</span>
@@ -556,19 +572,11 @@ $ rake theme:install git=<span class="string">"https://github.com/boxersb/jekyll
     <span class="symbol">num_posts:</span> <span class="number">5</span>
     <span class="symbol">width:</span> <span class="number">640</span>
     <span class="symbol">colorscheme:</span> light
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <h3>사이트 분석툴 사용하기</h3>
 <p>_config.yml 파일에서 analytics 절의 내용을 수정하면 된다.<br>여기서는 Google Analytics를 사용하였다.  </p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>analytics <span class="symbol">:</span>
+<figure class="highlight lang-ruby"><pre>analytics <span class="symbol">:</span>
     provider <span class="symbol">:</span> google 
     google <span class="symbol">:</span> 
         tracking_id <span class="symbol">:</span> <span class="string">'UA-123-12'</span> <span class="comment">#FIXME</span>
@@ -576,30 +584,20 @@ $ rake theme:install git=<span class="string">"https://github.com/boxersb/jekyll
       site_id <span class="symbol">:</span> abc     <span class="comment">#FIXME</span>
     mixpanel <span class="symbol">:</span>
         token <span class="symbol">:</span> <span class="string">'_MIXPANEL_TOKEN_'</span>  <span class="comment">#FIXME</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <h2>블로깅하기</h2>
 <p>Jekyll + Github Pages 를 활용한 블로깅은, 기본적으로 마크다운 파일을 만들고(rake를 활용한 명령어가 지원된다), jekyll로 파싱한다음, 해당 git 저장소의 master 브랜치에 push 해야 정상적으로 Deploy가 된다.<br>매우 개발스러운 방법이지만, Rich Text Editing을 싫어하며 웹 호스팅하기 아까운 나같은 사람한테는 딱 좋은 플랫폼인 셈이다.  </p>
 <h3>새 포스트 만들기</h3>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$ rake post title=<span class="string">"Hello World"</span>
-</pre></td></tr></table></figure>
+<figure class="highlight lang-bash"><pre>$ rake post title=<span class="string">"Hello World"</span>
+</pre></figure>
 
 <p>이렇게 rake를 사용한 명령어를 사용하면 지정된 포스트에 해당되는 마크다운 파일이 만들어진다.  </p>
 <blockquote>
 <p><em>Creating new post: ./_posts/2013-04-03-hello-world.md</em></p>
 </blockquote>
 <p>해당 마크다운 파일을 열면, 다음과 같은 기본 템플릿이 생성되었음을 알 수 있다.  </p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>----  
+<figure class="highlight lang-ruby"><pre>----  
 <span class="symbol">layout:</span> post  
 <span class="symbol">title:</span> <span class="string">"Hello World"</span>  
 <span class="symbol">description:</span> <span class="string">""</span>  
@@ -608,29 +606,23 @@ $ rake theme:install git=<span class="string">"https://github.com/boxersb/jekyll
 ----  
 
 {% <span class="keyword">include</span> <span class="constant">JB</span>/setup %}
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>대충 감이 왔겠지만, title과 description, tags 절을 적절히 커스터 마이즈하고, { % include JB/setup % } 이후 부터 markdown 문법을 사용하여 post를 작성하면 된다.  </p>
 <h3>페이지 만들기</h3>
 <p>포스트 외에 페이지도 만들 수 있다.  </p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>$ rake page name=<span class="string">"about.md"</span>
+<figure class="highlight lang-bash"><pre>$ rake page name=<span class="string">"about.md"</span>
 $ rake page name=<span class="string">"pages/profile.md"</span>
 $ rake page name=<span class="string">"pages/blogs"</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>위와 같은 명령어를 실행한 후 결과메세지를 참고해서 해당 파일을 수정하면 된다.  </p>
 <h3>배포하기</h3>
 <p>jekyll —server를 사용하여 로컬 웹서버로 생성한 페이지 및 포스트를 모두 확인했다면, 실제로 웹에 노출되도록 배포해야한다.<br>Git 페이지 기반이며, Github Pages에서는 저장소의 master 브랜치에 해당되는 내용을 표시하므로, 간단히 master 브랜치로 변경사항을 push 하기만 하면 된다.  </p>
-<figure class="highlight lang-bash"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>$ git add .
+<figure class="highlight lang-bash"><pre>$ git add .
 $ git commit -m <span class="string">"new post(Jekyll 소개)"</span>
 $ git push origin master
-</pre></td></tr></table></figure>
+</pre></figure>
 
 ]]></content>
     <category scheme="http://boxersb.github.io/tags/jekyll/" term="jekyll"/>
@@ -651,63 +643,41 @@ $ git push origin master
 <p>TypeScript는 <strong><em>ES6 (ECMAScript 6)</em></strong>에서 제안된 여러가지 기능들과 클래스, 모듈등의 문법도 포함되어 있다. 클래스는 전통적인 객체 지향 프로그래밍 패턴을 기반으로 상속과 같은 기능들을 자바스크립트 보다 훨씬 표현력있게 사용할 수 있다. 모듈은 네이밍 충돌 문제와 자유롭게 코드를 컴포넌트화 할 수 있게 해준다. 컴파일러에서는 모듈을 정적 또는 동적으로 로드할 수 있도록 하는 “모듈 코드 생성 (Module Code Generation)” 옵션을 제공하고 있다.</p>
 <p>TypeScript에서는 Closure에서 정의한 JSDoc 주석과 비슷하지만, 주석이 아니라 문법에 직접적으로 통합시킨 타입 주석 시스템을 제공한다. 이렇게 짜여진 코드는 가독성이 좋고 변수와 일치하는 타입 주석을 일일이 연결하지 않아도 되므로 유지보수 비용을 많이 줄일 수 있다.</p>
 <p>이런 타입 시스템은 타입 추정을 좀 더 용이하게 한다. 예를 들면 다음의 코드는 변수 “i”가 number 형이라고 추정할 수 있을 것이다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> i = <span class="number">0</span>;
-</pre></td></tr></table></figure>
+<figure class="highlight lang-js"><pre><span class="keyword">var</span> i = <span class="number">0</span>;
+</pre></figure>
 
 <p>다음의 함수 정의에서 함수 f는 문자열 타입을 반환할것으로 추정할 수 있다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> {</span>
+<figure class="highlight lang-js"><pre><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> {</span>
 	<span class="keyword">return</span> <span class="string">"hello"</span>;
 }
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>몇가지 훌륭한 툴에서는는 변수 또는 반환값의 타입을 자동으로 추정하여 해당 타입의 멤버 메서드의 목록을 자동으로 출력해주는 서비스를 받을 수 있다.<br><img src="http://media.tumblr.com/cfa552dd51ed3f87a388faed6dca561c/tumblr_inline_mgm9p10OPo1qct7gv.png" alt=""></p>
 <p>그러나, TypeScript의 타입 주석으로 형식을 명시해 주면, 개발자에게도 많은 이득이 있다. 위의 함수 f를 다음의 코드와 같이 수정해두면, 원하지 않는 타입의 값이 매개변수로 사용되는것을 막을 수 있다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">(s: string)</span> {</span>
+<figure class="highlight lang-js"><pre><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">(s: string)</span> {</span>
     <span class="keyword">return</span> s;
 }
 
 f({});		<span class="comment">// Error</span>
 f(<span class="string">"hello"</span>);	<span class="comment">// Ok</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>매개변수 s에 타입 주석으로 : string을 사용함으로써 함수 f는 매개변수 s를 문자열만 받아들이는 함수로 정의되었고, 실제로 함수 f에서는 문자열로 취급한다. TypeScript 컴파일러는 문자열을 필요로 하는 함수 f에 객체 {}를 전달하였을 경우 오류를 표시한다. 반면, 문자형인 “hello”를 전달하였을 경우에는 정상 동작하게 된다.</p>
 <p>이 TypeScript 코드를 컴파일하여 생산된 자바스크립트 코드에서는 이 타입 주석이 깨끗히 제거된다. 런타임시의 타입 추정 이전에 TypeScript 컴파일을 거쳐서 타입을 검사하기 때문에 실제 자바스크립트 애플리케이션을 더욱 견고하게 작성할 수 있다.</p>
 <h2>앰비언트 선언</h2>
 <p>TypeScript 컴파일러는 기본적으로 정의되지 않은 변수에 접근시 오류를 발생시킨다.<br>그러나, document나 window와 같이 브라우저에서 미리 정의해둔 객체나 jQuery와 같은 외부 라이브러리를 함께 사용할 수 있기 때문에, 이럴경우를 대비해서 앰비언트 선언을 사용할 수 있다.<br>앰비언트 선언은 타입을 명시하지 않는다. 컴파일러는 앰비언트로 선언된 변수를 “any” 타입이라고 추정한다. 마찬가지로, 개발툴에서도 해당 변수에 대해 특정 타입으로 가정할 수 없다.<br>브라우저의 document를 사용하기 위해서는 아래와 같이 앰비언트 선언을 하면 된다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>declare <span class="keyword">var</span> document;
+<figure class="highlight lang-js"><pre>declare <span class="keyword">var</span> document;
 document.title = <span class="string">"Hello"</span>;  <span class="comment">// document를 앰비언트 선언하였으므로 오류가 발생하지 않는다.</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>사실, document의 경우엔 TypeScript 컴파일러가 자동으로 앰비언트 선언문을 가지고 있다. ‘lib.d.ts’라는 라이브러리를 포함하기 때문인데, 이 라이브러리에는 DOM과 같은 빌트인 자바스크립트 라이브러리에 대한 선언이 들어있다.</p>
 <p>그러나, jQuery에 대한 인터페이스는 정의되어 있지 않으므로, 다음과 같이 앰비언트 선언을 해서 사용해야 한다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>declare <span class="keyword">var</span> $;
-</pre></td></tr></table></figure>
+<figure class="highlight lang-js"><pre>declare <span class="keyword">var</span> $;
+</pre></figure>
 
 <h2>Function 타입</h2>
 <p>TypeScript의 함수는 자바스크립트의 함수가 가진 특징들을 좀 더 표현력있게 사용할 수 있도록 문법이 개선되었다. TypeScript 함수의 선언 부분은 다음과 같이 정의할 수 있다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>function vote(candidate: string, callback: (result: string) =&gt; any) {
+<figure class="highlight lang-js"><pre>function vote(candidate: string, callback: (result: string) =&gt; any) {
     // do Something..
 ￼}
 
@@ -716,33 +686,18 @@ vote("BigPig", function(result: string) {
         // ...
     }
 });
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>위 예제에서 함수 vote의 매개변수 candidate는 문자열 타입이어야하며, callback는 문자열 타입의 result를 매개변수로 받아들이고, any 타입을 반환하는 함수 타입이어야 한다.</p>
 <h2>Object 타입</h2>
 <p>TypeScript의 Object(이하 객체) 타입은 형상을 정의할 수 있다. 다음의 코드는 MakePoint 라는 함수의 반환형으로 객체 타입의 리터럴을 지정하고 있다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="keyword">var</span> MakePoint: () =&gt; {
+<figure class="highlight lang-js"><pre><span class="keyword">var</span> MakePoint: () =&gt; {
     x: number;  y: number;
 };
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>객체 타입에는 이름도 부여할 수가 있는데 이를 객체 타입 인터페이스라고 한다. 다음의 코드는 name이라는 필수 필드와 favoriteColor라는 부가적인 필드가 정의된 객체 타입 인터페이스 예제이다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre>interface Friend {
+<figure class="highlight lang-js"><pre>interface Friend {
     name: string;
     favoriteColor?: string;
 }
@@ -754,24 +709,10 @@ vote("BigPig", function(result: string) {
 add({ name: <span class="string">"홍길동"</span> });    <span class="comment">// Ok</span>
 add({ favoriteColor: <span class="string">"파랑"</span> });    <span class="comment">// name이 빠졌으므로 오류가 발생한다.</span>
 add({ name: <span class="string">"임꺽정"</span>, favoriteColor: <span class="string">"녹색"</span> });    <span class="comment">// Ok</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>TypeScript의 객체 타입 모델은 자바스크립트의 객체를 다양하게 표현할 수 있게 한다. 예를 들면, jQuery에서는 get과 같은 여러가지 메서드를 포함하는 $ 라는 객체를 정의하고 있다. 그러나, 사용하는 입장에서는 $를 함수로 사용하기도 한다. 이때, $ 함수는 전달되는 매개변수의 타입에 따라 동작이 달라진다. 다음의 코드는 jQuery의 일부분을 TypeScript 객체 인터페이스로 정의한 예제이다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre>interface JQuery {
+<figure class="highlight lang-js"><pre>interface JQuery {
     text(content: string);
 }
 
@@ -785,42 +726,22 @@ declare <span class="keyword">var</span> $: JQueryStatic;
 $.get(<span class="string">"http://mysite.org/divContent"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(data: string)</span> {</span>
     $(<span class="string">"div"</span>).text(data);
 });
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>JQueryStatic 인터페이스는 또다른 JQuery 인터페이스를 참조한다. 즉, JQueryStatic 객체 인터페이스는 호출 가능한 함수 타입으로 사용될 수 있다. 물론, get 이라는 메서드도 정의 되어 있다. 이 예제에서 알 수 있는것은 TypeScript의 함수 타입도 호출 가능한 TypeScript 객체 타입이라는 점이다. (자바스크립트의 함수와 객체의 관계와 유사하다.)<br>다음의 예제 코드에서는 함수를 객체 타입 리터럴로 정의하고 있다. 처음의 두 라인은 동일한 타입을 다른 형태로 정의한 예이다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="keyword">var</span> f: { (): string; };
+<figure class="highlight lang-js"><pre><span class="keyword">var</span> f: { (): string; };
 <span class="keyword">var</span> sameType: () =&gt; string = f;    <span class="comment">// Ok</span>
 <span class="keyword">var</span> nope: () =&gt; number = sameType;     <span class="comment">// 오류: 타입이 일치하지 않는다.</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>위 jQuery의 $ 함수를 이야기 할때, $ 함수는 전달되는 매개변수의 타입에 따라 동작이 달라진다고 했다. 이런 함수의 호출 시스템을 “오버로딩” 이라고 하는데, TypeScript에서는 간단하게 객체 인터페이스를 추가 정의함으로써 함수 오버로딩을 구현할 수 있다. JQueryStatic 예제에서 함수 타입을 받아들이는 인터페이스를 추가 구현해 볼 수 있을것이다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>(ready: () =&gt; any): any;
-</pre></td></tr></table></figure>
+<figure class="highlight lang-js"><pre>(ready: () =&gt; any): any;
+</pre></figure>
 
 <p>$ 함수에 ready라는 함수를 매개변수로 전달함으로써 다른 동작을 추가 구현할 수 있다.</p>
 <h2>구조체 서브타이핑</h2>
 <p>객체 타입은 구조적으로 비교가 가능하다. 예를 들어, 아래 예제의 CPoint 클래스는 Point 인터페이스와 일치하는데, CPoint는 Point 인터페이스에서 요구하는 멤버들을 모두 갖추고 있기 때문이다. 그러므로, 컴파일러는 이 두 타입을 구조적으로 비교할 수 있다. 예제에서는 요구된 모든 멤버를 공급하는 객체 리터럴로 객체의 타입을 비교할 수 있음 또한 보여준다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre>interface Point {
+<figure class="highlight lang-js"><pre>interface Point {
 	x: number;
 	y: number;
 }
@@ -836,55 +757,34 @@ class CPoint {
 getX(<span class="keyword">new</span> CPoint(<span class="number">0</span>, <span class="number">0</span>));		<span class="comment">// Ok, 필드가 일치함</span>
 getX({ x: <span class="number">0</span>, y: <span class="number">0</span>, color: <span class="string">"red"</span> });	<span class="comment">// 추가 필드(color)가 있는건 괜찮음</span>
 getX({ x: <span class="number">0</span> });		<span class="comment">// 오류 : y 필드가 빠졌으므로 인터페이스에 맞지 않음</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <h2>문맥 기반 타이핑</h2>
 <p>통상적으로 TypeScript 타입 추정은 “bottom-up(아래에서 위)”으로 이루어진다. 즉, 표현식의 끝에서 시작점으로 추정한다.<br>다음의 예제에서는 함수 “mul”의 반환 타입을 return 표현식에서부터 추정하여 “number”라고 결론지을 수 있다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">mul</span><span class="params">(a: number, b: number)</span> {</span>
+<figure class="highlight lang-js"><pre><span class="function"><span class="keyword">function</span> <span class="title">mul</span><span class="params">(a: number, b: number)</span> {</span>
 	<span class="keyword">return</span> a * b;
 }
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <p>타입 주석이나 기본값을 정의하지 않은 변수나 매개변수는, TypeScript에서 “any” 타입으로 추정한다. 이 경우 컴파일러는 함수의 호출부에서 해당 함수의 반환 타입을 추정하기 위한 정보를 필요로 하지 않는다. 일반적으로, 이 “bottom-up” 접근 방식은 개발자에게 명확한 타입 정보의 흐름을 제공한다.</p>
 <p>그러나, 몇가지 제한된 문맥에서는 표현식의 문백으로부터 “top-down(위에서 아래)”으로 추정한다. 이 경우를 문맥 기반 타이핑이라고 부른다. 문맥 기반 타이핑은 개발자가 타입을 사용하지만, 타입의 세부적인 사항을 모두 알지는 못할때 개발툴이 알맞은 정보를 제공하도록 돕는 역할을 한다. 예를 들어, 위의 jQuery 예제는 get 메서드의 두번째 매개변수로 함수 표현식을 사용하였다. 해당 표현식을 타이핑 하는 동안 개발툴은 함수 표현식의 타입을 get을 정의할때 설정한 대로 가정하며 매개변수 명과 타입에 대한 템플릿도 제공한다.</p>
 <h2>클래스</h2>
 <p>TypeScript는 현재 ES6에서 제안된 객체 지향 문법과 아주 비슷한 문법을 제공한다. </p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>class BankAccount {
+<figure class="highlight lang-js"><pre>class BankAccount {
 	balance = <span class="number">0</span>;
 	deposit(credit: number) {
 		<span class="keyword">this</span>.balance += credit;
 		<span class="keyword">return</span> <span class="keyword">this</span>.balance;
 	}
 }
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 
 <p>위 코드를 컴파일하면 다음과 같은 자바스크립트 코드로 변환된다</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> BankAccount = (<span class="keyword">function</span>() {
+<figure class="highlight lang-js"><pre><span class="keyword">var</span> BankAccount = (<span class="keyword">function</span>() {
 	<span class="function"><span class="keyword">function</span> <span class="title">BankAccount</span><span class="params">()</span> {</span>
 		<span class="keyword">this</span>.balance = <span class="number">0</span>;
 	}
@@ -895,40 +795,25 @@ getX({ x: <span class="number">0</span> });		<span class="comment">// 오류 : y
 	
 	<span class="keyword">return</span> BankAccount;
 })();
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 
 <p>위 TypeScript 코드에서 BankAccount라는 클래스를 정의하였는데 동일한 이름으로 인스턴스 타입을 정할수도 있다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>interface BankAccount {
+<figure class="highlight lang-js"><pre>interface BankAccount {
 	balance: number;
 	deposit(credit: number): number;
 }
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 
 <p>BankAccount 클래스에 함수인 constructor를 추가 정의하였다면, 다음과 같은 형태로 변수를 선언할 수 있다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="keyword">var</span> BankAccount: <span class="keyword">new</span>() =&gt; BankAccount;
-</pre></td></tr></table></figure>
+<figure class="highlight lang-js"><pre><span class="keyword">var</span> BankAccount: <span class="keyword">new</span>() =&gt; BankAccount;
+</pre></figure>
 
 <p>BankAccount 클래스가 초기화될때 balance도 초기화 하고싶다면 constructor를 정의하여야한다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre>class BankAccount {
+<figure class="highlight lang-js"><pre>class BankAccount {
 	balance: number;
 	constructor(initially: number) {
 		<span class="keyword">this</span>.balance = initially;
@@ -938,20 +823,12 @@ getX({ x: <span class="number">0</span> });		<span class="comment">// 오류 : y
 		<span class="keyword">return</span> <span class="keyword">this</span>.balance;
 	}
 }
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 
 <p>위 코드에서 생성자인 constructor는 initially라는 number형 매개변수를 받아서 공개 필드인 balance를 설정하고 있다.<br>이런 일반적인 경우는 다음과 같이 짧게 표현할 수 있다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>class BankAccount {
+<figure class="highlight lang-js"><pre>class BankAccount {
 	constructor(public balance: number) {
 	}
 	deposit(credit: number) {
@@ -959,20 +836,12 @@ getX({ x: <span class="number">0</span> });		<span class="comment">// 오류 : y
 		<span class="keyword">return</span> <span class="keyword">this</span>.balance;
 	}
 }
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <p>public 키워드는 생성자의 매개변수가 곧 필드가 될것임을 암시한다. public는 기본 클래스 멤버의 접근 지시자이다. 그러나, 클래스 멤버로 private 접근 지시자를 설정할 수도 있다. </p>
 <p>TypeScript 클래스는 다음 예제와 같이 상속도 지원한다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre>class CheckingAccount extends BankAccount {
+<figure class="highlight lang-js"><pre>class CheckingAccount extends BankAccount {
 	constructor(balance: number) {
 		super(balance);
 	}
@@ -980,7 +849,7 @@ getX({ x: <span class="number">0</span> });		<span class="comment">// 오류 : y
 		<span class="keyword">this</span>.balance -= debit;
 	}
 }
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 
@@ -990,21 +859,14 @@ getX({ x: <span class="number">0</span> });		<span class="comment">// 오류 : y
 <p>TypeScript는 private 멤버를 두어 사용에 제한을 둠으로써 설계 단계에서 클래스 구현시 캡슐화 개념을 사용할 수 있다. 그러나, 런타임시에는 이 캡슐화를 강제하지 못하는데, 모든 객체 프로퍼티는 런타임시에는 접근 가능하기 때문이다. 향후 버전의 자바스크립트에서는 아마도 private 개념이 본격적으로 지원되어 런타임시에도 private 멤버를 강제할 수 있게 될것이다.</p>
 <p>현재 버전의 자바스크립트에서 런타임시 멤버를 캡슐화 시키는 유일한 방법은 모듈 패턴을 사용하는 것이다. 모듈 패턴은 소프트웨어 컴포넌트만의 영역을 조성함으로써 구조를 조직하고 동적 로딩 옵션을 제공하기 위한 자연스러운 방법이다. 또한, 모듈은 네임스페이스 기능을 제공하여 대부분의 소프트웨어 컴포넌트가 전역 네임스페이스를 사용하지 않아도 되도록 한다.</p>
 <p>다음의 예제는 자바스크립트 모듈 패턴을 보여준다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>(<span class="keyword">function</span>(exports) {
+<figure class="highlight lang-js"><pre>(<span class="keyword">function</span>(exports) {
 	<span class="keyword">var</span> key = generateSecretKey();
 	<span class="function"><span class="keyword">function</span> <span class="title">sendMessage</span><span class="params">(message)</span>{</span>
 		sendSecureMessage(message, key);
 	}
 	exports.sendMessage = sendMessage;
 })(MessageModule);
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 
@@ -1012,16 +874,7 @@ getX({ x: <span class="number">0</span> });		<span class="comment">// 오류 : y
 <p>또한, generateSecretKey와 sendSecureMessage 함수가 lexical 범위내 존재한다고 가정하므로, 위 예제에서는 해당 함수들이 존재하는 바깥쪽 범위도 모듈 객체에 할당된다.</p>
 <p>TypeScript의 모듈은 더 간결하게 모듈 패턴을 표현하는 메카니즘을 제공한다. TypeScript에서 개발자는 모듈과 클래스를 모듈 바깥에 중첩시킴으로써 모듈 패턴과 클래스 패턴을 조합할 수 있다.</p>
 <p>다음의 예제는 간단한 모듈을 정의하고 사용하는 코드이다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>module M {
+<figure class="highlight lang-js"><pre>module M {
 	<span class="keyword">var</span> s = <span class="string">"hello"</span>;
 	export <span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> {</span>
 		<span class="keyword">return</span> s;
@@ -1030,33 +883,20 @@ getX({ x: <span class="number">0</span> });		<span class="comment">// 오류 : y
 
 M.f();
 M.s;	<span class="comment">// 오류, s는 추출되지 않았다.</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <p>이 예제에서, 변수 ‘s’는 모듈의 private 변수이지만, 함수 ‘f’는 모듈에서 추출되어 모듈 바깥에서 해당 코드에 접근할 수 있다. 모듈 ‘M’을 인터페이스와 변수로 묘사하자면 다음과 같다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre>interface M {
+<figure class="highlight lang-js"><pre>interface M {
 	f(): string;
 }
 
 <span class="keyword">var</span> M: M;
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>인터페이스 ‘M’은 모듈 ‘M’이 외부에 노출하는 기능들을 요약하고 있다. 이 예제에서, 변수 초기화를 위해 동일한 이름의 인터페이스를 사용할 수 있다. TypeScript에서는 타입명과 변수명은 충돌하지 않기 때문이다. 각 lexical 범위는 변수 정의 공간과 타입 정의 공간이 포함되어있다.</p>
 <p>모듈 ‘M’은 전역 모듈에 중첩되어 있으므로 내부 모듈의 한 예제이다. TypeScript 컴퍼일러는 모듈 코드를 다음과 같은 자바스크립트로 코드로 변환한다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="keyword">var</span> M;
+<figure class="highlight lang-js"><pre><span class="keyword">var</span> M;
 (<span class="keyword">function</span>(M) {
 	<span class="keyword">var</span> s = <span class="string">"hello"</span>;
 	<span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> {</span>
@@ -1064,7 +904,7 @@ M.s;	<span class="comment">// 오류, s는 추출되지 않았다.</span>
 	}
 	M.f = f;
 })(M || (M={}));
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 <p>이 경우에, 컴파일러는 모듈 객체가 초기화 되었든 되지 않았던간에 필요한 모듈 객체로 전역 변수 ‘M’이 존재한다고 가정한다. </p>
@@ -1147,67 +987,28 @@ M.s;	<span class="comment">// 오류, s는 추출되지 않았다.</span>
     <updated>2013-10-10T09:42:08.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://twitter.com/bcherry" target="_blank">Ben Cherry</a>는 <a href="http://www.adequatelygood.com/2010/3/Object-to-Primitive-Conversions-in-JavaScript" target="_blank">magic of Object - primitive conversions</a> 에서 JavaScript의 toString과 toValue 메소드를 이용한 기본 객체형변환에 대해 심도있게 다루었습니다.</p>
 <p>JavaScript에서 특정객체를 alert 혹은 console 에서 확인을 해보면 보통 다음과 같은 결과를 보여줍니다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>alert( { } );           <span class="comment">// [object Object]</span>
+<figure class="highlight lang-js"><pre>alert( { } );           <span class="comment">// [object Object]</span>
 alert( <span class="keyword">function</span>(){} );  <span class="comment">// function(){}</span>
 alert( <span class="number">1</span> );             <span class="comment">// 1</span>
 alert( <span class="string">"hello"</span> );       <span class="comment">//  hello</span>
 alert( <span class="literal">true</span> );          <span class="comment">//  true</span>
 alert( [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] );    <span class="comment">// 1,2,3</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 
 
 <p>JavaScript의 모든 객체는 toString 과 toValue 메소드를 갖습니다.<br>위에 나열된 alert 혹은 console 에서 확인한 결과는 내부적으로 호출된 해당 객체의 toString 메소드의 결과입니다.</p>
 <p>toValue 메소드는 toString과 비슷해 보이지만 각종 연산자에서 사용되었을 경우 객체의 결과 값을 반환하도록 디자인되어 있습니다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre>alert( { } + { } );                    <span class="comment">// [object Object][object Object]</span>
+<figure class="highlight lang-js"><pre>alert( { } + { } );                    <span class="comment">// [object Object][object Object]</span>
 alert( <span class="keyword">function</span>(){} + <span class="keyword">function</span>(){} );  <span class="comment">// function(){}function(){}</span>
 alert( <span class="number">1</span> + <span class="number">1</span>);                         <span class="comment">// 2</span>
 alert( <span class="string">"hello"</span> + <span class="string">"world"</span> );            <span class="comment">//  helloworld</span>
 alert( <span class="literal">true</span> + <span class="literal">true</span> );                  <span class="comment">//  2</span>
 alert( [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] + [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>] );        <span class="comment">// 1,2,34,5,6</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>아래 toString과 toValue를 확장해서 쓰는 좋은 예제가 있습니다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">population</span><span class="params">(country, pop)</span> {</span>
+<figure class="highlight lang-js"><pre><span class="function"><span class="keyword">function</span> <span class="title">population</span><span class="params">(country, pop)</span> {</span>
     <span class="keyword">return</span> {
         country: country,
         pop: pop,
@@ -1234,22 +1035,11 @@ alert(america_pop); <span class="comment">// [Population "USA" 350000000</span>
 <span class="keyword">var</span> north_america_pop = america_pop + mexico_pop + canada_pop;
  
 alert(north_america_pop); <span class="comment">// 750000000</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>JavaScript의 기본 데이터타입 이외에도 개발자가 직접 개발한 Custom 객체도 toString과 toValue 메소드를 적절히 오버라이딩하면 편리하게 묵시적인 형변환을 사용할 수 있습니다. 해당객체가 어떤 작업을 수행하는 객체인지에 대한 설명(toString)으로 활용할 수도 있고, 해당 객체의 동작상태에 대한 값(toValue)로써도 사용할 수 있습니다.</p>
 <p>다음은 toString, toValue를 잘못 활용한 예입니다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="keyword">var</span> foo = {
+<figure class="highlight lang-js"><pre><span class="keyword">var</span> foo = {
     toString: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
         <span class="keyword">return</span> <span class="number">5</span>;
     },
@@ -1260,7 +1050,7 @@ alert(north_america_pop); <span class="comment">// 750000000</span>
 alert(foo.toString() + <span class="number">1</span>); <span class="comment">// 6 (bad!)</span>
 alert(foo + <span class="number">1</span>); <span class="comment">// "foo1" (no good!)</span>
 alert(+foo); <span class="comment">// NaN (the worst!)</span>
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p><a href="http://twitter.com/bcherry" target="_blank">Ben Cherry</a>는 위 묵시적 형변환에 대한 성능적인 검증도 마쳤습니다.<br>toString, toValue를 적절히 활용하면<br>재사용 가능한 객체를 디자인할때 좀 더 깔끔한 코드를 작성할 수 있습니다.<br>단지 alert이나 console로 찍어내는것 만으로도 객체의 상태를 알게 할수 있습니다. 즉 디버깅이 쉬워집니다.<br>또한 모든 브라우저에서 ECMA명세에 의해 위 내용을 구현하고 있어 호환성 이슈가 없습니다.</p>
 <p>그러나 성능적인 측면에서는 대부분의 브라우저가 alert(america_pop) 처럼 묵시적인 toString 메소드 호출보다는 alert(america_pop.toString()) 과 같이 명시적으로 호출하여 객체를 확인하는 것이 빠른것으로 나타났습니다. 아래는 각 브라우저별 묵시적 변환과 명시적 변환법을 사용한 성능비교를 위해 1,000,000번 같은 내용을 반복 호출한 결과표 입니다.</p>
@@ -1293,28 +1083,14 @@ alert(+foo); <span class="comment">// NaN (the worst!)</span>
     <content type="html"><![CDATA[<p>Observer Pattern이란 여러개의 Class를 작성하였을 때 각 Class들간의 연관성을 유지하기 위해 결합도를 높이는 대신 객체의 상태를 관찰하는 방법을 사용하는 디자인 패턴입니다.</p>
 <p>예를 들어 기본적인 MVC 패턴을 사용하여 어플리케이션을 개발하였을 경우 각 Model. View, Controller 클래스들은 각각 다른 역할을 하게됩니다. 그러나 Controller 가 Model과 View의 중심에서 각 객체들에게 명령을 내리면 명령을 받은 객체는 명령의 실행결과나 상태를 Controller에게 보고하여야 합니다.<br>이때 일반적으로 높은 결합도를 가지게 됩니다. Model이나 View의 입장에선 Controller에게 보고하기 위한 수단으로 Controller의 참조를 취하게 되기 때문이죠</p>
 <p>Controller에서 Model의 메소드를 실행</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>Controller.Model = <span class="keyword">new</span> Model(Controller);
+<figure class="highlight lang-js"><pre>Controller.Model = <span class="keyword">new</span> Model(Controller);
 Controller.View = <span class="keyword">new</span> View(Controller);
 
 Controller.Model.getMemberList();
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>Model은 Controller의 참조를 가지고 있으며 요청결과를 Controller에게 알려줌.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre>Model = <span class="keyword">function</span>(controller){
+<figure class="highlight lang-js"><pre>Model = <span class="keyword">function</span>(controller){
    <span class="keyword">this</span>.controller = controller;
 };
 Model.prototype = {
@@ -1324,35 +1100,16 @@ Model.prototype = {
 		<span class="keyword">this</span>.controller.printMemberList();
 	}
 };
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>이런식으로 어플리케이션이 짜여질 경우 Model과 Controller와의 결합도가 매우 높아지기 때문에 재사용성이 떨어지며 유지보수가 힘들어지게 됩니다.</p>
 <p>이때 Observer Pattern을 적용하면 이러한 문제점을 어느정도 해소할 수 있습니다.<br>JavaScript 기반의 Front End 환경에서는 쉽게 예를 들어 DOM Event 모델을 예로 들 수 있겠습니다.</p>
 <p>element가 element를 Control 하는 객체를 알 필요가 없음</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>element.addEventListener(<span class="string">"click"</span>, Controller.onElementClick);
-</pre></td></tr></table></figure>
+<figure class="highlight lang-js"><pre>element.addEventListener(<span class="string">"click"</span>, Controller.onElementClick);
+</pre></figure>
 
 <p>일반객체에 Custom Event를 만들자<br>﻿DOM Event 모델﻿ 이외에도 Observer 패턴은 얼마든지 활용할 수 있습니다.<br>위에 나왔던 MVC 모델을 예로 들자면.. Model과 View는 Controller의 참조를 취득할 필요 없이..<br>특정한 Event를 발생시키도록 작성할 수 있습니다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="code"><pre><span class="keyword">var</span> Controller = <span class="keyword">function</span>(){
+<figure class="highlight lang-js"><pre><span class="keyword">var</span> Controller = <span class="keyword">function</span>(){
     <span class="keyword">this</span>.Model = <span class="keyword">new</span> Model();
     <span class="keyword">this</span>.View = <span class="keyword">new</span> View();
     <span class="comment">// some code blocks</span>
@@ -1370,112 +1127,10 @@ Controller.prototype = {
        <span class="comment">// some code blocks</span>
    }
 };
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>위와 같은 방식으로 하면 Model과 View는 Controller를 따로 알필요 없이 Event 모델만으로 동작을 하게 됩니다. 물론 저기서 나오는 addEvent라는 메소드와 onGetMemberListComplete 라는 이벤트 타입은 제가 만들어 낸것이죠.<br>그럼 어떻게 만드냐구요?? 제가 만든 Observer Class를 공개합니다.</p>
-<figure class="highlight lang-js"><figcaption><span>Observer.js</span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-</pre></td><td class="code"><pre> <span class="comment">/*!
+<figure class="highlight lang-js"><figcaption><span>Observer.js</span></figcaption><pre> <span class="comment">/*!
  * JavaScript Observer
  *
  * Date: 2010. 4. 1.
@@ -1577,24 +1232,10 @@ Controller.prototype = {
     <span class="keyword">return</span> <span class="literal">true</span>;
   }
 };
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>위 Observer 객체를 사용하여 Event 모델을 구축합니다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="comment">// Controller definitions...</span>
+<figure class="highlight lang-js"><pre><span class="comment">// Controller definitions...</span>
 Observer.applyObserver(Controller);
 Model = <span class="keyword">function</span>(){
     <span class="comment">// some code blocks</span>
@@ -1608,7 +1249,7 @@ Model.prototype = {
     }
 };
 Observer.applyObserver(Model);
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <ul>
 <li><strong>addEvent</strong>(<em>type, handler</em>) - 관찰(Observe)할 이벤트를 추가한다. 이벤트 타입은 자유롭게 설정.</li>

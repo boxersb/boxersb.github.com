@@ -12,7 +12,7 @@
 body {
   background: #eee;
   color: #444;
-  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-family: '돋움', dotum, "Helvetica Neue", "Helvetica", Arial, sans-serif;
   font-size: 14px;
   text-shadow: 0 0 1px transparent;
 }
@@ -170,6 +170,20 @@ article .post-content {
   article .post-content {
     padding-left: 20px;
   }
+}
+article .post-content .entry blockquote {
+  text-align: left;
+}
+article .post-content table {
+  border-collapse: collapse;
+}
+article .post-content table th {
+  border: solid 1px #999;
+  padding: 0.3em 0.5em;
+  background-color: #eee;
+}
+article .post-content table td {
+  border: solid 1px #999;
 }
 article .gallery {
   overflow: hidden;

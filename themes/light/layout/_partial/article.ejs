@@ -6,7 +6,8 @@
     <header>
       <% if (item.layout != 'page'){ %>
         <div class="icon"></div>
-        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
+        <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a> &gt;
+        <a href="<%- config.root %><%- item.categories.first().path %>"><%= item.categories.first().name %></a></time>
       <% } %>
       <%- partial('post/title') %>
     </header>

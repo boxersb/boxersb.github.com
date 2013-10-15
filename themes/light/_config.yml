@@ -1,28 +1,30 @@
 menu:
   Home: /
   Archives: /archives
+  ATOM: /atom.xml
 
-widgets: 
+widgets:
 - search
 - category
+- twitter
 - tag
 
 excerpt_link: Read More
 
 twitter:
-  username:
+  username: boxersb
   show_replies: false
   tweet_count: 5
 
 addthis:
   enable: true
-  pubid:
+  pubid: ra-525c9b3668ad1335
   facebook: true
   twitter: true
   google: true
-  pinterest: true
+  pinterest: false
 
 fancybox: true
 
-google_analytics:
+google_analytics: UA-39442592-1
 rss:

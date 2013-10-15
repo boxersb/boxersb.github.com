@@ -24,6 +24,18 @@
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39442592-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
 </head>
 
 
@@ -39,6 +51,8 @@
     
       <li><a href="/archives">Archives</a></li>
     
+      <li><a href="/atom.xml">ATOM</a></li>
+    
   </ul>
   <div class="clearfix"></div>
 </nav>
@@ -50,7 +64,8 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2010-04-01T09:34:08.000Z"><a href="/javascript/2010/04/01/observer-pattern-of-javascript/">Apr 1 2010</a></time>
+        <time datetime="2010-04-01T09:34:08.000Z"><a href="/javascript/2010/04/01/observer-pattern-of-javascript/">Apr 1 2010</a> &gt;
+        <a href="/categories/javascript/">javascript</a></time>
       
       
   
@@ -63,28 +78,14 @@
         <p>Observer Pattern이란 여러개의 Class를 작성하였을 때 각 Class들간의 연관성을 유지하기 위해 결합도를 높이는 대신 객체의 상태를 관찰하는 방법을 사용하는 디자인 패턴입니다.</p>
 <p>예를 들어 기본적인 MVC 패턴을 사용하여 어플리케이션을 개발하였을 경우 각 Model. View, Controller 클래스들은 각각 다른 역할을 하게됩니다. 그러나 Controller 가 Model과 View의 중심에서 각 객체들에게 명령을 내리면 명령을 받은 객체는 명령의 실행결과나 상태를 Controller에게 보고하여야 합니다.<br>이때 일반적으로 높은 결합도를 가지게 됩니다. Model이나 View의 입장에선 Controller에게 보고하기 위한 수단으로 Controller의 참조를 취하게 되기 때문이죠</p>
 <p>Controller에서 Model의 메소드를 실행</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>Controller.Model = <span class="keyword">new</span> Model(Controller);
+<figure class="highlight lang-js"><pre>Controller.Model = <span class="keyword">new</span> Model(Controller);
 Controller.View = <span class="keyword">new</span> View(Controller);
 
 Controller.Model.getMemberList();
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>Model은 Controller의 참조를 가지고 있으며 요청결과를 Controller에게 알려줌.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre>Model = <span class="keyword">function</span>(controller){
+<figure class="highlight lang-js"><pre>Model = <span class="keyword">function</span>(controller){
    <span class="keyword">this</span>.controller = controller;
 };
 Model.prototype = {
@@ -94,35 +95,16 @@ Model.prototype = {
 		<span class="keyword">this</span>.controller.printMemberList();
 	}
 };
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>이런식으로 어플리케이션이 짜여질 경우 Model과 Controller와의 결합도가 매우 높아지기 때문에 재사용성이 떨어지며 유지보수가 힘들어지게 됩니다.</p>
 <p>이때 Observer Pattern을 적용하면 이러한 문제점을 어느정도 해소할 수 있습니다.<br>JavaScript 기반의 Front End 환경에서는 쉽게 예를 들어 DOM Event 모델을 예로 들 수 있겠습니다.</p>
 <p>element가 element를 Control 하는 객체를 알 필요가 없음</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>element.addEventListener(<span class="string">"click"</span>, Controller.onElementClick);
-</pre></td></tr></table></figure>
+<figure class="highlight lang-js"><pre>element.addEventListener(<span class="string">"click"</span>, Controller.onElementClick);
+</pre></figure>
 
 <p>일반객체에 Custom Event를 만들자<br>﻿DOM Event 모델﻿ 이외에도 Observer 패턴은 얼마든지 활용할 수 있습니다.<br>위에 나왔던 MVC 모델을 예로 들자면.. Model과 View는 Controller의 참조를 취득할 필요 없이..<br>특정한 Event를 발생시키도록 작성할 수 있습니다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="code"><pre><span class="keyword">var</span> Controller = <span class="keyword">function</span>(){
+<figure class="highlight lang-js"><pre><span class="keyword">var</span> Controller = <span class="keyword">function</span>(){
     <span class="keyword">this</span>.Model = <span class="keyword">new</span> Model();
     <span class="keyword">this</span>.View = <span class="keyword">new</span> View();
     <span class="comment">// some code blocks</span>
@@ -140,112 +122,10 @@ Controller.prototype = {
        <span class="comment">// some code blocks</span>
    }
 };
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>위와 같은 방식으로 하면 Model과 View는 Controller를 따로 알필요 없이 Event 모델만으로 동작을 하게 됩니다. 물론 저기서 나오는 addEvent라는 메소드와 onGetMemberListComplete 라는 이벤트 타입은 제가 만들어 낸것이죠.<br>그럼 어떻게 만드냐구요?? 제가 만든 Observer Class를 공개합니다.</p>
-<figure class="highlight lang-js"><figcaption><span>Observer.js</span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-</pre></td><td class="code"><pre> <span class="comment">/*!
+<figure class="highlight lang-js"><figcaption><span>Observer.js</span></figcaption><pre> <span class="comment">/*!
  * JavaScript Observer
  *
  * Date: 2010. 4. 1.
@@ -347,24 +227,10 @@ Controller.prototype = {
     <span class="keyword">return</span> <span class="literal">true</span>;
   }
 };
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <p>위 Observer 객체를 사용하여 Event 모델을 구축합니다.</p>
-<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="comment">// Controller definitions...</span>
+<figure class="highlight lang-js"><pre><span class="comment">// Controller definitions...</span>
 Observer.applyObserver(Controller);
 Model = <span class="keyword">function</span>(){
     <span class="comment">// some code blocks</span>
@@ -378,7 +244,7 @@ Model.prototype = {
     }
 };
 Observer.applyObserver(Model);
-</pre></td></tr></table></figure>
+</pre></figure>
 
 <ul>
 <li><strong>addEvent</strong>(<em>type, handler</em>) - 관찰(Observe)할 이벤트를 추가한다. 이벤트 타입은 자유롭게 설정.</li>
@@ -417,11 +283,9 @@ Observer.applyObserver(Model);
       <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
     
-      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-    
     <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525c9b3668ad1335"></script>
 
       
       <div class="clearfix"></div>
@@ -432,9 +296,21 @@ Observer.applyObserver(Model);
 
 <section id="comment">
   <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
+
+  
+
+  
+  <div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123937814464693";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div class="fb-comments" data-href="http://boxersb.github.io/javascript/2010/04/01/observer-pattern-of-javascript/" data-num-posts="5" data-width="640" data-colorscheme="light"></div>
+  
 </section>
 </div></div>
     <aside id="sidebar" class="alignright">
@@ -463,6 +339,8 @@ Observer.applyObserver(Model);
   </ul>
 </div>
 
+
+  
 
   
 <div class="widget tag">
@@ -543,18 +421,6 @@ Observer.applyObserver(Model);
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
-
-<script type="text/javascript">
-var disqus_shortname = 'boxersbgithub';
-
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-</script>
 
 
 

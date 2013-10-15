@@ -1,5 +1,5 @@
-date: 2013-10-10 18:57:17.445
-argv: node /usr/local/bin/hexo generate
+date: 2013-10-15 10:22:52.004
+argv: node /usr/local/bin/hexo migrate rss public/atom.xml
 os: Darwin 12.5.0 darwin x64
 version:
   hexo: 2.2.0
@@ -13,33 +13,49 @@ version:
   openssl: 1.0.1e
 ---
 
-[debug] 18:57:17.017 Configuration file load successfully
-[debug] 18:57:17.020 Version info checked successfully
-[debug] 18:57:17.020 Loading the database...
-[debug] 18:57:17.205 Theme layout loaded
-[debug] 18:57:17.255 Processed: imgs/about_model_final.png
-[debug] 18:57:17.255 Processed: imgs/about_view_final.png
-[debug] 18:57:17.256 Processed: imgs/pie.jpg
-[debug] 18:57:17.256 Processed: imgs/state_of_webdev2010.jpg
-[debug] 18:57:17.264 Theme source loaded
-[debug] 18:57:17.267 Theme configuration loaded
-[debug] 18:57:17.286 Theme i18n loaded
-[debug] 18:57:17.406 Processed: _posts/firefox-korean-lang-trick.md
-[debug] 18:57:17.411 Processed: _posts/jekyll-introduction.md
-[debug] 18:57:17.416 Processed: _posts/mvc-of-angularjs.md
-[debug] 18:57:17.424 Processed: _posts/observer-pattern-of-javascript.md
-[debug] 18:57:17.430 Processed: _posts/pi-type-competent-person.md
-[debug] 18:57:17.433 Processed: _posts/state-of-web-development-2010.md
-[debug] 18:57:17.437 Processed: _posts/tostring-and-tovalue-of-object.md
-[error] 18:57:17.442 HexoError: Process failed: _posts/typescript-spec-overview.md
-SyntaxError: Unexpected token ILLEGAL
-    at Object.Function (<anonymous>)
-    at createRenderFunc (/usr/local/lib/node_modules/hexo/node_modules/swig/lib/swig.js:44:10)
-    at createTemplate (/usr/local/lib/node_modules/hexo/node_modules/swig/lib/swig.js:96:14)
-    at getTemplate (/usr/local/lib/node_modules/hexo/node_modules/swig/lib/swig.js:124:20)
-    at Object.exports.compile (/usr/local/lib/node_modules/hexo/node_modules/swig/lib/swig.js:186:14)
-    at /usr/local/lib/node_modules/hexo/lib/post/render.js:60:29
-    at /usr/local/lib/node_modules/hexo/node_modules/async/lib/async.js:548:21
-    at /usr/local/lib/node_modules/hexo/node_modules/async/lib/async.js:224:13
-    at iterate (/usr/local/lib/node_modules/hexo/node_modules/async/lib/async.js:131:13)
-    at async.eachSeries (/usr/local/lib/node_modules/hexo/node_modules/async/lib/async.js:147:9)
+[debug] 10:22:51.771 Configuration file load successfully
+[debug] 10:22:51.775 Plugin loaded successfully: hexo-generator-feed
+[debug] 10:22:51.777 Plugin loaded successfully: hexo-generator-sitemap
+[debug] 10:22:51.813 Plugin loaded successfully: hexo-migrator-rss
+[debug] 10:22:51.814 Version info checked successfully
+[debug] 10:22:51.814 Loading the database...
+[error] 10:22:52.000 TypeError: Object function FeedParser(options) {
+  if (!(this instanceof FeedParser)) return new FeedParser(options);
+  TransformStream.call(this, {
+    objectMode: true
+  });
+
+  this.init();
+  this.parseOpts(options);
+  // See https://github.com/isaacs/sax-js for more info
+  this.stream = sax.createStream(this.options.strict /* strict mode - no by default */, {lowercase: true, xmlns: true });
+  this.stream.on('error', this.handleSaxError.bind(this));
+  this.stream.on('processinginstruction', this.handleProcessingInstruction.bind(this));
+  this.stream.on('opentag', this.handleOpenTag.bind(this));
+  this.stream.on('closetag',this.handleCloseTag.bind(this));
+  this.stream.on('text', this.handleText.bind(this));
+  this.stream.on('cdata', this.handleText.bind(this));
+  this.stream.on('end', this.handleEnd.bind(this));
+} has no method 'parseFile'
+TypeError: Object function FeedParser(options) {
+  if (!(this instanceof FeedParser)) return new FeedParser(options);
+  TransformStream.call(this, {
+    objectMode: true
+  });
+
+  this.init();
+  this.parseOpts(options);
+  // See https://github.com/isaacs/sax-js for more info
+  this.stream = sax.createStream(this.options.strict /* strict mode - no by default */, {lowercase: true, xmlns: true });
+  this.stream.on('error', this.handleSaxError.bind(this));
+  this.stream.on('processinginstruction', this.handleProcessingInstruction.bind(this));
+  this.stream.on('opentag', this.handleOpenTag.bind(this));
+  this.stream.on('closetag',this.handleCloseTag.bind(this));
+  this.stream.on('text', this.handleText.bind(this));
+  this.stream.on('cdata', this.handleText.bind(this));
+  this.stream.on('end', this.handleEnd.bind(this));
+} has no method 'parseFile'
+    at async.waterfall.async.forEach.postLink (/Users/boxersb/project/workspace/boxersb.github.com/node_modules/hexo-migrator-rss/index.js:25:22)
+    at fn (/Users/boxersb/project/workspace/boxersb.github.com/node_modules/hexo-migrator-rss/node_modules/async/lib/async.js:579:34)
+    at Object._onImmediate (/Users/boxersb/project/workspace/boxersb.github.com/node_modules/hexo-migrator-rss/node_modules/async/lib/async.js:495:34)
+    at processImmediate [as _immediateCallback] (timers.js:330:15)

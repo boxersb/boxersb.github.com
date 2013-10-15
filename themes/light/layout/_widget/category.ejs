@@ -2,9 +2,16 @@
 <div class="widget tag">
   <h3 class="title"><%= __('categories') %></h3>
   <ul class="entry">
-  <% site.categories.sort('name').each(function(item){ %>
+  <% var etcCategory = null;
+  	site.categories.sort('name').each(function(item){ %>
+  	<% if (item.name != "etc") { %>
     <li><a href="<%- config.root %><%- item.path %>"><%= item.name %></a><small><%= item.posts.length %></small></li>
-  <% }); %>
+    <% } else { etcCategory = item; } %>
+  <% });
+
+  	if (etcCategory) { %>
+  	<li><a href="<%- config.root %><%- etcCategory.path %>"><%= etcCategory.name %></a><small><%= etcCategory.posts.length %></small></li>
+  <% } %>
   </ul>
 </div>
 <% } %>

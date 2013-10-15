@@ -1,5 +1,5 @@
-date: 2013-10-15 10:22:52.004
-argv: node /usr/local/bin/hexo migrate rss public/atom.xml
+date: 2013-10-15 20:10:49.617
+argv: node /usr/local/bin/hexo generate -w
 os: Darwin 12.5.0 darwin x64
 version:
   hexo: 2.2.0
@@ -13,49 +13,285 @@ version:
   openssl: 1.0.1e
 ---
 
-[debug] 10:22:51.771 Configuration file load successfully
-[debug] 10:22:51.775 Plugin loaded successfully: hexo-generator-feed
-[debug] 10:22:51.777 Plugin loaded successfully: hexo-generator-sitemap
-[debug] 10:22:51.813 Plugin loaded successfully: hexo-migrator-rss
-[debug] 10:22:51.814 Version info checked successfully
-[debug] 10:22:51.814 Loading the database...
-[error] 10:22:52.000 TypeError: Object function FeedParser(options) {
-  if (!(this instanceof FeedParser)) return new FeedParser(options);
-  TransformStream.call(this, {
-    objectMode: true
-  });
+[debug] 20:10:48.607 Configuration file load successfully
+[debug] 20:10:48.611 Plugin loaded successfully: hexo-generator-feed
+[debug] 20:10:48.613 Plugin loaded successfully: hexo-generator-sitemap
+[debug] 20:10:48.648 Plugin loaded successfully: hexo-migrator-rss
+[debug] 20:10:48.649 Version info checked successfully
+[debug] 20:10:48.649 Loading the database...
+[debug] 20:10:48.855 Theme layout loaded
+[debug] 20:10:48.868 Start watching theme layout...
+[debug] 20:10:48.953 Theme configuration loaded
+[debug] 20:10:48.954 Processed: debug.log
+[debug] 20:10:48.954 Processed: favicon.ico
+[debug] 20:10:48.955 Processed: imgs/2d_coords.png
+[debug] 20:10:48.956 Processed: imgs/about_model_final.png
+[debug] 20:10:48.956 Processed: imgs/about_view_final.png
+[debug] 20:10:48.956 Processed: imgs/coord_system_2d.png
+[debug] 20:10:48.957 Processed: imgs/coord_system_3d.png
+[debug] 20:10:48.957 Processed: imgs/left_right_hand.gif
+[debug] 20:10:48.957 Processed: imgs/ortho-1.png
+[debug] 20:10:48.957 Processed: imgs/pie.jpg
+[debug] 20:10:48.958 Processed: imgs/state_of_webdev2010.jpg
+[debug] 20:10:48.958 Processed: imgs/y=2x.png
+[debug] 20:10:48.967 Theme source loaded
+[debug] 20:10:48.969 Start watching theme source...
+[debug] 20:10:48.984 Theme i18n loaded
+[debug] 20:10:49.083 Processed: _posts/firefox-korean-lang-trick.md
+[debug] 20:10:49.091 Processed: _posts/jekyll-introduction.md
+[debug] 20:10:49.107 Processed: _posts/math-equation-of-lines.md
+[debug] 20:10:49.118 Processed: _posts/mvc-of-angularjs.md
+[debug] 20:10:49.127 Processed: _posts/observer-pattern-of-javascript.md
+[debug] 20:10:49.131 Processed: _posts/pi-type-competent-person.md
+[debug] 20:10:49.136 Processed: _posts/state-of-web-development-2010.md
+[debug] 20:10:49.140 Processed: _posts/tostring-and-tovalue-of-object.md
+[debug] 20:10:49.145 Processed: _posts/typescript-spec-overview.md
+[debug] 20:10:49.431 Cache saved
+[info] 20:10:49.435 Files loaded in 0.603s
+[debug] 20:10:49.459 Public folder cleared: debug.log,favicon.ico,imgs/2d_coords.png,imgs/about_model_final.png,imgs/about_view_final.png,imgs/coord_system_2d.png,imgs/coord_system_3d.png,imgs/left_right_hand.gif,imgs/ortho-1.png,imgs/pie.jpg,imgs/state_of_webdev2010.jpg,imgs/y=2x.png,fancybox/blank.gif,fancybox/fancybox_loading.gif,fancybox/fancybox_loading@2x.gif,fancybox/fancybox_overlay.png,fancybox/fancybox_sprite.png,fancybox/fancybox_sprite@2x.png,fancybox/jquery.fancybox.css,fancybox/jquery.fancybox.pack.js,js/gallery.js,js/jquery.imagesloaded.min.js,css/style.css,css/font/fontawesome-webfont.eot,css/font/fontawesome-webfont.svg,css/font/fontawesome-webfont.ttf,css/font/fontawesome-webfont.woff,atom.xml,sitemap.xml,archives/index.html,archives/2007/index.html,archives/2007/03/index.html,archives/2010/index.html,archives/2010/04/index.html,archives/2013/index.html,archives/2013/03/index.html,archives/2013/04/index.html,archives/2013/08/index.html,archives/2013/10/index.html,categories/javascript/index.html,categories/etc/index.html,categories/mathematics/index.html,categories/angularJS/index.html,categories/typescript/index.html,index.html,page/2/index.html,page/3/index.html,page/4/index.html,page/5/index.html,page/6/index.html,page/7/index.html,page/8/index.html,page/9/index.html,mathematics/2013/10/11/math-equation-of-lines/index.html,angularJS/2013/08/27/angular-mvc-summary/index.html,etc/2013/04/03/jekyll-introduction/index.html,typescript/2013/03/20/typescript-spec-overview/index.html,etc/2010/04/29/state-of-web-development-2010/index.html,etc/2010/04/09/pi-type-competent-person/index.html,javascript/2010/04/05/tostring-and-tovalue-of-object/index.html,javascript/2010/04/01/observer-pattern-of-javascript/index.html,javascript/2007/03/12/firefox-korean-lang-trick/index.html,tags/firefox/index.html,tags/mozilla/index.html,tags/javascript/index.html,tags/jekyll/index.html,tags/git/index.html,tags/github/index.html,tags/pages/index.html,tags/points/index.html,tags/lines/index.html,tags/수학/index.html,tags/그래픽스/index.html,tags/angular/index.html,tags/MVC/index.html,tags/observer/index.html,tags/pattern/index.html,tags/pi/index.html,tags/파이형/index.html,tags/인재/index.html,tags/I형/index.html,tags/-형/index.html,tags/2010/index.html,tags/웹개발/index.html,tags/트랜드/index.html,tags/object/index.html,tags/toString/index.html,tags/toValue/index.html,tags/typescript/index.html,tags/language/index.html,tags/specification/index.html
+[debug] 20:10:49.461 Render archive: archives/
+[debug] 20:10:49.461 Render archive: archives/2007/
+[debug] 20:10:49.461 Render archive: archives/2007/03/
+[debug] 20:10:49.462 Render archive: archives/2010/
+[debug] 20:10:49.462 Render archive: archives/2010/04/
+[debug] 20:10:49.462 Render archive: archives/2013/
+[debug] 20:10:49.462 Render archive: archives/2013/03/
+[debug] 20:10:49.462 Render archive: archives/2013/04/
+[debug] 20:10:49.462 Render archive: archives/2013/08/
+[debug] 20:10:49.462 Render archive: archives/2013/10/
+[debug] 20:10:49.462 Render category: categories/javascript/
+[debug] 20:10:49.462 Render category: categories/etc/
+[debug] 20:10:49.462 Render category: categories/mathematics/
+[debug] 20:10:49.462 Render category: categories/angularJS/
+[debug] 20:10:49.462 Render category: categories/typescript/
+[debug] 20:10:49.462 Render index: 
+[debug] 20:10:49.462 Render index: page/2/
+[debug] 20:10:49.462 Render index: page/3/
+[debug] 20:10:49.462 Render index: page/4/
+[debug] 20:10:49.462 Render index: page/5/
+[debug] 20:10:49.462 Render index: page/6/
+[debug] 20:10:49.462 Render index: page/7/
+[debug] 20:10:49.462 Render index: page/8/
+[debug] 20:10:49.463 Render index: page/9/
+[debug] 20:10:49.463 Render post: mathematics/2013/10/11/math-equation-of-lines/
+[debug] 20:10:49.463 Render post: angularJS/2013/08/27/angular-mvc-summary/
+[debug] 20:10:49.463 Render post: etc/2013/04/03/jekyll-introduction/
+[debug] 20:10:49.463 Render post: typescript/2013/03/20/typescript-spec-overview/
+[debug] 20:10:49.463 Render post: etc/2010/04/29/state-of-web-development-2010/
+[debug] 20:10:49.463 Render post: etc/2010/04/09/pi-type-competent-person/
+[debug] 20:10:49.463 Render post: javascript/2010/04/05/tostring-and-tovalue-of-object/
+[debug] 20:10:49.463 Render post: javascript/2010/04/01/observer-pattern-of-javascript/
+[debug] 20:10:49.463 Render post: javascript/2007/03/12/firefox-korean-lang-trick/
+[debug] 20:10:49.463 Render tag: tags/firefox/
+[debug] 20:10:49.463 Render tag: tags/mozilla/
+[debug] 20:10:49.463 Render tag: tags/javascript/
+[debug] 20:10:49.463 Render tag: tags/jekyll/
+[debug] 20:10:49.463 Render tag: tags/git/
+[debug] 20:10:49.463 Render tag: tags/github/
+[debug] 20:10:49.464 Render tag: tags/pages/
+[debug] 20:10:49.464 Render tag: tags/points/
+[debug] 20:10:49.464 Render tag: tags/lines/
+[debug] 20:10:49.464 Render tag: tags/수학/
+[debug] 20:10:49.464 Render tag: tags/그래픽스/
+[debug] 20:10:49.464 Render tag: tags/angular/
+[debug] 20:10:49.464 Render tag: tags/MVC/
+[debug] 20:10:49.464 Render tag: tags/observer/
+[debug] 20:10:49.464 Render tag: tags/pattern/
+[debug] 20:10:49.464 Render tag: tags/pi/
+[debug] 20:10:49.464 Render tag: tags/파이형/
+[debug] 20:10:49.464 Render tag: tags/인재/
+[debug] 20:10:49.464 Render tag: tags/I형/
+[debug] 20:10:49.464 Render tag: tags/-형/
+[debug] 20:10:49.464 Render tag: tags/2010/
+[debug] 20:10:49.464 Render tag: tags/웹개발/
+[debug] 20:10:49.464 Render tag: tags/트랜드/
+[debug] 20:10:49.464 Render tag: tags/object/
+[debug] 20:10:49.464 Render tag: tags/toString/
+[debug] 20:10:49.465 Render tag: tags/toValue/
+[debug] 20:10:49.465 Render tag: tags/typescript/
+[debug] 20:10:49.465 Render tag: tags/language/
+[debug] 20:10:49.465 Render tag: tags/specification/
+[error] 20:10:49.593 HexoError: Render failed: mathematics/2013/10/11/math-equation-of-lines/index.html
+ReferenceError: /Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/post.ejs:1
+ >> 1| <%- partial('_partial/article', {item: page, index: false}) %>
 
-  this.init();
-  this.parseOpts(options);
-  // See https://github.com/isaacs/sax-js for more info
-  this.stream = sax.createStream(this.options.strict /* strict mode - no by default */, {lowercase: true, xmlns: true });
-  this.stream.on('error', this.handleSaxError.bind(this));
-  this.stream.on('processinginstruction', this.handleProcessingInstruction.bind(this));
-  this.stream.on('opentag', this.handleOpenTag.bind(this));
-  this.stream.on('closetag',this.handleCloseTag.bind(this));
-  this.stream.on('text', this.handleText.bind(this));
-  this.stream.on('cdata', this.handleText.bind(this));
-  this.stream.on('end', this.handleEnd.bind(this));
-} has no method 'parseFile'
-TypeError: Object function FeedParser(options) {
-  if (!(this instanceof FeedParser)) return new FeedParser(options);
-  TransformStream.call(this, {
-    objectMode: true
-  });
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/article.ejs:43
+    41| </article>
+    42| 
+ >> 43| <%- partial('comment') %>
 
-  this.init();
-  this.parseOpts(options);
-  // See https://github.com/isaacs/sax-js for more info
-  this.stream = sax.createStream(this.options.strict /* strict mode - no by default */, {lowercase: true, xmlns: true });
-  this.stream.on('error', this.handleSaxError.bind(this));
-  this.stream.on('processinginstruction', this.handleProcessingInstruction.bind(this));
-  this.stream.on('opentag', this.handleOpenTag.bind(this));
-  this.stream.on('closetag',this.handleCloseTag.bind(this));
-  this.stream.on('text', this.handleText.bind(this));
-  this.stream.on('cdata', this.handleText.bind(this));
-  this.stream.on('end', this.handleEnd.bind(this));
-} has no method 'parseFile'
-    at async.waterfall.async.forEach.postLink (/Users/boxersb/project/workspace/boxersb.github.com/node_modules/hexo-migrator-rss/index.js:25:22)
-    at fn (/Users/boxersb/project/workspace/boxersb.github.com/node_modules/hexo-migrator-rss/node_modules/async/lib/async.js:579:34)
-    at Object._onImmediate (/Users/boxersb/project/workspace/boxersb.github.com/node_modules/hexo-migrator-rss/node_modules/async/lib/async.js:495:34)
-    at processImmediate [as _immediateCallback] (timers.js:330:15)
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/comment.ejs:10
+    8|   <% if (theme.comment_provider == "facebook") {
+    9|       if (theme.facebook) { %>
+ >> 10|       <%- partial('_partial/facebook_comment', {pagination: theme.facebook}) %>
+    11|       <% } %>
+    12|   <% } else if(config.disqus_shortname) { %>
+    13|   <div id="disqus_thread">
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/facebook_comment.ejs:7
+    5|     if (d.getElementById(id)) return;
+    6|     js = d.createElement(s); js.id = id;
+ >> 7|     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<%= appid %>";
+    8|     fjs.parentNode.insertBefore(js, fjs);
+    9|   }(document, 'script', 'facebook-jssdk'));
+    10| </script>
+
+appid is not defined
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:29:297)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:29:715)
+    at /usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:249:15
+    at Object.exports.render (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:287:13)
+    at Object.module.exports [as ejs] (/usr/local/lib/node_modules/hexo/lib/plugins/renderer/ejs.js:5:14)
+    at Object.exports.renderSync (/usr/local/lib/node_modules/hexo/lib/render.js:143:29)
+    at render (/usr/local/lib/node_modules/hexo/lib/plugins/helper/partial.js:28:22)
+    at Object.module.exports [as partial] (/usr/local/lib/node_modules/hexo/lib/plugins/helper/partial.js:50:14)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:30:73)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:30:529)
+
+[error] 20:10:49.603 HexoError: Render failed: angularJS/2013/08/27/angular-mvc-summary/index.html
+ReferenceError: /Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/post.ejs:1
+ >> 1| <%- partial('_partial/article', {item: page, index: false}) %>
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/article.ejs:43
+    41| </article>
+    42| 
+ >> 43| <%- partial('comment') %>
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/comment.ejs:10
+    8|   <% if (theme.comment_provider == "facebook") {
+    9|       if (theme.facebook) { %>
+ >> 10|       <%- partial('_partial/facebook_comment', {pagination: theme.facebook}) %>
+    11|       <% } %>
+    12|   <% } else if(config.disqus_shortname) { %>
+    13|   <div id="disqus_thread">
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/facebook_comment.ejs:7
+    5|     if (d.getElementById(id)) return;
+    6|     js = d.createElement(s); js.id = id;
+ >> 7|     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<%= appid %>";
+    8|     fjs.parentNode.insertBefore(js, fjs);
+    9|   }(document, 'script', 'facebook-jssdk'));
+    10| </script>
+
+appid is not defined
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:29:297)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:29:715)
+    at /usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:249:15
+    at Object.exports.render (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:287:13)
+    at Object.module.exports [as ejs] (/usr/local/lib/node_modules/hexo/lib/plugins/renderer/ejs.js:5:14)
+    at Object.exports.renderSync (/usr/local/lib/node_modules/hexo/lib/render.js:143:29)
+    at render (/usr/local/lib/node_modules/hexo/lib/plugins/helper/partial.js:28:22)
+    at Object.module.exports [as partial] (/usr/local/lib/node_modules/hexo/lib/plugins/helper/partial.js:50:14)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:30:73)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:30:529)
+
+[error] 20:10:49.606 HexoError: Render failed: etc/2013/04/03/jekyll-introduction/index.html
+ReferenceError: /Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/post.ejs:1
+ >> 1| <%- partial('_partial/article', {item: page, index: false}) %>
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/article.ejs:43
+    41| </article>
+    42| 
+ >> 43| <%- partial('comment') %>
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/comment.ejs:10
+    8|   <% if (theme.comment_provider == "facebook") {
+    9|       if (theme.facebook) { %>
+ >> 10|       <%- partial('_partial/facebook_comment', {pagination: theme.facebook}) %>
+    11|       <% } %>
+    12|   <% } else if(config.disqus_shortname) { %>
+    13|   <div id="disqus_thread">
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/facebook_comment.ejs:7
+    5|     if (d.getElementById(id)) return;
+    6|     js = d.createElement(s); js.id = id;
+ >> 7|     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<%= appid %>";
+    8|     fjs.parentNode.insertBefore(js, fjs);
+    9|   }(document, 'script', 'facebook-jssdk'));
+    10| </script>
+
+appid is not defined
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:29:297)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:29:715)
+    at /usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:249:15
+    at Object.exports.render (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:287:13)
+    at Object.module.exports [as ejs] (/usr/local/lib/node_modules/hexo/lib/plugins/renderer/ejs.js:5:14)
+    at Object.exports.renderSync (/usr/local/lib/node_modules/hexo/lib/render.js:143:29)
+    at render (/usr/local/lib/node_modules/hexo/lib/plugins/helper/partial.js:28:22)
+    at Object.module.exports [as partial] (/usr/local/lib/node_modules/hexo/lib/plugins/helper/partial.js:50:14)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:30:73)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:30:529)
+
+[error] 20:10:49.613 HexoError: Render failed: typescript/2013/03/20/typescript-spec-overview/index.html
+ReferenceError: /Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/post.ejs:1
+ >> 1| <%- partial('_partial/article', {item: page, index: false}) %>
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/article.ejs:43
+    41| </article>
+    42| 
+ >> 43| <%- partial('comment') %>
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/comment.ejs:10
+    8|   <% if (theme.comment_provider == "facebook") {
+    9|       if (theme.facebook) { %>
+ >> 10|       <%- partial('_partial/facebook_comment', {pagination: theme.facebook}) %>
+    11|       <% } %>
+    12|   <% } else if(config.disqus_shortname) { %>
+    13|   <div id="disqus_thread">
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/facebook_comment.ejs:7
+    5|     if (d.getElementById(id)) return;
+    6|     js = d.createElement(s); js.id = id;
+ >> 7|     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<%= appid %>";
+    8|     fjs.parentNode.insertBefore(js, fjs);
+    9|   }(document, 'script', 'facebook-jssdk'));
+    10| </script>
+
+appid is not defined
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:29:297)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:29:715)
+    at /usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:249:15
+    at Object.exports.render (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:287:13)
+    at Object.module.exports [as ejs] (/usr/local/lib/node_modules/hexo/lib/plugins/renderer/ejs.js:5:14)
+    at Object.exports.renderSync (/usr/local/lib/node_modules/hexo/lib/render.js:143:29)
+    at render (/usr/local/lib/node_modules/hexo/lib/plugins/helper/partial.js:28:22)
+    at Object.module.exports [as partial] (/usr/local/lib/node_modules/hexo/lib/plugins/helper/partial.js:50:14)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:30:73)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:30:529)
+
+[error] 20:10:49.617 HexoError: Render failed: etc/2010/04/29/state-of-web-development-2010/index.html
+ReferenceError: /Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/post.ejs:1
+ >> 1| <%- partial('_partial/article', {item: page, index: false}) %>
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/article.ejs:43
+    41| </article>
+    42| 
+ >> 43| <%- partial('comment') %>
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/comment.ejs:10
+    8|   <% if (theme.comment_provider == "facebook") {
+    9|       if (theme.facebook) { %>
+ >> 10|       <%- partial('_partial/facebook_comment', {pagination: theme.facebook}) %>
+    11|       <% } %>
+    12|   <% } else if(config.disqus_shortname) { %>
+    13|   <div id="disqus_thread">
+
+/Users/boxersb/project/workspace/boxersb.github.com/themes/light/layout/_partial/facebook_comment.ejs:7
+    5|     if (d.getElementById(id)) return;
+    6|     js = d.createElement(s); js.id = id;
+ >> 7|     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<%= appid %>";
+    8|     fjs.parentNode.insertBefore(js, fjs);
+    9|   }(document, 'script', 'facebook-jssdk'));
+    10| </script>
+
+appid is not defined
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:29:297)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:29:715)
+    at /usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:249:15
+    at Object.exports.render (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:287:13)
+    at Object.module.exports [as ejs] (/usr/local/lib/node_modules/hexo/lib/plugins/renderer/ejs.js:5:14)
+    at Object.exports.renderSync (/usr/local/lib/node_modules/hexo/lib/render.js:143:29)
+    at render (/usr/local/lib/node_modules/hexo/lib/plugins/helper/partial.js:28:22)
+    at Object.module.exports [as partial] (/usr/local/lib/node_modules/hexo/lib/plugins/helper/partial.js:50:14)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:30:73)
+    at eval (eval at <anonymous> (/usr/local/lib/node_modules/hexo/node_modules/ejs/lib/ejs.js:236:14), <anonymous>:30:529)

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[for all front-end matters..]]></subtitle>
   <link href="http://boxersb.github.io/atom.xml" rel="self"/>
   <link href="http://boxersb.github.io"/>
-  <updated>2013-10-16T03:26:21.881Z</updated>
+  <updated>2013-10-16T03:33:52.228Z</updated>
   <id>http://boxersb.github.io/</id>
   <author>
     <name><![CDATA[boxersb]]></name>
@@ -16,7 +16,7 @@
     <link href="http://boxersb.github.io/mathematics/2013/10/11/math-equation-of-lines/"/>
     <id>http://boxersb.github.io/mathematics/2013/10/11/math-equation-of-lines/</id>
     <published>2013-10-11T01:58:42.000Z</published>
-    <updated>2013-10-15T12:43:21.000Z</updated>
+    <updated>2013-10-16T03:28:28.000Z</updated>
     <content type="html"><![CDATA[<h2>함수</h2>
 <p>함수라는 용어는 개발자 친구들에게는 아주 익숙할 것이다.<br>수학에서의 정의도 프로그래밍 세계와 크게 다르지 않는데, 일반적으로 입력값을 넣으면 함수는 그 정보를 토대로 새로운 정보를 반환하는 일을 한다.  </p>
 <p>수학에서 함수는 일반적인 수를 다룬다. (프로그래밍에서 문자열등을 처리하는것과는 달리) 함수를 정의하는 방법에는 두 가지가 있다.</p>
@@ -237,7 +237,7 @@ table.math-1 { text-align:center; }
     <link href="http://boxersb.github.io/angularJS/2013/08/27/angular-mvc-summary/"/>
     <id>http://boxersb.github.io/angularJS/2013/08/27/angular-mvc-summary/</id>
     <published>2013-08-27T08:38:58.000Z</published>
-    <updated>2013-10-15T12:43:21.000Z</updated>
+    <updated>2013-10-16T03:28:28.000Z</updated>
     <content type="html"><![CDATA[<p>한동안 Backbone.js에 관해 업계에서 관심이 많다가, 최근에는 <a href="http://angularjs.org/" target="_blank">AngularJS</a>에 대한 관심이 높아지는 느낌이다.<br>그래서, AngularJS에 대해 좀 살펴봤다. 주위에서 들은 바로는 AngularJS에 대해 러닝커브가 높은 편이라고 해서, 좀 긴장했었는데..<br>AngularJS 공식 페이지의 튜토리얼을 하나씩 따라하다보니, 어느정도 구조가 눈에 들어왔다.<br>AngularJS를 처음 접하는 사람들은, Angular 자체에 대한 기본 개념을 설명하는 <a href="http://blog.outsider.ne.kr/975" target="_blank">@outsider 님의 포스트</a>를 먼저 읽어보면 도움이 많이 될것 같다.</p>
 <p>이 글에서는, <a href="http://docs.angularjs.org/guide/dev_guide.mvc" target="_blank">Angular에서 구현한 MVC의 기본 개념</a>에 대한, AngularJS 공식 페이지의 글을 옮겨보기로 하겠다.<br>아직, AngularJS에 대해 깊히 알게 된게 아님으로, 평가 자체는 나중에 따로 포스팅 해보겠다.<br>일단은, 구글이 이해하고 있는 방식의 Front-End MVC 라는 점에서 관전 포인트가 있을것 같다.</p>
 <h1>Angular의 MVC</h1>
@@ -514,7 +514,7 @@ function BabyCtrl($scope) {
     <link href="http://boxersb.github.io/etc/2013/04/03/jekyll-introduction/"/>
     <id>http://boxersb.github.io/etc/2013/04/03/jekyll-introduction/</id>
     <published>2013-04-03T09:45:50.000Z</published>
-    <updated>2013-10-15T12:43:21.000Z</updated>
+    <updated>2013-10-16T03:28:28.000Z</updated>
     <content type="html"><![CDATA[<h2>Jekyll(지킬) 이란?</h2>
 <p>Jekyll은 Ruby Gem으로 제공되며 템플릿과 템플릿의 구성요소, 인라인 코드, 마크다운과 같은 동적인 구성요소를 정적인 웹페이지로 만들어주는 파싱 엔진이다.</p>
 <p>이 웹사이트도 Jekyll로 만들어져 있다.<br>그 밖의 다른 Jekyll 웹사이트는 <a href="https://github.com/mojombo/jekyll/wiki/Sites" target="_blank">여기</a>서 살펴볼 수 있다.<br><br /><br><br /></p>
@@ -636,7 +636,7 @@ $ git push origin master
     <link href="http://boxersb.github.io/typescript/2013/03/20/typescript-spec-overview/"/>
     <id>http://boxersb.github.io/typescript/2013/03/20/typescript-spec-overview/</id>
     <published>2013-03-20T09:48:53.000Z</published>
-    <updated>2013-10-15T12:43:21.000Z</updated>
+    <updated>2013-10-16T03:28:28.000Z</updated>
     <content type="html"><![CDATA[<h1>언어의 기본 컨셉</h1>
 <p>TypeScript는 대형 자바스크립트 애플리케이션에 적합한 대안 언어이다. TypeScript를 활용하여 개발하여도 기존의 소프트웨어 컴포넌트와 자바스크립트 라이브러리의 동작 방식과는 충돌하지 않는다. 또한, 동적인 모듈 로딩을 지원하여 네이밍 충돌 문제를 줄일 수 있게 해주며, 추가된 타입 체계를 바탕으로 생산성을 높여주는 여러가지 툴과 사례(정적 타이핑, 심볼 기반 네비게이션, 구문 완성, 코드 리펙토링 등)를 활용할 수 있다.</p>
 <p>TypeScript는 <strong><em>ES5 (ECMAScript 5)</em></strong> 문법의 상위 집합(Super Set)이다. 모든 자바스크립트 프로그램은 TypeScript 프로그램이기도 하다. TypeScript 컴파일러는 TypeScript 문법을 자바스크립트 문법으로 변환시켜주며, 이때 코드에서 변수를 정의한 순서나 이름을 바꾸지 않는다. 따라서, 자바스크립트 결과물을 브라우저에서 디버깅하여 TypeScript 코드를 수정하기에도 용이하다. 또한, 부가적으로 소스 맵도 제공하므로 TypeScript 소스를 직접 디버깅하는것도 가능하다. TypeScript를 지원하는 도구들은 일반적으로 코드 저장시 자바스크립트 결과물을 생산하며, 기존의 자바스크립트 개발 사이클 대로 프로젝트를 진행할 수 있다.</p>
@@ -920,7 +920,7 @@ M.s;	<span class="comment">// 오류, s는 추출되지 않았다.</span>
     <link href="http://boxersb.github.io/etc/2010/04/29/state-of-web-development-2010/"/>
     <id>http://boxersb.github.io/etc/2010/04/29/state-of-web-development-2010/</id>
     <published>2010-04-29T09:44:12.000Z</published>
-    <updated>2013-10-15T12:43:21.000Z</updated>
+    <updated>2013-10-16T03:28:28.000Z</updated>
     <content type="html"><![CDATA[<p>현재 웹개발의 트렌드는 어떻게 흘러가고 있을까요?</p>
 <p><a href="http://johnfallsopp.com/" target="_blank">John Allsopp</a>은 <a href="http://www.webdirections.org/sotw10/" target="_blank">2010년 웹개발 현황에 대한 최신 설문조사결과</a>를 갖고 돌아왔습니다.</p>
 <p>설문조사자료를 정리한 데이터와 함께 전체적 현황을 정리한 <a href="http://webdirections.org/images/sowd10overview.pdf" target="_blank">PDF 파일</a>도 공개했습니다.</p>
@@ -964,7 +964,7 @@ M.s;	<span class="comment">// 오류, s는 추출되지 않았다.</span>
     <link href="http://boxersb.github.io/etc/2010/04/09/pi-type-competent-person/"/>
     <id>http://boxersb.github.io/etc/2010/04/09/pi-type-competent-person/</id>
     <published>2010-04-09T09:43:07.000Z</published>
-    <updated>2013-10-15T12:43:21.000Z</updated>
+    <updated>2013-10-16T03:28:28.000Z</updated>
     <content type="html"><![CDATA[<p>20세기에는 I자형, ㅡ자형 인재상이 많았다고 합니다.  </p>
 <p>I 자형인재는 한가지 분야에 정통한 전문가형 인재,<br>ㅡ자형인재는 여러가지 두루 섭렵하지만 깊이는 없는 인재를 가리킵니다..  </p>
 <p>21세기에는 T형, A형, 파이형(π)인재상을 추구합니다.<br>T형인재는 일본의 도요타사가 제시한것으로 한가지분야에 대한 전문성을 갖추는 이외에 광범위한 다른분야의 지식까지 갖추고 있는 인재를 말합니다. I형과 ㅡ형인재의 복합 형태인것 같네요.<br>A형인재는 안철수박사께서 제시한것으로 두개의 수직선은 전문지식과 다른분야에 대한 상식/포용력을, 하나의 수평선은 소통능력을 의미한다고 합니다.<br>파이형(π)인재는 2004년도에 삼성종합기술원이 제안한것으로 T자형이 한가지분야의 전문성을 가지고 있는 반면에 두가지 이상의 깊이있는 전문분야를 가지는 인재상이라고 합니다.  </p>
@@ -984,7 +984,7 @@ M.s;	<span class="comment">// 오류, s는 추출되지 않았다.</span>
     <link href="http://boxersb.github.io/javascript/2010/04/05/tostring-and-tovalue-of-object/"/>
     <id>http://boxersb.github.io/javascript/2010/04/05/tostring-and-tovalue-of-object/</id>
     <published>2010-04-05T09:40:49.000Z</published>
-    <updated>2013-10-15T12:43:21.000Z</updated>
+    <updated>2013-10-16T03:28:28.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://twitter.com/bcherry" target="_blank">Ben Cherry</a>는 <a href="http://www.adequatelygood.com/2010/3/Object-to-Primitive-Conversions-in-JavaScript" target="_blank">magic of Object - primitive conversions</a> 에서 JavaScript의 toString과 toValue 메소드를 이용한 기본 객체형변환에 대해 심도있게 다루었습니다.</p>
 <p>JavaScript에서 특정객체를 alert 혹은 console 에서 확인을 해보면 보통 다음과 같은 결과를 보여줍니다.</p>
 <figure class="highlight lang-js"><pre>alert( { } );           <span class="comment">// [object Object]</span>
@@ -1079,7 +1079,7 @@ alert(+foo); <span class="comment">// NaN (the worst!)</span>
     <link href="http://boxersb.github.io/javascript/2010/04/01/observer-pattern-of-javascript/"/>
     <id>http://boxersb.github.io/javascript/2010/04/01/observer-pattern-of-javascript/</id>
     <published>2010-04-01T09:34:08.000Z</published>
-    <updated>2013-10-15T12:43:21.000Z</updated>
+    <updated>2013-10-16T03:28:28.000Z</updated>
     <content type="html"><![CDATA[<p>Observer Pattern이란 여러개의 Class를 작성하였을 때 각 Class들간의 연관성을 유지하기 위해 결합도를 높이는 대신 객체의 상태를 관찰하는 방법을 사용하는 디자인 패턴입니다.</p>
 <p>예를 들어 기본적인 MVC 패턴을 사용하여 어플리케이션을 개발하였을 경우 각 Model. View, Controller 클래스들은 각각 다른 역할을 하게됩니다. 그러나 Controller 가 Model과 View의 중심에서 각 객체들에게 명령을 내리면 명령을 받은 객체는 명령의 실행결과나 상태를 Controller에게 보고하여야 합니다.<br>이때 일반적으로 높은 결합도를 가지게 됩니다. Model이나 View의 입장에선 Controller에게 보고하기 위한 수단으로 Controller의 참조를 취하게 되기 때문이죠</p>
 <p>Controller에서 Model의 메소드를 실행</p>
@@ -1270,7 +1270,7 @@ Observer.applyObserver(Model);
     <link href="http://boxersb.github.io/javascript/2007/03/12/firefox-korean-lang-trick/"/>
     <id>http://boxersb.github.io/javascript/2007/03/12/firefox-korean-lang-trick/</id>
     <published>2007-03-12T09:33:53.000Z</published>
-    <updated>2013-10-15T12:43:21.000Z</updated>
+    <updated>2013-10-16T03:28:28.000Z</updated>
     <content type="html"><![CDATA[<p>파이어폭스의 인기가 전세계적으로 높아지고 있습니다만…</p>
 <p>한글 및 기타 아시아권 언어입력시 이벤트 헨들러가 호출되지 않고 있는문제는 아직도 고쳐지고 있지 않습니다..</p>
 <p>다들 아시죠???</p>

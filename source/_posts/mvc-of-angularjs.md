@@ -1,8 +1,8 @@
 title: "AngularJS의 MVC 패턴 개요"
 date: 2013-08-27 17:38:58
 description: ""
-category: angularJS
-permalink: angular-mvc-summary
+category: angularjs
+permalink: angularjs-mvc-summary
 tags: [angular, javascript, MVC]
 ---
 

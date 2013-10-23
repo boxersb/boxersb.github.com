@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>기하학의 기초 | Boxer's Frontend</title>
+  <meta name="author" content="boxersb">
+  
+  <meta name="description" content="boxersb의 front-end 개발 이야기">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="기하학의 기초"/>
+  <meta property="og:site_name" content="Boxer's Frontend"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="alternate" href="/atom.xml" title="Boxer's Frontend" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39442592-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Boxer's Frontend</a></h1>
+  <h2><a href="/">for all front-end matters..</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/atom.xml">ATOM</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+
+<img style="position: absolute; top: 0; right: 0; border: 0;z-index:1" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub" usemap="#github-ribbon">
+<map id="github-ribbon" name="github-ribbon"><area shape="poly" alt="" title="" coords="12,0,149,129,149,0" href="https://github.com/boxersb" target="_blank" /></map></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-10-21T04:18:35.000Z"><a href="/mathematics/2013/10/21/math-basic-geometry/">10월 21 2013</a> &gt;
+        <a href="/categories/mathematics/">mathematics</a></time>
+      
+      
+  
+    <h1 class="title">기하학의 기초</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>두 점 사이의 거리</h2>
+<p>두 점이 존재한다면, 두 점 사이의 거리가 알고 싶을 수도 있을 것이다.<br>두 점 사이의 거리를 계산하는 가장 간단한 방법은 바로 <code>피타고라스의 정리</code>를 이용하는 것이다.<br>피타고라스의 정리는 직각 삼각형에만 적용되는 정리로써,<br>아래 그림과 같이 빗변의 길이가 c이고 두 변 a와 b가 직교한다면</p>
+<blockquote>
+<p><img src="/imgs/pitagoras.png" alt="피타고라스의 정리"></p>
+a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>
+
+
+</blockquote>
+<p>과 같은 정리가 성립한다.<br>교과과정을 통해 익히 배워서 알고 있는 내용일 것이다.</p>
+<p>마찬가지로 피타고라스 정리의 역 또한 성립하는데.. a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup> 가 성립한다면 이 삼각형의 빗변의 길이는 c이다.</p>
+<p>즉, 이 피타고라스의 정리를 이용하면 두 점의 거리를 계산할 수 있다.</p>
+<p><img src="/imgs/pitagoras_ex1.png" alt="P1(10, 20)과 P2(40, 50)사이의 거리"></p>
+<p>위 그림과 같이 점 P1(10, 20)과 P2(40, 60)사이의 거리를 구하려면, 가상의 점 T(40, 20)을 추가한 다음, 피타고라스의 정리를 적용하여 P1과 P2의 거리를 구할 수 있다. 정리하면 다음과 같다.</p>
+<blockquote>
+<ol>
+<li>가상의 점 T(40, 20)를 설정</li>
+<li>점 P1, P2, T를 이으면, 직각 삼각형이 그려진다.</li>
+<li>그려진 직각 삼각형의 밑변은 (Tx - P1x) = 30, 높이는 (P2y - Ty) = 40</li>
+<li>피타고라스의 정리를 사용하여 계산하면, 30<sup>2</sup> + 40<sup>2</sup> = 2500</li>
+<li>2500의 제곱근은 50이므로 점 P1과 P2의 거리는 50</li>
+</ol>
+</blockquote>
+<p>위 정리는 거리의 공식이라는 간단한 식으로 요약할 수 있는데, 가상의 점 T가 P2와 P1의 각축간 거리에 해당된다는 점에서 다음과 같이 정리할 수 있다.</p>
+<p><img src="/imgs/pitagoras_ex2.png" alt="P1과 P2사이의 거리공식"></p>
+<p>그렇다면, 3차원상에서 두 점사이의 거리를 구할 수 없을까?<br>답은 간단하다. 위에서 설명한 이론에 z축만 추가하면 된다.</p>
+<p><img src="/imgs/pitagoras_ex3.png" alt="3차원상에서 P1과 P2사이의 거리공식"></p>
+<p>자바스크립트로 3차원상에서 점의 거리를 구하는 함수는 다음과 같이 작성할 수 있다.</p>
+<figure class="highlight lang-js"><figcaption><span>두 점 사이의 거리</span></figcaption><pre><span class="function"><span class="keyword">function</span> <span class="title">distance3D</span><span class="params">(p1, p2)</span> {</span>
+    <span class="keyword">var</span> deltaX = p2.x - p1.x,
+        deltaY = p2.y - p1.y,
+        deltaZ = p2.z - p1.z;
+
+    <span class="keyword">return</span> Math.sqrt( (deltaX * deltaX) + (deltaY * deltaY) + (deltaZ * deltaZ) );
+}
+</pre></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/mathematics/">mathematics</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/geometry/">geometry</a>, <a href="/tags/수학/">수학</a>, <a href="/tags/그래픽스/">그래픽스</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525c9b3668ad1335"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123937814464693";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://boxersb.github.io/mathematics/2013/10/21/math-basic-geometry/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:boxersb.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+  	
+    <li><a href="/categories/angularjs/">angularjs</a><small>1</small></li>
+    
+  
+  	
+  
+  	
+    <li><a href="/categories/javascript/">javascript</a><small>3</small></li>
+    
+  
+  	
+    <li><a href="/categories/mathematics/">mathematics</a><small>2</small></li>
+    
+  
+  	
+    <li><a href="/categories/typescript/">typescript</a><small>1</small></li>
+    
+  
+  	<li><a href="/categories/etc/">etc</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag Cloud</h3>
+  <div class="entry">
+    <a href="/tags/-형/" style="font-size: 10.00px;">-형</a><a href="/tags/2010/" style="font-size: 10.00px;">2010</a><a href="/tags/I형/" style="font-size: 10.00px;">I형</a><a href="/tags/MVC/" style="font-size: 10.00px;">MVC</a><a href="/tags/angular/" style="font-size: 10.00px;">angular</a><a href="/tags/firefox/" style="font-size: 10.00px;">firefox</a><a href="/tags/geometry/" style="font-size: 10.00px;">geometry</a><a href="/tags/git/" style="font-size: 10.00px;">git</a><a href="/tags/github/" style="font-size: 10.00px;">github</a><a href="/tags/javascript/" style="font-size: 20.00px;">javascript</a><a href="/tags/jekyll/" style="font-size: 10.00px;">jekyll</a><a href="/tags/language/" style="font-size: 10.00px;">language</a><a href="/tags/lines/" style="font-size: 10.00px;">lines</a><a href="/tags/mozilla/" style="font-size: 10.00px;">mozilla</a><a href="/tags/object/" style="font-size: 10.00px;">object</a><a href="/tags/observer/" style="font-size: 10.00px;">observer</a><a href="/tags/pages/" style="font-size: 10.00px;">pages</a><a href="/tags/pattern/" style="font-size: 10.00px;">pattern</a><a href="/tags/pi/" style="font-size: 10.00px;">pi</a><a href="/tags/points/" style="font-size: 10.00px;">points</a><a href="/tags/specification/" style="font-size: 10.00px;">specification</a><a href="/tags/toString/" style="font-size: 10.00px;">toString</a><a href="/tags/toValue/" style="font-size: 10.00px;">toValue</a><a href="/tags/typescript/" style="font-size: 10.00px;">typescript</a><a href="/tags/그래픽스/" style="font-size: 15.00px;">그래픽스</a><a href="/tags/수학/" style="font-size: 15.00px;">수학</a><a href="/tags/웹개발/" style="font-size: 10.00px;">웹개발</a><a href="/tags/인재/" style="font-size: 10.00px;">인재</a><a href="/tags/트랜드/" style="font-size: 10.00px;">트랜드</a><a href="/tags/파이형/" style="font-size: 10.00px;">파이형</a>
+  </div>
+</div>
+
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 boxersb
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
